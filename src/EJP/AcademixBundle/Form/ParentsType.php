@@ -6,16 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EnseignantType extends AbstractType
+class ParentsType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('Utilisateur', UtilisateurType::class)
-                ->add('dateRecrutement');
-
+        $builder->add('nom')->add('prenom')->add('telephone')->add('email')->add('adresse')->add('methodeContact')->add('eleve');
     }
     
     /**
@@ -24,7 +22,7 @@ class EnseignantType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EJP\AcademixBundle\Entity\Enseignant'
+            'data_class' => 'EJP\AcademixBundle\Entity\Parents'
         ));
     }
 
@@ -33,7 +31,7 @@ class EnseignantType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'ejp_academixbundle_enseignant';
+        return 'ejp_academixbundle_parents';
     }
 
 
