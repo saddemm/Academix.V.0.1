@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lastcons list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Ip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lastCon in lastCons %}
+            <tr>
+                <td><a href="{{ path('lastcon_show', { 'id': lastCon.id }) }}">{{ lastCon.id }}</a></td>
+                <td>{% if lastCon.date %}{{ lastCon.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ lastCon.ip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lastcon_show', { 'id': lastCon.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lastcon_edit', { 'id': lastCon.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lastcon_new') }}">Create a new lastCon</a>
+        </li>
+    </ul>
+{% endblock %}

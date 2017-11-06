@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lastcon</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lastCon.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if lastCon.date %}{{ lastCon.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ lastCon.ip }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lastcon_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('lastcon_edit', { 'id': lastCon.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,4 @@
+ejp_academix_testy:
+    resource: "@EJPAcademixBundle/Resources/config/routing/testy.yml"
+    prefix:   /testy
+

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Eleves list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Methodcontact</th>
+                <th>Telephone</th>
+                <th>Dateinscription</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eleve in eleves %}
+            <tr>
+                <td><a href="{{ path('eleve_show', { 'id': eleve.id }) }}">{{ eleve.id }}</a></td>
+                <td>{{ eleve.adresse }}</td>
+                <td>{{ eleve.methodContact }}</td>
+                <td>{{ eleve.telephone }}</td>
+                <td>{% if eleve.dateInscription %}{{ eleve.dateInscription|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('eleve_new') }}">Create a new eleve</a>
+        </li>
+    </ul>
+{% endblock %}

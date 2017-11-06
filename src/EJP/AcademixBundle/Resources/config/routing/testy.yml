@@ -1,0 +1,12 @@
+testy_index:
+    path:     /
+    defaults: { _controller: "EJPAcademixBundle:Testy:index" }
+    methods:  GET
+
+testy_show:
+    path:     /{id}/show
+    defaults: { _controller: "EJPAcademixBundle:Testy:show" }
+    methods:  GET
+
+
+

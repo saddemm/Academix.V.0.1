@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Testies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for testy in testies %}
+            <tr>
+                <td><a href="{{ path('testy_show', { 'id': testy.id }) }}">{{ testy.id }}</a></td>
+                <td>{{ testy.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('testy_show', { 'id': testy.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
