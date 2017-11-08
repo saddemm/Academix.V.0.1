@@ -12,14 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Eleve extends Utilisateur
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+
+
 
     /**
      * @var string
@@ -51,18 +45,6 @@ class Eleve extends Utilisateur
      */
     private $dateInscription;
 
-
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return parent::getId();
-    }
 
 
 
