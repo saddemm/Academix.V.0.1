@@ -1,14 +1,301 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <script src="js/angular.js"></script>
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8" />
+    <title>EJP |{% block title %}{% endblock %}</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('../assets/common/img/logo-jp.png') }}" />
+
+
+    <!-- Vendors Styles -->
+    <!-- v1.0.0 -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/jscrollpane/style/jquery.jscrollpane.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/ladda/dist/ladda-themeless.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/fullcalendar/dist/fullcalendar.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/cleanhtmlaudioplayer/src/player.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/cleanhtmlvideoplayer/src/player.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/bootstrap-sweetalert/dist/sweetalert.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/summernote/dist/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/ionrangeslider/css/ion.rangeSlider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/datatables/media/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/c3/c3.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/chartist/dist/chartist.min.css') }}">
+    <!-- v1.4.0 -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/nprogress/nprogress.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/jquery-steps/demo/css/jquery.steps.css') }}">
+    <!-- v1.4.2 -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    <!-- v1.7.0 -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/dropify/dist/css/dropify.min.css') }}">
+    <!-- Clean UI Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/common/css/source/main.css') }}">
+    <!-- Vendors Scripts -->
+    <!-- v1.0.0 -->
+    <script src="{{ asset('../assets/vendors/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/tether/dist/js/tether.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jquery-mousewheel/jquery.mousewheel.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jscrollpane/script/jquery.jscrollpane.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/spin.js/spin.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/ladda/dist/ladda.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/html5-form-validation/dist/jquery.validation.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jquery-typeahead/dist/jquery.typeahead.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jquery-mask-plugin/dist/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/autosize/dist/autosize.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/bootstrap-show-password/bootstrap-show-password.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/cleanhtmlaudioplayer/src/jquery.cleanaudioplayer.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/cleanhtmlvideoplayer/src/jquery.cleanvideoplayer.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/bootstrap-sweetalert/dist/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/summernote/dist/summernote.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/ionrangeslider/js/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/nestable/jquery.nestable.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/datatables/media/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/datatables-fixedcolumns/js/dataTables.fixedColumns.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/datatables-responsive/js/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/editable-table/mindmup-editabletable.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/d3/d3.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/c3/c3.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/chartist/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/peity/jquery.peity.min.js') }}"></script>
+    <!-- v1.0.1 -->
+    <script src="{{ asset('../assets/vendors/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <!-- v1.1.1 -->
+    <script src="{{ asset('../assets/vendors/gsap/src/minified/TweenMax.min.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/hackertyper/hackertyper.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jquery-countTo/jquery.countTo.js') }}"></script>
+    <!-- v1.4.0 -->
+    <script src="{{ asset('../assets/vendors/nprogress/nprogress.js') }}"></script>
+    <script src="{{ asset('../assets/vendors/jquery-steps/build/jquery.steps.min.js') }}"></script>
+    <!-- v1.4.2 -->
+    <script src="{{ asset('../assets/vendors/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <!-- v1.7.0 -->
+    <script src="{{ asset('../assets/vendors/dropify/dist/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('../assets/common/js/demo.temp.js') }}"></script>
+    <!-- Clean UI Scripts -->
+    <script src="{{ asset('../assets/common/js/common.js') }}"></script>
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="theme-default">
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a href="{{ logout_path() }}">Logout</a><br>
+{% endif %}
+
+{% if is_granted('ROLE_ENSEIGNANT') %}
+    <h3>Bonjour ENSEIGNANT</h3>
+{% endif %}
+
+{% if is_granted('ROLE_ELEVE') %}
+    <h3>Bonjour ELEVE</h3>
+{% endif %}
+
+
+    <nav class="left-menu" >
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+
+                <img class="logo-inverse" src="{{ asset('../assets/common/img/logo-jp.png') }}" />
+            </a>
+        </div>
+        <div class="left-menu-inner scroll-pane">
+            <ul class="left-menu-list left-menu-list-root list-unstyled">
+
+                <li>
+                    <a class="left-menu-link" href="ejp-dashboards.html">
+                        <i class="left-menu-link-icon icmn-home2 color-jaune-ecole"><!-- --></i>
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a class="left-menu-link" href="ejp-profil-admin.html">
+                        <i class="left-menu-link-icon icmn-user color-jaune-ecole"><!-- --></i>
+                        Profile
+                    </a>
+                </li>
+                <li class="left-menu-list-separator"><!-- --></li>
+                <li class="left-menu-list-submenu">
+                    <a class="left-menu-link" href="javascript: void(0);">
+                        <i class="left-menu-link-icon icmn-library color-jaune-ecole"><!-- --></i>
+                        Ecole
+                    </a>
+                    <ul class="left-menu-list list-unstyled">
+                        <li>
+                            <a class="left-menu-link icmn-user" href="ejp-gestion-eleves-V2.html">
+                                Elèves
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="left-menu-link icmn-user-tie" href="ejp-gestion-enseignants.html">
+                                Enseignants
+                            </a>
+                        </li>
+                        <li>
+                            <a class="left-menu-link icmn-book " href=".html">
+                                Cours
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li >
+                    <a class="left-menu-link" href="ejp-gestion-documents.html">
+                        <i class="left-menu-link-icon icmn-books color-jaune-ecole"><!-- --></i>
+                        Documents
+                    </a>
+
+                </li>
+                <li >
+                    <a class="left-menu-link" href="javascript: void(0);">
+                        <i class="left-menu-link-icon icmn-pencil5 color-jaune-ecole"><!-- --></i>
+                        Notes
+                    </a>
+
+                </li>
+                <li class="left-menu-list-submenu">
+                    <a class="left-menu-link" href="javascript: void(0);">
+                        <i class="left-menu-link-icon icmn-design color-jaune-ecole"><!-- --></i>
+                        Vie Scolaire
+                    </a>
+                    <ul class="left-menu-list list-unstyled">
+                        <li>
+                            <a class="left-menu-link icmn-calendar5 " href="ejp-gestion-emploi.html">
+                                Emploi du temps
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="left-menu-link icmn-stack-picture" href="ejp-gestion-evenements.html">
+                                Evénements
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="left-menu-list-separator"><!-- --></li>
+                <li class="left-menu-list-submenu">
+                    <a class="left-menu-link" href="javascript: void(0);">
+                        <i class="left-menu-link-icon icmn-users4 color-jaune-ecole"><!-- --></i>
+                        Communication
+                    </a>
+                    <ul class="left-menu-list list-unstyled">
+                        <li>
+                            <a class="left-menu-link icmn-user-tie" href="ecommerce-products-catalog.html">
+                                Rencontres
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="left-menu-link icmn-bubble-lines" href="ecommerce-products-catalog.html">
+                                Témoignages
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="left-menu-list">
+                    <a class="left-menu-link" href="ejp-gestion-recrutement.html">
+                        <i class="left-menu-link-icon icmn-user-tie color-jaune-ecole"><!-- --></i>
+                        Candidature
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="top-menu">
+        <div class="menu-icon-container hidden-md-up">
+            <div class="animate-menu-button left-menu-toggle">
+                <div><!-- --></div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="menu-user-block">
+                <div class="dropdown dropdown-avatar">
+                    <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="avatar" href="javascript:void(0);">
+                        <img src="{{ asset('../assets/common/img/administrateur.png')}}" alt="Alternative text to the image">
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="" role="menu">
+                        <a class="dropdown-item" href="ejp-profil-admin.html"><i class="dropdown-icon icmn-user"></i> Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="ejp-login-admin.html"><i class="dropdown-icon icmn-exit"></i> Logout</a>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="menu-info-block">
+
+                <div class="left">
+                    <div class="header-buttons">
+                        <div >
+                            <center>
+                                <i class="color-black-ecole icmn-quotes-left"></i><span class="color-black-ecole"> Chaque nation est d'autant plus civilisée et polie que les hommes y philosophent mieux
+</span> <i class="color-black-ecole icmn-quotes-right"></i></h5>
+                                <small class="color-black-ecole">René Descartes</small>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="right hidden-md-down margin-left-20">
+                    <div class="search-block">
+                        <div class="form-input-icon form-input-icon-right">
+                            <i class="icmn-search"></i>
+                            <input type="text" class="form-control form-control-sm form-control-rounded" placeholder="Recherche...">
+                            <button type="submit" class="search-block-submit "></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+<section class="page-content">
+    <div class="page-content-inner">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+</section>
+
+<div class="cwt__footer visible-footer">
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="cwt__footer__company">
+                <img class="cwt__footer__company-logo" src="{{ asset('../assets/common/img/logo IT.png')}}" target="_blank" title="Mediatec Software">
+                <span>
+                        © 2018 <a href="http://itdesire.io/" class="cwt__footer__link" target="_blank">IT Desire Consulting</a>
+                        <br>
+                        All rights reserved
+                    </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="main-backdrop"><!-- --></div>
+
+
+</body>
 </html>

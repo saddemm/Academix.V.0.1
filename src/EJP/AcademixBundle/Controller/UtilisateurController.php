@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * Utilisateur controller.
@@ -15,6 +16,42 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UtilisateurController extends Controller
 {
+
+    /**
+     *
+     *
+     * @Route("/login", name="utilisateur_login")
+     *
+     */
+    public function loginAction(Request $request)
+
+    {
+
+        $errors="test";
+
+        $lastUserName= "test";
+
+
+        return $this->render('utilisateur/login.html.twig', array(
+            'errors' => $errors,
+            'username' => $lastUserName
+        ));
+    }
+
+    /**
+     *
+     *
+     * @Route("/logout", name="logout")
+     *
+     */
+    public function logoutAction()
+
+    {
+
+
+    }
+
+
     /**
      * Lists all utilisateur entities.
      *

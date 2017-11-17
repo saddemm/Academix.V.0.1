@@ -45,6 +45,7 @@ class EnseignantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $enseignant->setRoles(['ROLE_ENSEIGNANT']);
             $em->persist($enseignant);
             $em->flush();
 
