@@ -61,7 +61,7 @@ class Eleve extends Utilisateur
      */
     public function getId()
     {
-        return $this->id;
+        return parent::getId();
     }
 
 

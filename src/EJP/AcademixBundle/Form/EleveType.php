@@ -13,7 +13,8 @@ class EleveType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('methodContact')->add('telephone')->add('dateInscription');
+        $builder->add('Utilisateur', UtilisateurType::class)
+                ->add('adresse')->add('methodContact')->add('telephone')->add('dateInscription');
     }
     
     /**
