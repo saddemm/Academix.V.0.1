@@ -1,18 +1,506 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Eleves list</h1>
+
+    <section class="panel panel-with-borders">
+    <div class="panel-heading">
+        <h3 class="color-black-ecole">
+            <div class="dropdown pull-right">
+                <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
+                    Selectionnez une action
+                </button>
+                <ul class="dropdown-menu">
+                    <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#myModal1" > Nouveau</a>
+
+                    <li class="dropdown-divider"> </li>
+                    <a class="dropdown-item icmn-user-minus" href="javascript: void(0);"> Archiver</a>
+                </ul>
+            </div>
+
+            <i class="fa fa-user color-black-ecole" aria-hidden="true"></i>
+            GESTION DES ELEVES
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover nowrap" id="example1" width="100%">
+            <thead class="thead-default">
+            <tr>
+
+
+                <th>Image</th>
+                <th>Nom et Prénom</th>
+                <th>Date de naissance</th>
+                <th>Classe</th>
+                <th>E-mail</th>
+                <th>Téléphone</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>#</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
+                <td>Christine Laurant</td>
+                <td>21/12/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
+                <td>Christine Laurant</td>
+                <td>21/12/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
+                <td>Christine Laurant</td>
+                <td>21/12/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
+                <td>Christine Laurant</td>
+                <td>21/12/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
+                <td>Christine Laurant</td>
+                <td>21/12/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid2.jpg" /></a></td>
+                <td>Thomas muller</td>
+                <td>01/05/2013</td>
+                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
+                <td><a href="javascript: void(0);" class="link-underlined">t.muller@gmail.com</a></td>
+                <td>21502384</td>
+                <td>SMS</td>
+                <td><span class="label label-success">Active</span></td>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ù><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title color-black-ecole"><i class="fa fa-user color-black-ecole" aria-hidden="true"></i> Nouveau élève</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l301">Identifiant</label>
+                                            <input type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l302">Mot de passe</label>
+                                            <input type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <h5 class="color-black-ecole icmn-profile"> Informations sur l'élève</h5>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Nom</label>
+                                            <input type="text" class="form-control" placeholder="Nom" id="l0">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Prénom</label>
+                                            <input type="text" class="form-control" placeholder="Prénom" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Date de naissance</label>
+                                            <input type="date" class="form-control" placeholder="Date de naissance">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail</label>
+                                            <input type="text" class="form-control" placeholder="E-mail" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone</label>
+                                            <input type="text" class="form-control" placeholder="Téléphone" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse</label>
+                                            <textarea class="form-control" rows="3" id="l15"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="color-black-ecole icmn-users"> Informations sur les parents</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Mère</label>
+                                            <input type="text" class="form-control" placeholder="Mère" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Père</label>
+                                            <input type="text" class="form-control" placeholder="Père" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail mère</label>
+                                            <input type="text" class="form-control" placeholder="E-mail mère" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail père</label>
+                                            <input type="text" class="form-control" placeholder="E-mail père" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone mère</label>
+                                            <input type="text" class="form-control" placeholder="Téléphone mère" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone père</label>
+                                            <input type="text" class="form-control" placeholder="Téléphone père" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse mère</label>
+                                            <textarea class="form-control" rows="3" id="l15"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse père</label>
+                                            <textarea class="form-control" rows="3" id="l15"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Responsable</label>
+                                            <select class="form-control">
+                                                <option>Père</option>
+                                                <option>Mère</option>
+                                                <option>Autre</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h5 class="color-black-ecole icmn-image"> Image de l'élève</h5>
+                                <div class="cui-ecommerce--catalog--item">
+                                    <div class="cui-ecommerce--catalog--item--img">
+                                        <a href="javascript: void(0);">
+                                            <img src="../assets/common/img/temp/ecommerce/ecommerce-empty.jpg" />
+                                        </a>
+                                        <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
+                                            <i class="icmn-cross2"><!-- --></i> Remove
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <input type="file" id="l16">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
+                    <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title color-black-ecole"><i class="fa fa-user color-black-ecole" aria-hidden="true"></i> L'ELEVE</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l301">Identifiant</label>
+                                            <output type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">c.laurant</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l302">Mot de passe</label>
+                                            <output type="password" class="form-control" placeholder="Mot de passe" disabled="" id="l0">****</output>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <h5 class="color-black-ecole icmn-profile"> Informations sur l'élève</h5>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Nom</label>
+                                            <output type="text" class="form-control"  id="l0">Laurant</output>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Prénom</label>
+                                            <output type="text" class="form-control"  id="l0">Christine</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Date de naissance</label>
+                                            <output type="text" class="form-control"  id="l0">21/12/2013</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail</label>
+                                            <output type="text" class="form-control"  id="l0">c.laurant@gmail.com</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone</label>
+                                            <output type="text" class="form-control"  id="l0">21502384</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse</label>
+                                            <textarea class="form-control" rows="3" id="l15">25 Rue liberté Centre ville</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="color-black-ecole icmn-users"> Informations sur les parents</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Mère</label>
+                                            <output type="text" class="form-control"  id="l0">Elene Laurant</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Père</label>
+                                            <output type="text" class="form-control"  id="l0">Saddem Laurant</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail mère</label>
+                                            <output type="text" class="form-control"  id="l0">e.laurant@gmail.com</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail père</label>
+                                            <output type="text" class="form-control"  id="l0">s.laurant@gmail.com</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone mère</label>
+                                            <output type="text" class="form-control"  id="l0">21502384</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone père</label>
+                                            <output type="text" class="form-control"  id="l0">21502384</output>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse mère</label>
+                                            <textarea class="form-control" rows="3" id="l15"> 25 Rue liberté Centre Ville </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse père</label>
+                                            <textarea class="form-control" rows="3" id="l15"> 25 Rue liberté Centre Ville </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Responsable</label>
+                                            <output type="text" class="form-control"  id="l0">Mère</output>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h5 class="color-black-ecole icmn-image"> Image de l'élève</h5>
+                                <div class="cui-ecommerce--catalog--item">
+                                    <div class="cui-ecommerce--catalog--item--img">
+                                        <a href="javascript: void(0);">
+                                            <img src="../assets/common/img/temp/ecommerce/kid1.jpg" />
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+
+
 
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Adresse</th>
-                <th>Methodcontact</th>
-                <th>Telephone</th>
-                <th>Dateinscription</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Adresse</th>
+            <th>Methodcontact</th>
+            <th>Telephone</th>
+            <th>Dateinscription</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for eleve in eleves %}
@@ -42,4 +530,30 @@
             <a href="{{ path('eleve_new') }}">Create a new eleve</a>
         </li>
     </ul>
+
 {% endblock %}
+
+    {% block javascripts %}
+
+        <!-- Page Scripts -->
+        <script>
+            $(function () {
+
+                // Datatables
+                $('#example1').DataTable({
+                    "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                    responsive: true,
+                    "autoWidth": false
+                });
+
+            })
+        </script>
+        <!-- End Page Scripts -->
+
+
+    {% endblock %}
+
+
+
+
+

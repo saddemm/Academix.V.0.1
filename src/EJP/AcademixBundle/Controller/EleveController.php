@@ -5,7 +5,9 @@ namespace EJP\AcademixBundle\Controller;
 use EJP\AcademixBundle\Entity\Eleve;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Eleve controller.
@@ -43,8 +45,10 @@ class EleveController extends Controller
         $form = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $eleve->setRoles(['ROLE_ELEVE']);
             $em->persist($eleve);
             $em->flush();
 
