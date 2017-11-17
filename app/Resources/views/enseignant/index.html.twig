@@ -468,3 +468,23 @@
         </li>
     </ul>
 {% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page Scripts -->
+    <script>
+        $(function () {
+
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+
+        })
+    </script>
+    <!-- End Page Scripts -->
+
+
+{% endblock %}
