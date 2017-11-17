@@ -1,43 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96b3d06a-29da-49fa-bf8e-e4d9ee1e7b3b" name="Default" comment="modif index eleve">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Classe.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Cours.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Disponibilite.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Emploi.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseigne.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Evenement.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/HoraireRDV.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Matiere.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Ressource.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Travail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/ClasseRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/CoursRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/DisponibiliteRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/EmploiRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/EnseigneRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/EtudeRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/EvenementRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/HoraireRDVRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/MatiereRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/RessourceRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/TravailRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Security/AccessDeniedHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_10_17_16_46_s.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_10_17_16_46_s.xml" />
+    <list default="true" id="96b3d06a-29da-49fa-bf8e-e4d9ee1e7b3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/firstProject.iml" afterPath="$PROJECT_DIR$/.idea/firstProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EleveController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EleveController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/UtilisateurController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/UtilisateurController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Eleve.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Eleve.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Utilisateur.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Utilisateur.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php" />
     </list>
     <ignored path="firstProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,25 +31,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="127" column="165" lean-forward="false" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="165" />
+            <state relative-caret-position="958">
+              <caret line="127" column="162" lean-forward="false" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="162" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1372">
-              <caret line="434" column="14" lean-forward="false" selection-start-line="434" selection-start-column="14" selection-end-line="434" selection-end-column="14" />
-              <folding>
-                <element signature="e#8348#8355#1#HTML" expanded="true" />
-                <element signature="e#15495#15502#1#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +54,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1683">
+            <state relative-caret-position="1853">
               <caret line="109" column="31" lean-forward="false" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="31" />
               <folding />
             </state>
@@ -197,10 +160,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="1358" />
+    <option name="y" value="-372" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -477,6 +440,7 @@
       <workItem from="1510741564314" duration="3139000" />
       <workItem from="1510910619875" duration="4835000" />
       <workItem from="1510916812352" duration="1769000" />
+      <workItem from="1510928277440" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de parents Entity bejbej (first)">
       <created>1509983213857</created>
@@ -485,11 +449,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509983213857</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modif index eleve">
+      <created>1510928549784</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1510928549784</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99356000" />
+    <option name="totallyTimeSpent" value="99710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -501,20 +472,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="1358" y="-372" width="1936" height="1176" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22254759" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2249467" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49092284" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3420622" sideWeight="0.52420574" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3413231" sideWeight="0.52420574" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23076923" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23076923" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35378715" sideWeight="0.47579426" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25718608" sideWeight="0.5097561" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25718608" sideWeight="0.5097561" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -911,33 +882,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1683">
+        <state relative-caret-position="1853">
           <caret line="109" column="31" lean-forward="false" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="958">
+          <caret line="127" column="162" lean-forward="false" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="162" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1372">
-          <caret line="434" column="14" lean-forward="false" selection-start-line="434" selection-start-column="14" selection-end-line="434" selection-end-column="14" />
-          <folding>
-            <element signature="e#8348#8355#1#HTML" expanded="true" />
-            <element signature="e#15495#15502#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="127" column="165" lean-forward="false" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="165" />
+        <state relative-caret-position="306">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
