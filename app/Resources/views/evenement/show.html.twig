@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ evenement.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ evenement.description }}</td>
+            </tr>
+            <tr>
+                <th>Dateevenement</th>
+                <td>{% if evenement.dateEvenement %}{{ evenement.dateEvenement|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heuredebut</th>
+                <td>{{ evenement.heureDebut }}</td>
+            </tr>
+            <tr>
+                <th>Heurefin</th>
+                <td>{{ evenement.heureFin }}</td>
+            </tr>
+            <tr>
+                <th>Datepublication</th>
+                <td>{% if evenement.datePublication %}{{ evenement.datePublication|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ evenement.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evenement_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('evenement_edit', { 'id': evenement.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
