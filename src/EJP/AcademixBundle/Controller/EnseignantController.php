@@ -22,12 +22,17 @@ class EnseignantController extends Controller
      */
     public function indexAction()
     {
+
+        $enseignant = new Enseignant();
+
         $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
 
         $enseignants = $em->getRepository('EJPAcademixBundle:Enseignant')->findAll();
 
         return $this->render('enseignant/index.html.twig', array(
             'enseignants' => $enseignants,
+            'form' => $form->createView(),
         ));
     }
 
@@ -37,6 +42,33 @@ class EnseignantController extends Controller
      * @Route("/new", name="enseignant_new")
      * @Method({"GET", "POST"})
      */
+
+    public function newAction(Request $request)
+    {
+        $enseignant = new Enseignant();
+        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $enseignant->setRoles(['ROLE_ENSEIGNANT']);
+            $enseignant->setUsername("zox");
+            $enseignant->setPassword("zox");
+            $enseignant->setEtat(0);
+            $em->persist($enseignant);
+            $em->flush();
+
+            return $this->redirectToRoute('enseignant_index');
+        }
+
+        return $this->render('enseignant/new.html.twig', array(
+            'enseignant' => $enseignant,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    /*
     public function newAction(Request $request)
     {
         $enseignant = new Enseignant();
@@ -56,7 +88,7 @@ class EnseignantController extends Controller
             'enseignant' => $enseignant,
             'form' => $form->createView(),
         ));
-    }
+    }*/
 
     /**
      * Finds and displays a enseignant entity.

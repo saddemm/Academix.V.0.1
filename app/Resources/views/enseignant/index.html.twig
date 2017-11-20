@@ -41,16 +41,17 @@
                 </thead>
 
                 <tbody>
+                {% for enseignant in enseignants %}
                 <tr>
 
 
                     <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/1.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
+                    <td>{{ enseignant.nom }}</td>
+                    <td>{{ enseignant.prenom }}</td>
                     <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
+                    <td><a href="javascript: void(0);" class="link-underlined">{{ enseignant.email }}</a></td>
+                    <td>{{ enseignant.telephone }}</td>
+                    <td>{{ enseignant.dateRecrutement | date}}</td>
                     <td><span class="label label-success">Active</span></td>
                     <th scope="row">
                         <input type="checkbox">
@@ -61,106 +62,10 @@
                     </td>
 
                 </tr>
-                <tr>
+
+                {% endfor %}
 
 
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/2.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
-                    <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                    </td>
-
-                </tr>
-                <tr>
-
-
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/3.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
-                    <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                    </td>
-
-                </tr>
-                <tr>
-
-
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/4.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
-                    <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                    </td>
-
-                </tr>
-                <tr>
-
-
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/5.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
-                    <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                    </td>
-
-                </tr>
-                <tr>
-
-
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/1.jpg" /></a></td>
-                    <td>Christine</td>
-                    <td>Fable</td>
-                    <td>Français</td>
-                    <td><a href="javascript: void(0);" class="link-underlined">c.fable@gmail.com</a></td>
-                    <td>21502384</td>
-                    <td>20/08/2016</td>
-                    <td><span class="label label-success">Active</span></td>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                    </td>
-
-                </tr>
 
                 </tbody>
             </table>
@@ -174,12 +79,13 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 class="modal-title color-black-ecole"><i class="fa fa-black-tie color-black-ecole" aria-hidden="true"></i> Nouveau enseignant</h3>
                     </div>
+                    <form action="{{ path('enseignant_new') }}" method="post">
                     <div class="modal-body">
-                        <form>
+
                             <div class="row">
                                 <div class="col-lg-6">
 
-                                    <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
+                                    <h5 class="color-black-ecole icmn-cogs"> Informations sur le compteXX</h5>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -200,22 +106,19 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="l30">Nom</label>
-                                                <input type="text" class="form-control" placeholder="Nom" id="l0">
+
+                                                {{ form_widget(form.Utilisateur.nom) }}
                                             </div>
                                         </div>
                                         <br />
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="l30">Prénom</label>
-                                                <input type="text" class="form-control" placeholder="Prénom" id="l0">
+                                                {{ form_widget(form.Utilisateur.prenom) }}
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">Date de naissance</label>
-                                                <input type="date" class="form-control" placeholder="Date de naissance">
-                                            </div>
-                                        </div>
+
+
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="l15">Matière</label>
@@ -230,25 +133,35 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="l30">E-mail</label>
-                                                <input type="text" class="form-control" placeholder="E-mail" id="l0">
+                                                {{ form_widget(form.Utilisateur.email) }}
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="l30">Téléphone</label>
-                                                <input type="text" class="form-control" placeholder="Téléphone" id="l0">
+                                                {{ form_widget(form.telephone) }}
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="l15">Adresse</label>
-                                                <textarea class="form-control" rows="3" id="l15"></textarea>
+                                                {{ form_widget(form.Utilisateur.adresse) }}
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="l15">Date recrutement</label>
+                                                {{ form_widget(form.dateRecrutement) }}
                                             </div>
 
                                         </div>
                                     </div>
 
                                 </div>
+
+                                {{ form_widget(form._token) }}
 
                                 <div class="col-lg-6">
                                     <h5 class="color-black-ecole icmn-image"> Image de l'enseignant</h5>
@@ -267,204 +180,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
+
+                        <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
                         <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
                     </div>
+                    </form>
                 </div>
 
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title color-black-ecole"><i class="fa fa-user color-black-ecole" aria-hidden="true"></i> Nouveau élève</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l301">Identifiant</label>
-                                                <output type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">c.laurant</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l302">Mot de passe</label>
-                                                <output type="password" class="form-control" placeholder="Mot de passe" disabled="" id="l0">****</output>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <h5 class="color-black-ecole icmn-profile"> Informations sur l'élève</h5>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">Nom</label>
-                                                <output type="text" class="form-control"  id="l0">Laurant</output>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">Prénom</label>
-                                                <output type="text" class="form-control"  id="l0">Christine</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">Date de naissance</label>
-                                                <output type="text" class="form-control"  id="l0">21/12/2013</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">E-mail</label>
-                                                <output type="text" class="form-control"  id="l0">c.laurant@gmail.com</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">Téléphone</label>
-                                                <output type="text" class="form-control"  id="l0">21502384</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l15">Adresse</label>
-                                                <textarea class="form-control" rows="3" id="l15">25 Rue liberté Centre ville</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h5 class="color-black-ecole icmn-users"> Informations sur les parents</h5>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l30">Mère</label>
-                                                <output type="text" class="form-control"  id="l0">Elene Laurant</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l30">Père</label>
-                                                <output type="text" class="form-control"  id="l0">Saddem Laurant</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">E-mail mère</label>
-                                                <output type="text" class="form-control"  id="l0">e.laurant@gmail.com</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="l30">E-mail père</label>
-                                                <output type="text" class="form-control"  id="l0">s.laurant@gmail.com</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l30">Téléphone mère</label>
-                                                <output type="text" class="form-control"  id="l0">21502384</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="l30">Téléphone père</label>
-                                                <output type="text" class="form-control"  id="l0">21502384</output>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l15">Adresse mère</label>
-                                                <textarea class="form-control" rows="3" id="l15"> 25 Rue liberté Centre Ville </textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l15">Adresse père</label>
-                                                <textarea class="form-control" rows="3" id="l15"> 25 Rue liberté Centre Ville </textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l15">Responsable</label>
-                                                <output type="text" class="form-control"  id="l0">Mère</output>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <h5 class="color-black-ecole icmn-image"> Image de l'élève</h5>
-                                    <div class="cui-ecommerce--catalog--item">
-                                        <div class="cui-ecommerce--catalog--item--img">
-                                            <a href="javascript: void(0);">
-                                                <img src="../assets/common/img/temp/ecommerce/kid1.jpg" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </section>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Daterecrutement</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for enseignant in enseignants %}
-            <tr>
-                <td><a href="{{ path('enseignant_show', { 'id': enseignant.id }) }}">{{ enseignant.id }}</a></td>
-                <td>{% if enseignant.dateRecrutement %}{{ enseignant.dateRecrutement|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('enseignant_show', { 'id': enseignant.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('enseignant_edit', { 'id': enseignant.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('enseignant_new') }}">Create a new enseignant</a>
-        </li>
-    </ul>
 {% endblock %}
