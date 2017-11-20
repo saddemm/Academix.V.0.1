@@ -5,6 +5,7 @@ namespace EJP\AcademixBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UtilisateurType extends AbstractType
 {
@@ -13,7 +14,13 @@ class UtilisateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username')->add('password')->add('nom')->add('prenom')->add('email')->add('etat');
+        $builder
+            ->add('nom',null,array('attr' => array('class' => 'form-control')))
+            ->add('prenom',null,array('attr' => array('class' => 'form-control')))
+            ->add('adresse',TextareaType::class,array('attr' => array('class' => 'form-control')))
+
+
+            ->add('email',null,array('attr' => array('class' => 'form-control')));
     }
     
     /**

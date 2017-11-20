@@ -30,6 +30,14 @@ class Enseignant extends Utilisateur
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255)
+     */
+    private $telephone;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -39,6 +47,24 @@ class Enseignant extends Utilisateur
         return parent::getId();
     }
 
+
+    /**
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param string $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
     /**
      * Set dateRecrutement
      *
