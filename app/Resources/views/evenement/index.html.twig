@@ -1,21 +1,218 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} Evénement{% endblock %}
 {% block body %}
-    <h1>Evenements list</h1>
+    <section class="panel panel-with-borders">
+        <div class="panel-heading">
+            <h3 class="color-black-ecole">
+                <div class="dropdown pull-right">
+                    <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown"
+                            aria-expanded="false">
+                        Selectionnez une action
+                    </button>
+                    <ul class="dropdown-menu">
+                        <a class="dropdown-item icmn-file-plus2" href="javascript: void(0);" data-toggle="modal"
+                           data-target="#myModal1"> Nouveau</a>
+
+                        <li class="dropdown-divider"></li>
+                        <a class="dropdown-item icmn-file-minus2" href="javascript: void(0);"> Annuler</a>
+                    </ul>
+                </div>
+
+                <i class="fa fa-picture-o color-black-ecole" aria-hidden="true"></i>
+                GESTION DES EVENEMENTS
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover nowrap" id="example1" width="100%">
+                <thead class="thead-default">
+                <tr>
+
+                    <th>Image</th>
+                    <th>Titre</th>
+                    <th>Date de l'événement</th>
+                    <th>Heure de l'événement</th>
+                    <th>Description</th>
+                    <th>Publié le</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for evenement in evenements %}
+                <tr>
+                    <!-- Afficher la premiere Image dans la liste des images liée à un événement -->
+                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img
+                                    src="../assets/common/img/temp/photos/3.jpeg"/></a></td>
+                    <td>{{ evenement.titre }}</td>
+                    <td>{% if evenement.dateEvenement %}{{ evenement.dateEvenement|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ evenement.heureDebut }}</td>
+                    <td>{{ evenement.description }}</td>
+                    <td>{% if evenement.datePublication %}{{ evenement.datePublication|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ evenement.etat }}</td>
+                                        <td>
+                        <a href="{{ path('evenement_show', { 'id': evenement.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                        <a href="javascript: void(0);" class="link-underlined"><i class="icmn-minus-circle2">
+                                <!-- --></i> Annuler</a>
+                    </td>
+
+                    <th scope="row">
+                        <input type="checkbox">
+                    </th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title color-black-ecole"><i class="fa fa-picture-o color-black-ecole"
+                                                                     aria-hidden="true"></i> Nouveau événement</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <h5 class="color-black-ecole icmn-stack-picture"> Informations sur l'événement</h5>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="l30">Titre</label>
+                                                <input type="text" class="form-control" placeholder="Nom" id="l0">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="l30">Date de l'événement</label>
+                                                <input type="date" class="form-control" placeholder="Date de naissance">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="l30">Heure début</label>
+                                                <input type="text" class="form-control" placeholder="E-mail" id="l0">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="l30">Heure Fin</label>
+                                                <input type="text" class="form-control" placeholder="Téléphone" id="l0">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="l15">Description</label>
+                                                <textarea class="form-control" rows="3" id="l15"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <h5 class="color-black-ecole icmn-image"> Images de l'événement</h5>
+                                    <div class="cui-ecommerce--catalog--item">
+                                        <div class="cui-ecommerce--catalog--item--img">
+                                            <a href="javascript: void(0);">
+                                                <img src="{{ asset('../assets/common/img/temp/ecommerce/ecommerce-empty.jpg') }}"/>
+                                            </a>
+                                            <a href="javascript: void(0);"
+                                               class="link-underlined cui-ecommerce--catalog--item--img-remove">
+                                                <i class="icmn-cross2"><!-- --></i> Remove
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <input type="file" id="l16">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h5 class="color-black-ecole icmn-user-plus"> Affecter des enseignants</h5>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table thead-default">
+                                                <thead>
+                                                <tr>
+                                                    <th>
+                                                        <center>Nom</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Prénom</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>E-mail</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Affecter</center>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+
+                                                    <td>
+                                                        <center>Jacques</center>
+                                                    </td>
+                                                    <td>
+                                                        <center>Mandou</center>
+                                                    </td>
+                                                    <td>
+                                                        <center>J.Mandou@gmail.com</center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <a href="javascript: void(0);"
+                                                               class="link-underlined margin-right-5"
+                                                               data-toggle="modal" data-target="#myModal"><i
+                                                                        class="icmn-user-check"><!-- --></i></a>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal">
+                                    Ajouter
+                                </button>
+                                <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Dateevenement</th>
-                <th>Heuredebut</th>
-                <th>Heurefin</th>
-                <th>Datepublication</th>
-                <th>Etat</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Dateevenement</th>
+            <th>Heuredebut</th>
+            <th>Heurefin</th>
+            <th>Datepublication</th>
+            <th>Etat</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for evenement in evenements %}
@@ -43,9 +240,24 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('evenement_new') }}">Create a new evenement</a>
-        </li>
-    </ul>
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page Scripts -->
+    <script>
+        $(function () {
+
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+
+        })
+    </script>
+    <!-- End Page Scripts -->
+
+
 {% endblock %}
