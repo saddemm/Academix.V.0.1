@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %} Candidature{% endblock %}
+{% block body %}
+<section class="panel panel-with-borders">
+    <div class="panel-heading">
+        <h3 class="color-black-ecole">
+            <div class="dropdown pull-right">
+                <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
+                    Selectionnez une action
+                </button>
+                <ul class="dropdown-menu">
+                    <a class="dropdown-item icmn-file-minus2" href="javascript: void(0);"> Archiver</a>
+                </ul>
+            </div>
+
+            <i class="fa fa-black-tie color-black-ecole" aria-hidden="true"></i>
+            GESTION DES CANDIDATURES
+        </h3>
+    </div>
+    <div class="panel-body">
+    <table class="table table-hover nowrap" id="example1" width="100%">
+        <thead class="thead-default">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>E-mail</th>
+                <th>Téléphone</th>
+                <th>Le CV</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for candidature in candidatures %}
+            <tr>
+
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>{{ candidature.nom }}</td>
+                <td>{{ candidature.prenom }}</td>
+                <td>{% if candidature.dateNaissance %}{{ candidature.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ candidature.email }}</td>
+                <td>{{ candidature.telephone }}</td>
+                <td><a href="javascript: void(0);" class="link-underlined">{{ candidature.cv }}</a></td>
+                <td>
+                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-file-download2"><!-- --></i></a>
+                    <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+   </section>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+{% endblock %}

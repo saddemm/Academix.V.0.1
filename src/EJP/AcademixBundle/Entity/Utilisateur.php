@@ -101,6 +101,12 @@ class Utilisateur implements UserInterface, \Serializable
 
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_naissance", type="date")
+     */
+    private $dateNaissance;
+    /**
      * @var array
      *
      * @ORM\Column(name="roles", type="json_array", nullable= true)
@@ -277,6 +283,22 @@ class Utilisateur implements UserInterface, \Serializable
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * @param \DateTime $dateNaissance
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
     }
 
     public function __toString()

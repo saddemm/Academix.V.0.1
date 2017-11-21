@@ -158,6 +158,14 @@
                                             </div>
 
                                         </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="l15">Date de naissance</label>
+                                                {{ form_widget(form.Utilisateur.dateNaissance) }}
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </div>
@@ -196,6 +204,26 @@
 
 
     </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <!-- Page Scripts -->
+    <script>
+        $(function () {
+
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+
+        })
+    </script>
+    <!-- End Page Scripts -->
 
 
 {% endblock %}
