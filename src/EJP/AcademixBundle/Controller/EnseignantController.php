@@ -5,7 +5,12 @@ namespace EJP\AcademixBundle\Controller;
 use EJP\AcademixBundle\Entity\Enseignant;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
+use EJP\AcademixBundle\Form\EnseignantType;
+use EJP\AcademixBundle\Service\Generator;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Enseignant controller.
@@ -26,9 +31,9 @@ class EnseignantController extends Controller
         $enseignant = new Enseignant();
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+        $form = $this->createForm(EnseignantType::class, $enseignant);
 
-        $enseignants = $em->getRepository('EJPAcademixBundle:Enseignant')->findAll();
+        $enseignants = $em->getRepository(Enseignant::class)->findAll();
 
         return $this->render('enseignant/index.html.twig', array(
             'enseignants' => $enseignants,
@@ -46,25 +51,44 @@ class EnseignantController extends Controller
     public function newAction(Request $request)
     {
         $enseignant = new Enseignant();
-        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+
+        $form = $this->createForm(EnseignantType::class, $enseignant);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+
+            $generator = new Generator();
+            $pass_random=$generator->generatePassword();
+            $login_random=$generator->generateLogin();
+
+            /** @var File $file */
+
+            $file = $enseignant->getImageFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $enseignant->setImageName("XXAXAXA");
+
+
             $enseignant->setRoles(['ROLE_ENSEIGNANT']);
-            $enseignant->setUsername("zox");
-            $enseignant->setPassword("zox");
-            $enseignant->setEtat(0);
+            $enseignant->setUsername($enseignant->getPrenom().'.'.$enseignant->getNom().$login_random);
+            $enseignant->setPassword($pass_random);
+
+            $em = $this->getDoctrine()->getManager();
             $em->persist($enseignant);
             $em->flush();
 
             return $this->redirectToRoute('enseignant_index');
+
         }
 
-        return $this->render('enseignant/new.html.twig', array(
-            'enseignant' => $enseignant,
-            'form' => $form->createView(),
-        ));
+        $validator = $this->get('validator');
+        $errors = $validator->validate($enseignant);
+        if (count($errors) > 0) {
+            return new Response($errors);
+        }
+
+
     }
 
 
@@ -134,36 +158,21 @@ class EnseignantController extends Controller
     /**
      * Deletes a enseignant entity.
      *
-     * @Route("/{id}", name="enseignant_delete")
-     * @Method("DELETE")
+     * @Route("/delete/{id}", name="enseignant_delete")
+     * @Method({"GET", "DELETE"})
      */
-    public function deleteAction(Request $request, Enseignant $enseignant)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($enseignant);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+            $enseignant = $em->getRepository(Enseignant::class)->find($id);
             $em->remove($enseignant);
             $em->flush();
-        }
+
 
         return $this->redirectToRoute('enseignant_index');
     }
 
-    /**
-     * Creates a form to delete a enseignant entity.
-     *
-     * @param Enseignant $enseignant The enseignant entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Enseignant $enseignant)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('enseignant_delete', array('id' => $enseignant->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+
 }

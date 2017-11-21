@@ -62,5 +62,10 @@ class Matiere
     {
         return $this->libelle;
     }
+
+    function __toString()
+    {
+        return $this->libelle;
+    }
 }
 
