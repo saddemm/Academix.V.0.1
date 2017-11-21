@@ -1,43 +1,166 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} Document{% endblock %}
 {% block body %}
-    <h1>Documents list</h1>
+    section class="page-content">
+<div class="page-content-inner">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Libelle</th>
-                <th>Lien</th>
-                <th>Dateajout</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for document in documents %}
-            <tr>
-                <td><a href="{{ path('document_show', { 'id': document.id }) }}">{{ document.id }}</a></td>
-                <td>{{ document.libelle }}</td>
-                <td>{{ document.lien }}</td>
-                <td>{% if document.dateAjout %}{{ document.dateAjout|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('document_show', { 'id': document.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('document_edit', { 'id': document.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <!-- Ecommerce Products List -->
+    <section class="panel panel-with-borders">
+        <div class="panel-heading">
+            <h3 class="color-black-ecole">
+                <div class="dropdown pull-right">
+                    <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
+                        Selectionnez une action
+                    </button>
+                    <ul class="dropdown-menu">
+                                    <a class="dropdown-item icmn-file-plus2" href="javascript: void(0);" data-toggle="modal" data-target="#myModal1" > Nouveau</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('document_new') }}">Create a new document</a>
-        </li>
-    </ul>
+                                    <li class="dropdown-divider"> </li>
+                                    <a class="dropdown-item icmn-file-minus2" href="javascript: void(0);"> Archiver</a>
+                                </ul>
+                </div>
+
+			<i class="fa fa-book color-black-ecole" aria-hidden="true"></i>
+                 GESTION DES DOCUMENTS
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover nowrap" id="example1" width="100%">
+                <thead class="thead-default">
+                <tr>
+				    <th>#</th>
+                    <th>Année scolaire</th>
+                    <th>Libellé</th>
+                    <th>Document</th>
+                    <th>Publié le </th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+				    <th scope="row">
+                       <input type="checkbox">
+                    </th>
+                    <td>{{ document.anneeScolaire }}</td>
+					<td>{{ document.libelle }}</td>
+					<td><a href="javascript: void(0);" class="link-underlined">{{ document.lien }}</a></td>
+                    <td>{% if document.dateAjout %}{{ document.dateAjout|date('Y-m-d') }}{% endif %}</td>
+                    <td><span class="label label-success">{{ document.etat }}</span></td>
+
+                    <td>
+                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i></a>
+                        <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i></a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+		<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title color-black-ecole"><i class="fa fa-book color-black-ecole" aria-hidden="true"></i> Nouveau document</h3>
+        </div>
+        <div class="modal-body">
+           <form>
+                <div class="row">
+                <div class="col-lg-12">
+                    <h5 class="color-black-ecole icmn-books"> Informations sur le document</h5>
+                    <div class="row">
+                        <div class="col-lg-12">
+
+						 <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="l30">Année Scolaire</label>
+                                 <select class="form-control">
+                                <option>2017/2018</option>
+                                <option>2016/2017</option>
+                                <option>2015/2016</option>
+
+                            </select>
+                            </div>
+                        </div>
+						<div class="col-lg-12">
+						<div class="form-group">
+                        <label class="form-control-label" for="l15">Libellé</label>
+                        <select class="form-control">
+                                <option>Réglement intérieur</option>
+                                <option>Fiche d'inscription</option>
+                                <option>Calandrier scolaire</option>
+                                <option>Fiche des tarifs</option>
+<option>Offre d'emploi</option>
+                            </select>
+						</div>
+						</div>
+
+						<h5 class="color-black-ecole icmn-file-upload2"> Chargez le document</h5>
+                        <div class="col-lg-12">
+						<div class="form-group">
+
+					 <div class="form-group ">
+                        <input type="file" id="l16">
+                      </div>
+                    </div>
+					</div>
+					</div>
+					 </div>
+                </div>
+
+
+            </div>
+		   </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
+		  <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title color-black-ecole"><i class="fa fa-book color-black-ecole" aria-hidden="true"></i> DOCUMENT</h3>
+        </div>
+        <div class="modal-body">
+            {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-default icmn-plus-circle"> Modifier</button>
+          		  <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </section>
+
+    {% endblock %}
+{% block javascripts %}
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
 {% endblock %}

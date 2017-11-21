@@ -24,6 +24,13 @@ class Emploi
     /**
      * @var string
      *
+     * @ORM\Column(name="annee_scolaire", type="string", length=255)
+     */
+    private $anneeScolaire;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="lien", type="string", length=255)
      */
     private $lien;
@@ -119,6 +126,23 @@ class Emploi
     public function getClasse()
     {
         return $this->classe;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAnneeScolaire()
+    {
+        return $this->anneeScolaire;
+    }
+
+    /**
+     * @param string $anneeScolaire
+     */
+    public function setAnneeScolaire($anneeScolaire)
+    {
+        $this->anneeScolaire = $anneeScolaire;
+        return $this;
     }
 
 }
