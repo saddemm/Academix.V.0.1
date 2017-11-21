@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    enseignant_directory: '%kernel.project_dir%/web/uploads/enseignant'
 
 framework:
     #esi: ~
@@ -67,3 +68,15 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        media_file:
+            uri_prefix:         /uploads/photos
+            upload_destination: '%kernel.project_dir%/web/uploads/photos'
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+            namer:              namer.media_file

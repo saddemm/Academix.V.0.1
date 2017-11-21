@@ -27,8 +27,8 @@
 
 
                     <th>Image</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
+                    <th>Nom & Prenom</th>
+                    <th>Identifiant</th>
                     <th>Matière</th>
                     <th>E-mail</th>
                     <th>Téléphone</th>
@@ -45,20 +45,26 @@
                 <tr>
 
 
-                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/avatars/1.jpg" /></a></td>
-                    <td>{{ enseignant.nom }}</td>
-                    <td>{{ enseignant.prenom }}</td>
+                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" /></a></td>
+                    <td>{{ enseignant.nom }} {{ enseignant.prenom }}</td>
+                    <td>{{ enseignant.username }}</td>
                     <td>Français</td>
                     <td><a href="javascript: void(0);" class="link-underlined">{{ enseignant.email }}</a></td>
                     <td>{{ enseignant.telephone }}</td>
                     <td>{{ enseignant.dateRecrutement | date}}</td>
-                    <td><span class="label label-success">Active</span></td>
+                    {% if enseignant.etat==1 %}
+                    <td><span class="label label-success">Activé</span></td>
+                    {% else %}
+
+                    <td><span class="label label-warning">Desactivé</span></td>
+                    {% endif %}
                     <th scope="row">
                         <input type="checkbox">
                     </th>
                     <td>
                         <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                        <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i> Archiver</a>
+                        <a href="{{ path('enseignant_delete', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
+
                     </td>
 
                 </tr>
@@ -79,13 +85,13 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 class="modal-title color-black-ecole"><i class="fa fa-black-tie color-black-ecole" aria-hidden="true"></i> Nouveau enseignant</h3>
                     </div>
-                    <form action="{{ path('enseignant_new') }}" method="post">
+                    <form action="{{ path('enseignant_new') }}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                             <div class="row">
                                 <div class="col-lg-6">
 
-                                    <h5 class="color-black-ecole icmn-cogs"> Informations sur le compteXX</h5>
+                                    <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -122,12 +128,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="l15">Matière</label>
-                                                <select class="form-control">
-                                                    <option>Français</option>
-                                                    <option>Anglais</option>
-                                                    <option>Sciences</option>
-                                                    <option>Sport</option>
-                                                </select>
+                                                {{ form_widget(form.matiere) }}
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -176,7 +177,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <input type="file" id="l16">
+                                        {{ form_widget(form.Utilisateur.imageFile) }}
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +186,7 @@
                     <div class="modal-footer">
 
                         <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
-                        <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                        <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
                     </div>
                     </form>
                 </div>

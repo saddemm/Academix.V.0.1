@@ -4,6 +4,10 @@ namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * Utilisateur
@@ -11,11 +15,20 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\UtilisateurRepository")
  * @ORM\InheritanceType("JOINED")
+ * @Vich\Uploadable
  */
 
 
 class Utilisateur implements UserInterface, \Serializable
 {
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->etat = 1;
+    }
+
+
     /**
      * @var int
      *
@@ -42,6 +55,7 @@ class Utilisateur implements UserInterface, \Serializable
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -67,12 +81,15 @@ class Utilisateur implements UserInterface, \Serializable
      */
     private $adresse;
 
+
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="createdAt", type="datetime")
      */
-    private $image;
+    private $createdAt;
+
+
 
 
     /**
@@ -109,21 +126,20 @@ class Utilisateur implements UserInterface, \Serializable
 
 
     /**
-     * @param string $image
+     * @return date
      */
-    public function setImage($image)
+    public function getCreatedAt()
     {
-        $this->image = $image;
-
-        return $this;
+        return $this->createdAt;
     }
 
     /**
-     * @return string
+     * @param \DateTime $createdAt
      */
-    public function getImage()
+    public function setCreatedAt($createdAt)
     {
-        return $this->image;
+        $this->createdAt = $createdAt;
+        return $this;
     }
 
     /**
@@ -384,5 +400,69 @@ class Utilisateur implements UserInterface, \Serializable
             // $this->salt
             ) = unserialize($serialized);
     }
+
+
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
+     * )
+     * @Vich\UploadableField(mapping="media_file", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $imageName
+     *
+     *
+     */
+
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+
+
+
+
 }
 

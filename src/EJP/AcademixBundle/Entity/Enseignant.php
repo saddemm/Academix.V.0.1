@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Enseignant
@@ -35,6 +36,18 @@ class Enseignant extends Utilisateur
      * @ORM\Column(name="telephone", type="string", length=255)
      */
     private $telephone;
+
+
+
+    /**
+     * @var Matiere
+     *
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Matiere")
+     * @ORM\JoinColumn(name="matiere_id", referencedColumnName="id")
+     */
+
+    private $matiere;
 
 
     /**
@@ -87,6 +100,23 @@ class Enseignant extends Utilisateur
     public function getDateRecrutement()
     {
         return $this->dateRecrutement;
+    }
+
+    /**
+     * @param Matiere $matiere
+     */
+    public function setMatiere($matiere)
+    {
+        $this->matiere = $matiere;
+        return $this;
+    }
+
+    /**
+     * @return Matiere
+     */
+    public function getMatiere()
+    {
+        return $this->matiere;
     }
 }
 

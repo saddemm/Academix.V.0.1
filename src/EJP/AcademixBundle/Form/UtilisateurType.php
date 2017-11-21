@@ -3,9 +3,12 @@
 namespace EJP\AcademixBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UtilisateurType extends AbstractType
 {
@@ -15,12 +18,11 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom',null,array('attr' => array('class' => 'form-control')))
-            ->add('prenom',null,array('attr' => array('class' => 'form-control')))
+            ->add('nom',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('prenom',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('adresse',TextareaType::class,array('attr' => array('class' => 'form-control')))
-
-
-            ->add('email',null,array('attr' => array('class' => 'form-control')));
+            ->add('email',EmailType::class,array('attr' => array('class' => 'form-control')))
+            ->add('imageFile',FileType::class,array('attr' => array('class' => 'form-control')));
     }
     
     /**

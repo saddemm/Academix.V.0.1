@@ -4,6 +4,15 @@ parameters:
     #parameter_name: value
 
 services:
+
+    namer.media_file:
+        class: EJP\AcademixBundle\Service\Namer
+        tags:
+            - { name: namer }
+        public: true
+
+
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
