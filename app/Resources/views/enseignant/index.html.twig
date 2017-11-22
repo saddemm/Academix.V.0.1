@@ -51,7 +51,7 @@
                     <td>Français</td>
                     <td><a href="javascript: void(0);" class="link-underlined">{{ enseignant.email }}</a></td>
                     <td>{{ enseignant.telephone }}</td>
-                    <td>{{ enseignant.dateRecrutement | date}}</td>
+                    <td>{{ enseignant.dateRecrutement | date('d M ,Y')}}</td>
                     {% if enseignant.etat==1 %}
                     <td><span class="label label-success">Activé</span></td>
                     {% else %}
@@ -140,7 +140,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="l30">Téléphone</label>
-                                                {{ form_widget(form.telephone) }}
+                                                {{ form_widget(form.Utilisateur.telephone) }}
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
@@ -170,7 +170,7 @@
 
                                 </div>
 
-                                {{ form_widget(form._token) }}
+
 
                                 <div class="col-lg-6">
                                     <h5 class="color-black-ecole icmn-image"> Image de l'enseignant</h5>
@@ -196,6 +196,7 @@
                         <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
                         <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
                     </div>
+                        {{ form_widget(form._token) }}
                     </form>
                 </div>
 

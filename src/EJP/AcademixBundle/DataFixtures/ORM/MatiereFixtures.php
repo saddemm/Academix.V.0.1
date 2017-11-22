@@ -10,9 +10,9 @@ namespace EJP\AcademixBundle\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use EJP\AcademixBundle\Entity\Classe;
+use EJP\AcademixBundle\Entity\Matiere;
 
-class ClasseFixtures extends Fixture
+class MatiereFixtures extends Fixture
 {
 
     /**
@@ -24,10 +24,10 @@ class ClasseFixtures extends Fixture
     {
         // create 20 products! Bam!
         for ($i = 0; $i < 5; $i++) {
-            $classe = new Classe();
-            $classe->setNom('CP '.$i);
+            $matiere = new Matiere();
+            $matiere->setLibelle('Arabe '.$i);
 
-            $manager->persist($classe);
+            $manager->persist($matiere);
         }
 
         $manager->flush();

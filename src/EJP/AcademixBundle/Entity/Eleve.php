@@ -14,130 +14,55 @@ class Eleve extends Utilisateur
 {
 
 
-
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="methode_contact", type="string", length=255)
      */
-    private $adresse;
+    private $methodeContact;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="method_contact", type="string", length=255)
+     * @var Etude
+     * One eleve has Many etudes.
+     * @ORM\OneToMany(targetEntity="Etude", mappedBy="eleve")
      */
-    private $methodContact;
+
+    private $etude;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="telephone", type="string", length=255)
+     * @param string $methodeContact
      */
-    private $telephone;
-
-
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_inscription", type="date")
-     */
-    private $dateInscription;
-
-
-
-
-    /**
-     * Set adresse
-     *
-     * @param string $adresse
-     *
-     * @return Eleve
-     */
-    public function setAdresse($adresse)
+    public function setMethodeContact($methodeContact)
     {
-        $this->adresse = $adresse;
-
+        $this->methodeContact = $methodeContact;
         return $this;
     }
 
     /**
-     * Get adresse
-     *
      * @return string
      */
-    public function getAdresse()
+    public function getMethodeContact()
     {
-        return $this->adresse;
+        return $this->methodeContact;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getEtude()
+    {
+        return $this->etude;
     }
 
     /**
-     * Set methodContact
-     *
-     * @param string $methodContact
-     *
-     * @return Eleve
+     * @param mixed $etude
      */
-    public function setMethodContact($methodContact)
+    public function setEtude($etude)
     {
-        $this->methodContact = $methodContact;
-
+        $this->etude = $etude;
         return $this;
     }
-
-    /**
-     * Get methodContact
-     *
-     * @return string
-     */
-    public function getMethodContact()
-    {
-        return $this->methodContact;
-    }
-
-    /**
-     * Set telephone
-     *
-     * @param string $telephone
-     *
-     * @return Eleve
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Get telephone
-     *
-     * @return string
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
-
-
-    public function setDateInscription($dateInscription)
-    {
-        $this->dateInscription = $dateInscription;
-
-        return $this;
-    }
-
-    /**
-     * Get dateInscription
-     *
-     * @return \DateTime
-     */
-    public function getDateInscription()
-    {
-        return $this->dateInscription;
-    }
-
 
 }
 

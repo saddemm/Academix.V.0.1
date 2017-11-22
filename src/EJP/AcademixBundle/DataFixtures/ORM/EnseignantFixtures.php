@@ -11,9 +11,8 @@ namespace EJP\AcademixBundle\DataFixtures\ORM;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use EJP\AcademixBundle\Entity\Enseignant;
-use EJP\AcademixBundle\Entity\Eleve;
 
-class Fixtures extends Fixture
+class EnseignantFixtures extends Fixture
 {
 
     /**

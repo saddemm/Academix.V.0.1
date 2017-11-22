@@ -3,6 +3,8 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Service\Generator;
+use EJP\AcademixBundle\Service\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
@@ -14,6 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\UtilisateurRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\InheritanceType("JOINED")
  * @Vich\Uploadable
  */
@@ -22,10 +25,27 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Utilisateur implements UserInterface, \Serializable
 {
 
+    /**
+     * @ORM\PrePersist
+     */
+
+    public function setLoginGenerated(){
+
+        //il n'est pas possible de le definir dans le constructeur car on a une variable qui vient du formulaire
+        $this->setUsername(Generator::generateLogin($this));
+    }
+
+    /**
+     * Utilisateur constructor.
+     */
     public function __construct()
     {
+
         $this->createdAt = new \DateTime();
         $this->etat = 1;
+        $this->setRoles(Role::roleFinder($this));
+        $this->setPassword(Generator::generatePassword());
+
     }
 
 
@@ -88,6 +108,13 @@ class Utilisateur implements UserInterface, \Serializable
      * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255)
+     */
+    private $telephone;
 
 
 
@@ -158,6 +185,25 @@ class Utilisateur implements UserInterface, \Serializable
         $this->adresse = $adresse;
         return $this;
     }
+
+
+    /**
+     * @param string $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
 
     /**
      * Set etat
@@ -307,7 +353,7 @@ class Utilisateur implements UserInterface, \Serializable
     }
 
     /**
-     * @param int $roles
+     * @param array $roles
      */
     public function setRoles($roles)
     {
@@ -317,18 +363,6 @@ class Utilisateur implements UserInterface, \Serializable
 
 
     /**
-     * Returns the roles granted to the user.
-     *
-     * <code>
-     * public function getRoles()
-     * {
-     *     return array('ROLE_USER');
-     * }
-     * </code>
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
      *
      * @return (Role|string)[] The user roles
      */

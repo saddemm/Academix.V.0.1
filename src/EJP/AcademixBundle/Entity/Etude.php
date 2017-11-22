@@ -198,5 +198,11 @@ class Etude
     {
         return $this->classe;
     }
+
+    public function __toString()
+    {
+        return "Test Affichage Etude";
+    }
+
 }
 

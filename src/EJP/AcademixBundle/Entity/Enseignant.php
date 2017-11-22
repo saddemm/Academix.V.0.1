@@ -13,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Enseignant extends Utilisateur
 {
+
+
     /**
      * @var int
      *
@@ -28,16 +30,6 @@ class Enseignant extends Utilisateur
      * @ORM\Column(name="date_recrutement", type="date")
      */
     private $dateRecrutement;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telephone", type="string", length=255)
-     */
-    private $telephone;
-
-
 
     /**
      * @var Matiere
@@ -61,23 +53,7 @@ class Enseignant extends Utilisateur
     }
 
 
-    /**
-     * @return string
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
 
-    /**
-     * @param string $telephone
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
     /**
      * Set dateRecrutement
      *

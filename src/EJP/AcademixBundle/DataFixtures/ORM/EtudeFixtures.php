@@ -10,9 +10,11 @@ namespace EJP\AcademixBundle\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use EJP\AcademixBundle\Entity\Etude;
+use EJP\AcademixBundle\Entity\Eleve;
 use EJP\AcademixBundle\Entity\Classe;
 
-class ClasseFixtures extends Fixture
+class EtudeFixtures extends Fixture
 {
 
     /**
@@ -24,12 +26,27 @@ class ClasseFixtures extends Fixture
     {
         // create 20 products! Bam!
         for ($i = 0; $i < 5; $i++) {
-            $classe = new Classe();
-            $classe->setNom('CP '.$i);
 
-            $manager->persist($classe);
+            $etude = new Etude();
+            $etude->setAnneeScolaire('200'.$i);
+            $etude->setMoyenne(10);
+            $etude->setNiveau(1);
+            $etude->setSucces(1);
+            $etude->setClasse($this->getReference('classe'.$i));
+            $etude->setEleve($this->getReference('eleve1'));
+            $manager->persist($etude);
         }
 
+
+
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return array(
+            ClasseFixtures::class,
+            EleveFixtures::class
+        );
     }
 }

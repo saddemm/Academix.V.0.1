@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use EJP\AcademixBundle\Form\EnseignantType;
-use EJP\AcademixBundle\Service\Generator;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -59,20 +58,6 @@ class EnseignantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $generator = new Generator();
-            $pass_random=$generator->generatePassword();
-            $login_random=$generator->generateLogin();
-
-            /** @var File $file */
-
-            $file = $enseignant->getImageFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $enseignant->setImageName("XXAXAXA");
-
-
-            $enseignant->setRoles(['ROLE_ENSEIGNANT']);
-            $enseignant->setUsername($enseignant->getPrenom().'.'.$enseignant->getNom().$login_random);
-            $enseignant->setPassword($pass_random);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($enseignant);

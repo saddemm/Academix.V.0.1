@@ -62,5 +62,10 @@ class Classe
     {
         return $this->nom;
     }
+
+    public function __toString()
+    {
+        return "Test Affichage Classe";
+    }
 }
 

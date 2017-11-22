@@ -29,10 +29,11 @@
 
                 <th>Image</th>
                 <th>Nom et Prénom</th>
-                <th>Date de naissance</th>
+                <th>Username</th>
                 <th>Classe</th>
                 <th>E-mail</th>
                 <th>Téléphone</th>
+                <th>Date de naissance</th>
                 <th>Contact</th>
                 <th>Status</th>
                 <th>#</th>
@@ -42,126 +43,41 @@
             </thead>
 
             <tbody>
-            <tr>
+            {% for eleve in eleves %}
+                <tr>
 
 
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
-                <td>Christine Laurant</td>
-                <td>21/12/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
+                    <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{ asset('uploads/photos/') }}{{ eleve.imageName }}" /></a></td>
+                    <td>{{ eleve.nom }} {{ eleve.prenom }}</td>
+                    <td>{{ eleve.username }}</td>
+                    <td>
+                        {% for etude in eleve.etude %}
+                            {{ etude.anneeScolaire}}
+                        {% endfor %}
 
-            </tr>
-            <tr>
+                    </td>
+                    <td><a href="javascript: void(0);" class="link-underlined">{{ eleve.email }}</a></td>
+                    <td>{{ eleve.telephone }}</td>
+                    <td>{{ eleve.dateNaissance | date('d M ,Y')}}</td>
+                    <td>{{ eleve.methodeContact }}</td>
+                    {% if eleve.etat==1 %}
+                        <td><span class="label label-success">Activé</span></td>
+                    {% else %}
 
+                        <td><span class="label label-warning">Desactivé</span></td>
+                    {% endif %}
+                    <th scope="row">
+                        <input type="checkbox">
+                    </th>
+                    <td>
+                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                        <a href="{{ path('eleve_delete', { 'id': eleve.id }) }}" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
 
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
-                <td>Christine Laurant</td>
-                <td>21/12/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
+                    </td>
 
-            </tr>
-            <tr>
+                </tr>
 
-
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
-                <td>Christine Laurant</td>
-                <td>21/12/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
-
-            </tr>
-            <tr>
-
-
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="../assets/common/img/temp/ecommerce/kid1.jpg" /></a></td>
-                <td>Christine Laurant</td>
-                <td>21/12/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
-
-            </tr>
-            <tr>
-
-
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{  asset('../assets/common/img/temp/ecommerce/kid2.jpg') }}" /></a></td>
-                <td>Christine Laurant</td>
-                <td>21/12/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">c.laurant@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
-
-            </tr>
-            <tr>
-
-
-                <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{ asset('../assets/common/img/temp/ecommerce/kid2.jpg') }}" /></a></td>
-                <td>Thomas muller</td>
-                <td>01/05/2013</td>
-                <td><a href="javascript: void(0);" class="link-underlined">CP 2 Fleur</a></td>
-                <td><a href="javascript: void(0);" class="link-underlined">t.muller@gmail.com</a></td>
-                <td>21502384</td>
-                <td>SMS</td>
-                <td><span class="label label-success">Active</span></td>
-                <th scope="row">
-                    <input type="checkbox">
-                </th>
-                <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5" ù><i class="icmn-pencil5"><!-- --></i> Détails</a>
-                    <a href="javascript: void(0);" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
-                </td>
-
-            </tr>
+            {% endfor %}
 
             </tbody>
         </table>
@@ -170,13 +86,15 @@
         <div class="modal-dialog">
 
             <!-- Modal content-->
+
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h3 class="modal-title color-black-ecole"><i class="fa fa-user color-black-ecole" aria-hidden="true"></i> Nouveau élève</h3>
                 </div>
+                <form action="{{ path('eleve_new') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <form>
+
                         <div class="row">
                             <div class="col-lg-6">
 
@@ -201,38 +119,44 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="l30">Nom</label>
-                                            <input type="text" name="nom" class="form-control" placeholder="Nom" id="l0">
+                                            {{ form_widget(form.Utilisateur.nom) }}
                                         </div>
                                     </div>
                                     <br />
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="l30">Prénom</label>
-                                            <input type="text" name="prenom" class="form-control" placeholder="Prénom" id="l0">
+                                            {{ form_widget(form.Utilisateur.prenom) }}
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="l30">Date de naissance</label>
-                                            <input type="date" name="dateNaissance" class="form-control" placeholder="Date de naissance">
+                                            {{ form_widget(form.Utilisateur.dateNaissance) }}
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="l30">E-mail</label>
-                                            <input type="text" class="form-control" placeholder="E-mail" id="l0">
+                                            {{ form_widget(form.Utilisateur.email) }}
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="l30">Téléphone</label>
-                                            <input type="text" name="telephone" class="form-control" placeholder="Téléphone" id="l0">
+                                            {{ form_widget(form.Utilisateur.telephone) }}
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l15">Adresse</label>
-                                            <textarea name="adresse" class="form-control" rows="3" id="l15"></textarea>
+                                            {{ form_widget(form.Utilisateur.adresse) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Methode de contact</label>
+                                            {{ form_widget(form.methodeContact) }}
                                         </div>
                                     </div>
                                 </div>
@@ -317,66 +241,30 @@
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <input type="file" id="l16">
+                                    {{ form_widget(form.Utilisateur.imageFile) }}
                                 </div>
                             </div>
                         </div>
-                    </form>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
-                    <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                    <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
+                    <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
                 </div>
+
+            {{ form_widget(form._token) }}
+            </form>
+
             </div>
-
         </div>
+
     </div>
-
-
     </section>
 
 
 
 
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Adresse</th>
-            <th>Methodcontact</th>
-            <th>Telephone</th>
-            <th>Dateinscription</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for eleve in eleves %}
-            <tr>
-                <td><a href="{{ path('eleve_show', { 'id': eleve.id }) }}">{{ eleve.id }}</a></td>
-                <td>{{ eleve.adresse }}</td>
-                <td>{{ eleve.methodContact }}</td>
-                <td>{{ eleve.telephone }}</td>
-                <td>{% if eleve.dateInscription %}{{ eleve.dateInscription|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{ {path('eleve_show', { 'id': eleve.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('eleve_new') }}">Create a new eleve</a>
-        </li>
-    </ul>
 
 {% endblock %}
 
