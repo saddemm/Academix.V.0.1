@@ -18,7 +18,7 @@
                         <h5 class="color-black-ecole icmn-stack-picture"> Informations sur l'événement</h5>
                         <div class="form-group">
                             <label for="l30">Titre</label>
-                            <output type="text" class="form-control" placeholder="Nom" id="l0">Sortie</output>
+                            <output type="text" class="form-control" placeholder="Nom" id="l0">{{ evenement.titre }}</output>
                         </div>
                     </div>
 
@@ -54,97 +54,26 @@
                         <table class="table thead-default">
                             <thead>
                             <tr>
-                                <th><center>Nom</center></th>
-                                <th><center>Prénom</center></th>
+                                <th><center>Photo</center></th>
+                                <th><center>Nom & Prénom</center></th>
                                 <th><center>E-mail</center></th>
+                                <th><center>Telephone</center></th>
                                 <th><center>Affecter</center></th>
                             </tr>
                             </thead>
                             <tbody>
+                            {% for enseignant in evenement.enseignants %}
                             <tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
+                                <td><center><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" /></a></center></td>
+                                <td><center>{{ enseignant.nom }} {{ enseignant.prenom }}</center></td>
+                                <td><center>{{ enseignant.email }}</center></td>
+                                <td><center>{{ enseignant.telephone }}</center></td>
                                 <td><center>
                                         <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
                                     </center></td>
                             </tr>
-                            <tr>
+                            {% endfor %}
 
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr>
-                            <tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr>
-                            <tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr><tr>
-
-                                <td><center>Jacques</center></td>
-                                <td><center>Mandou</center></td>
-                                <td><center>J.Mandou@gmail.com</center></td>
-                                <td><center>
-                                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-user-check"><!-- --></i></a>
-                                    </center></td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>

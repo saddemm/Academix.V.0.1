@@ -2,10 +2,18 @@
 
 namespace EJP\AcademixBundle\Controller;
 
+
 use EJP\AcademixBundle\Entity\Evenement;
+use EJP\AcademixBundle\Form\EvenementType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Evenement controller.
@@ -17,17 +25,59 @@ class EvenementController extends Controller
     /**
      * Lists all evenement entities.
      *
+     * @Route("/jsonrep", name="evenement_json")
+     * @Method("GET")
+     */
+
+    public function jsonRepAction()
+    {
+        $request = Request::create(
+            '/affect',
+            'GET',
+            array('name' => 'Fabien')
+        );
+
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var Evenement $evenements */
+        $evenements = $em->getRepository('EJPAcademixBundle:Evenement')->findAll();
+
+        $response = new Response();
+
+
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setIgnoredAttributes(array('dateEvenement','datePublication'));
+        $encoders = array(new JsonEncoder());
+        $normalizers = array($normalizer);
+
+
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $jsonContent = $serializer->serialize($evenements[0], 'json');
+        $response->setContent($jsonContent);
+
+        return $response;
+    }
+
+
+    /**
+     * Lists all evenement entities.
+     *
      * @Route("/", name="evenement_index")
      * @Method("GET")
      */
     public function indexAction()
     {
+        $evenement = new Evenement();
         $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(EvenementType::class, $evenement);
 
         $evenements = $em->getRepository('EJPAcademixBundle:Evenement')->findAll();
 
         return $this->render('evenement/index.html.twig', array(
             'evenements' => $evenements,
+            'form' => $form->createView(),
         ));
     }
 
@@ -117,6 +167,10 @@ class EvenementController extends Controller
 
         return $this->redirectToRoute('evenement_index');
     }
+
+
+
+
 
     /**
      * Creates a form to delete a evenement entity.

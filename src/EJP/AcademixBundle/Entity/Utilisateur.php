@@ -33,6 +33,7 @@ class Utilisateur implements UserInterface, \Serializable
 
         //il n'est pas possible de le definir dans le constructeur car on a une variable qui vient du formulaire
         $this->setUsername(Generator::generateLogin($this));
+
     }
 
     /**

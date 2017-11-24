@@ -25,4 +25,11 @@ class Role{
             return(['ROLE_ENSEIGNANT']);
         }
     }
+
+    public function listEtude(){
+        return $this->getDoctrine()
+            ->getRepository(Eleve::class)
+            ->findAllOrderedByName();
+
+    }
 }

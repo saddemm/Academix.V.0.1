@@ -27,6 +27,7 @@ class EnseignantController extends Controller
     public function indexAction()
     {
 
+
         $enseignant = new Enseignant();
 
         $em = $this->getDoctrine()->getManager();

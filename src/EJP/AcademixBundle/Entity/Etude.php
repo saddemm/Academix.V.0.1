@@ -22,23 +22,23 @@ class Etude
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="annee_scolaire", type="string", length=10)
+     * @ORM\Column(name="annee_scolaire", type="integer")
      */
     private $anneeScolaire;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="moyenne", type="float")
+     * @ORM\Column(name="moyenne", type="float", nullable=true)
      */
     private $moyenne;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="succes", type="integer")
+     * @ORM\Column(name="succes", type="integer", nullable=true)
      */
     private $succes;
 
@@ -74,29 +74,23 @@ class Etude
         return $this->id;
     }
 
+
     /**
-     * Set anneeScolaire
-     *
-     * @param string $anneeScolaire
-     *
-     * @return Etude
+     * @param int $anneeScolaire
      */
     public function setAnneeScolaire($anneeScolaire)
     {
         $this->anneeScolaire = $anneeScolaire;
-
-        return $this;
     }
 
     /**
-     * Get anneeScolaire
-     *
-     * @return string
+     * @return int
      */
     public function getAnneeScolaire()
     {
         return $this->anneeScolaire;
     }
+
 
     /**
      * Set moyenne

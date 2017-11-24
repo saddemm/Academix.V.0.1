@@ -3,6 +3,8 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Repository\RepositoryFactory;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Eleve
@@ -29,6 +31,26 @@ class Eleve extends Utilisateur
 
     private $etude;
 
+
+    /**
+     * @return Etude
+     */
+    public function getCurrentEtude()
+    {
+        $year =  2004;
+        $etude = null;
+        $i = 0;
+        while($etude == null && $i<count($this->getEtude())){
+            if($this->getEtude()[$i]->getAnneeScolaire()==$year){
+                $etude=$this->getEtude()[$i];
+            }
+            $i++;
+        }
+        return $etude;
+    }
+
+
+
     /**
      * @param string $methodeContact
      */
@@ -48,7 +70,7 @@ class Eleve extends Utilisateur
 
 
     /**
-     * @return mixed
+     * @return Etude
      */
     public function getEtude()
     {

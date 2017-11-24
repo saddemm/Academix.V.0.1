@@ -32,6 +32,8 @@ class EleveController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $lastEtude= $em->getRepository(Eleve::class)->findCurrentEtude();
+
         $eleves = $em->getRepository('EJPAcademixBundle:Eleve')->findAll();
 
         return $this->render('eleve/index.html.twig', array(

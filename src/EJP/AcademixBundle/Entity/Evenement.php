@@ -12,6 +12,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Evenement
 {
+
+    public function __construct()
+    {
+
+        $this->datePublication = new \DateTime();
+        $this->etat = 1;
+
+    }
+
+
+
     /**
      * @var int
      *
@@ -68,6 +79,7 @@ class Evenement
      *
      * @ORM\Column(name="etat", type="string", length=255)
      */
+
     private $etat;
 
     /**

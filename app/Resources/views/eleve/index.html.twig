@@ -51,10 +51,11 @@
                     <td>{{ eleve.nom }} {{ eleve.prenom }}</td>
                     <td>{{ eleve.username }}</td>
                     <td>
-                        {% for etude in eleve.etude %}
-                            {{ etude.anneeScolaire}}
-                        {% endfor %}
-
+                        {% if eleve.currentEtude != null  %}
+                        {{ eleve.currentEtude.classe.nom }}
+                        {% else  %}
+                            Cette eleve n'as pas de classe pour cette année
+                        {% endif  %}
                     </td>
                     <td><a href="javascript: void(0);" class="link-underlined">{{ eleve.email }}</a></td>
                     <td>{{ eleve.telephone }}</td>
