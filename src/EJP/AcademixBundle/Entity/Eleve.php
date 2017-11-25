@@ -30,7 +30,7 @@ class Eleve extends Utilisateur
 
     /**
      * One Cart has One Customer.
-     * @ORM\OneToOne(targetEntity="Parents", inversedBy="eleve")
+     * @ORM\OneToOne(targetEntity="Parents", inversedBy="eleve",cascade={"persist"})
      * @ORM\JoinColumn(name="parents_id", referencedColumnName="id")
      */
 

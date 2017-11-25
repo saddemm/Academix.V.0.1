@@ -9,7 +9,7 @@
                         Selectionnez une action
                     </button>
                     <ul class="dropdown-menu">
-                        <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#myModal1" > Nouveau</a>
+                        <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#modal_add" > Nouveau</a>
 
                         <li class="dropdown-divider"> </li>
                         <a class="dropdown-item icmn-user-minus" href="javascript: void(0);"> Archiver</a>
@@ -62,7 +62,7 @@
                         <input type="checkbox">
                     </th>
                     <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                        <a href="{{ path('enseignant_edit', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-pencil5"><!-- --></i> Détails</a>
                         <a href="{{ path('enseignant_delete', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
 
                     </td>
@@ -76,9 +76,10 @@
                 </tbody>
             </table>
         </div>
-        <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal fade" id="modal_add" role="dialog">
             {{ render(controller('EJPAcademixBundle:Enseignant:new')) }}
         </div>
+
 
 
     </section>

@@ -451,7 +451,7 @@ class Utilisateur implements UserInterface, \Serializable
     private $myFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */

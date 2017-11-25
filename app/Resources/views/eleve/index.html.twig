@@ -60,7 +60,11 @@
                     <td><a href="javascript: void(0);" class="link-underlined">{{ eleve.email }}</a></td>
                     <td>{{ eleve.telephone }}</td>
                     <td>{{ eleve.dateNaissance | date('d M ,Y')}}</td>
-                    <td>{{ eleve.parents.methodeContact }}</td>
+                    <td>
+                        {% if (eleve.parents != null) %}
+                        {{ eleve.parents.methodeContact }}
+                        {% endif %}
+                    </td>
                     {% if eleve.etat==1 %}
                         <td><span class="label label-success">Activé</span></td>
                     {% else %}
@@ -71,7 +75,7 @@
                         <input type="checkbox">
                     </th>
                     <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}" class="link-underlined"><i class="icmn-pencil5"><!-- --></i> Détails</a>
                         <a href="{{ path('eleve_delete', { 'id': eleve.id }) }}" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
 
                     </td>

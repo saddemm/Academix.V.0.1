@@ -101,7 +101,7 @@ class EleveController extends Controller
 
         return $this->render('eleve/edit.html.twig', array(
             'eleve' => $eleve,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

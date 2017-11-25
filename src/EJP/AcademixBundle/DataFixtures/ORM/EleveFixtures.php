@@ -35,7 +35,6 @@ class EleveFixtures extends Fixture
             $eleve->setImageName("tester.jpg");
             $eleve->setDateNaissance(new \DateTime());
             $eleve->setTelephone("2205826".$i);
-            $eleve->setMethodeContact("Telephone".$i);
 
             $manager->persist($eleve);
             $this->addReference('eleve'.$i, $eleve);

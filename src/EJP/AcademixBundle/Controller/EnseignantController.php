@@ -132,7 +132,7 @@ class EnseignantController extends Controller
 
         return $this->render('enseignant/edit.html.twig', array(
             'enseignant' => $enseignant,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -154,6 +154,23 @@ class EnseignantController extends Controller
 
 
         return $this->redirectToRoute('enseignant_index');
+    }
+
+
+    /**
+     * Creates a form to delete a eleve entity.
+     *
+     * @param Eleve $eleve The eleve entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Enseignant $enseignant)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('enseignant_delete', array('id' => $enseignant->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+            ;
     }
 
 
