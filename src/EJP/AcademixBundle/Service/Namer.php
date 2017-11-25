@@ -21,9 +21,8 @@ class Namer implements NamerInterface {
     public function name($object, PropertyMapping $mapping)
     {
         /** @var File $file
-         *  @var Enseignant $object
          */
-        $file = $object->getImageFile();
+        $file = $object->getMyFile();
         $extension = $file->guessExtension();
 
         return uniqid('', true).'.'.$extension;

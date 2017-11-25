@@ -3,15 +3,27 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Emploi
  *
  * @ORM\Table(name="emploi")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\EmploiRepository")
+ * @Vich\Uploadable
  */
 class Emploi
 {
+
+    public function __construct()
+    {
+
+        $this->createdAt = new \DateTime();
+    }
+
+
     /**
      * @var int
      *
@@ -38,9 +50,9 @@ class Emploi
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="ajoute_le", type="date")
+     * @ORM\Column(name="createdAt", type="datetime")
      */
-    private $ajouteLe;
+    private $createdAt;
 
 
     /**
@@ -51,6 +63,18 @@ class Emploi
      */
 
     private $classe;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
+     * )
+     * @Vich\UploadableField(mapping="emploi_file", fileNameProperty="lien")
+     *
+     * @var File
+     */
+    private $myFile;
 
     /**
      * Get id
@@ -87,28 +111,22 @@ class Emploi
     }
 
     /**
-     * Set ajouteLe
-     *
-     * @param \DateTime $ajouteLe
-     *
-     * @return Emploi
+     * @param \DateTime $createdAt
      */
-    public function setAjouteLe($ajouteLe)
+    public function setCreatedAt($createdAt)
     {
-        $this->ajouteLe = $ajouteLe;
-
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get ajouteLe
-     *
      * @return \DateTime
      */
-    public function getAjouteLe()
+    public function getCreatedAt()
     {
-        return $this->ajouteLe;
+        return $this->createdAt;
     }
+
 
     /**
      * @param Classe $classe
@@ -144,6 +162,26 @@ class Emploi
         $this->anneeScolaire = $anneeScolaire;
         return $this;
     }
+
+
+    /**
+     * @return File
+     */
+    public function getMyFile()
+    {
+        return $this->myFile;
+    }
+
+    /**
+     * @param File $myFile
+     */
+    public function setMyFile(File $thefile = null)
+    {
+        $this->myFile = $thefile;
+        return $this;
+    }
+
+
 
 }
 

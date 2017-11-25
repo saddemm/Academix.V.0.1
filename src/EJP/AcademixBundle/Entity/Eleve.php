@@ -16,12 +16,7 @@ class Eleve extends Utilisateur
 {
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="methode_contact", type="string", length=255)
-     */
-    private $methodeContact;
+
 
     /**
      * @var Etude
@@ -30,6 +25,16 @@ class Eleve extends Utilisateur
      */
 
     private $etude;
+
+
+
+    /**
+     * One Cart has One Customer.
+     * @ORM\OneToOne(targetEntity="Parents", inversedBy="eleve")
+     * @ORM\JoinColumn(name="parents_id", referencedColumnName="id")
+     */
+
+    private $parents;
 
 
     /**
@@ -50,25 +55,6 @@ class Eleve extends Utilisateur
     }
 
 
-
-    /**
-     * @param string $methodeContact
-     */
-    public function setMethodeContact($methodeContact)
-    {
-        $this->methodeContact = $methodeContact;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethodeContact()
-    {
-        return $this->methodeContact;
-    }
-
-
     /**
      * @return Etude
      */
@@ -83,6 +69,23 @@ class Eleve extends Utilisateur
     public function setEtude($etude)
     {
         $this->etude = $etude;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParents()
+    {
+        return $this->parents;
+    }
+
+    /**
+     * @param mixed $parents
+     */
+    public function setParents($parents)
+    {
+        $this->parents = $parents;
         return $this;
     }
 

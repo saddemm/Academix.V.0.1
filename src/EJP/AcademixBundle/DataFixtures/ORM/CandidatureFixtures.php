@@ -10,9 +10,9 @@ namespace EJP\AcademixBundle\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use EJP\AcademixBundle\Entity\Evenement;
+use EJP\AcademixBundle\Entity\Candidature;
 
-class EvenementFixtures extends Fixture
+class CandidatureFixtures extends Fixture
 {
 
     /**
@@ -24,16 +24,14 @@ class EvenementFixtures extends Fixture
     {
         // create 20 products! Bam!
         for ($i = 0; $i < 5; $i++) {
-            $evenement = new Evenement();
-            $evenement->setTitre('TitreEve '.$i);
-            $evenement->setDescription("DescEven ".$i);
-            $evenement->setDateEvenement(new \DateTime());
-            $evenement->setHeureDebut("08");
-            $evenement->setHeureFin("12");
-            $evenement->setDatePublication(new \DateTime());
-            $evenement->setEtat(1);
+            $candidature = new Candidature();
+            $candidature->setNom('NomCandidat '.$i);
+            $candidature->setPrenom('PrenCandidat '.$i);
+            $candidature->setTelephone("22039201");
+            $candidature->setEmail("candidat".$i."@itdesire.io");
+            $candidature->setCv("lienCV ".$i);
 
-            $manager->persist($evenement);
+            $manager->persist($candidature);
         }
 
         $manager->flush();

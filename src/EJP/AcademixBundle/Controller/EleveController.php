@@ -25,20 +25,14 @@ class EleveController extends Controller
      */
     public function indexAction()
     {
-        $eleve = new Eleve();
-
-
-        $form = $this->createForm(EleveType::class, $eleve);
 
         $em = $this->getDoctrine()->getManager();
 
-        $lastEtude= $em->getRepository(Eleve::class)->findCurrentEtude();
 
         $eleves = $em->getRepository('EJPAcademixBundle:Eleve')->findAll();
 
         return $this->render('eleve/index.html.twig', array(
-            'eleves' => $eleves,
-            'form' => $form->createView(),
+            'eleves' => $eleves
         ));
     }
 

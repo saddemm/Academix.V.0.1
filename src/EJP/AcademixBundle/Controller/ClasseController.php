@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Controller;
 
 use EJP\AcademixBundle\Entity\Classe;
+use EJP\AcademixBundle\Form\ClasseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -22,12 +23,17 @@ class ClasseController extends Controller
      */
     public function indexAction()
     {
+
+        $classe = new Classe();
+
         $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ClasseType::class, $classe);
 
         $classes = $em->getRepository('EJPAcademixBundle:Classe')->findAll();
 
         return $this->render('classe/index.html.twig', array(
             'classes' => $classes,
+            'form' => $form->createView(),
         ));
     }
 

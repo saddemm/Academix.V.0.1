@@ -15,16 +15,8 @@ class EleveType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('Utilisateur', UtilisateurType::class)
-                ->add('methodeContact', ChoiceType::class, array(
-                    'choices'  => array(
-                        'Telephone' => "Telephone",
-                        'Email' => "Email",
-                        'Poste' => "Poste",
-                    ),
-                    'attr' => array(
-                        'class' => 'form-control'
-                    )
-                ));
+                ->add('parents', ParentsType::class);
+
     }
     
     /**

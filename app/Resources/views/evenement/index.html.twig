@@ -168,46 +168,6 @@
         </div>
     </section>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Dateevenement</th>
-            <th>Heuredebut</th>
-            <th>Heurefin</th>
-            <th>Datepublication</th>
-            <th>Etat</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for evenement in evenements %}
-            <tr>
-                <td><a href="{{ path('evenement_show', { 'id': evenement.id }) }}">{{ evenement.id }}</a></td>
-                <td>{{ evenement.titre }}</td>
-                <td>{{ evenement.description }}</td>
-                <td>{% if evenement.dateEvenement %}{{ evenement.dateEvenement|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ evenement.heureDebut }}</td>
-                <td>{{ evenement.heureFin }}</td>
-                <td>{% if evenement.datePublication %}{{ evenement.datePublication|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ evenement.etat }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('evenement_show', { 'id': evenement.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('evenement_edit', { 'id': evenement.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
 {% endblock %}
 
 {% block javascripts %}

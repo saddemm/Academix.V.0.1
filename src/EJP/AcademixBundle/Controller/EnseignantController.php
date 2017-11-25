@@ -28,16 +28,13 @@ class EnseignantController extends Controller
     {
 
 
-        $enseignant = new Enseignant();
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(EnseignantType::class, $enseignant);
 
         $enseignants = $em->getRepository(Enseignant::class)->findAll();
 
         return $this->render('enseignant/index.html.twig', array(
-            'enseignants' => $enseignants,
-            'form' => $form->createView(),
+            'enseignants' => $enseignants
         ));
     }
 
@@ -68,11 +65,10 @@ class EnseignantController extends Controller
 
         }
 
-        $validator = $this->get('validator');
-        $errors = $validator->validate($enseignant);
-        if (count($errors) > 0) {
-            return new Response($errors);
-        }
+        return $this->render('enseignant/new.html.twig', array(
+            'enseignant' => $enseignant,
+            'form' => $form->createView(),
+        ));
 
 
     }

@@ -448,7 +448,7 @@ class Utilisateur implements UserInterface, \Serializable
      *
      * @var File
      */
-    private $imageFile;
+    private $myFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -458,9 +458,9 @@ class Utilisateur implements UserInterface, \Serializable
     private $imageName;
 
 
-    public function setImageFile(File $image = null)
+    public function setMyFile(File $thefile = null)
     {
-        $this->imageFile = $image;
+        $this->myFile = $thefile;
 
 
         return $this;
@@ -469,9 +469,9 @@ class Utilisateur implements UserInterface, \Serializable
     /**
      * @return File|null
      */
-    public function getImageFile()
+    public function getMyFile()
     {
-        return $this->imageFile;
+        return $this->myFile;
     }
 
     /**

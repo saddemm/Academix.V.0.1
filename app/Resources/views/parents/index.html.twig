@@ -7,11 +7,14 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                <th>Adresse</th>
+                <th>Nommere</th>
+                <th>Nompere</th>
+                <th>Telmere</th>
+                <th>Telpere</th>
+                <th>Emailmere</th>
+                <th>Emailpere</th>
+                <th>Adrmere</th>
+                <th>Adrpere</th>
                 <th>Methodecontact</th>
                 <th>Actions</th>
             </tr>
@@ -20,11 +23,14 @@
         {% for parent in parents %}
             <tr>
                 <td><a href="{{ path('parents_show', { 'id': parent.id }) }}">{{ parent.id }}</a></td>
-                <td>{{ parent.nom }}</td>
-                <td>{{ parent.prenom }}</td>
-                <td>{{ parent.telephone }}</td>
-                <td>{{ parent.email }}</td>
-                <td>{{ parent.adresse }}</td>
+                <td>{{ parent.nomMere }}</td>
+                <td>{{ parent.nomPere }}</td>
+                <td>{{ parent.telMere }}</td>
+                <td>{{ parent.telPere }}</td>
+                <td>{{ parent.emailMere }}</td>
+                <td>{{ parent.emailPere }}</td>
+                <td>{{ parent.adrMere }}</td>
+                <td>{{ parent.adrPere }}</td>
                 <td>{{ parent.methodeContact }}</td>
                 <td>
                     <ul>

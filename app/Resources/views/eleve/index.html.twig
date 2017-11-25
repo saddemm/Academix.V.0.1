@@ -6,7 +6,7 @@
     <div class="panel-heading">
         <h3 class="color-black-ecole">
             <div class="dropdown pull-right">
-                <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-perso dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     Selectionnez une action
                 </button>
                 <ul class="dropdown-menu">
@@ -54,13 +54,13 @@
                         {% if eleve.currentEtude != null  %}
                         {{ eleve.currentEtude.classe.nom }}
                         {% else  %}
-                            Cette eleve n'as pas de classe pour cette année
+                            Pas de classe
                         {% endif  %}
                     </td>
                     <td><a href="javascript: void(0);" class="link-underlined">{{ eleve.email }}</a></td>
                     <td>{{ eleve.telephone }}</td>
                     <td>{{ eleve.dateNaissance | date('d M ,Y')}}</td>
-                    <td>{{ eleve.methodeContact }}</td>
+                    <td>{{ eleve.parents.methodeContact }}</td>
                     {% if eleve.etat==1 %}
                         <td><span class="label label-success">Activé</span></td>
                     {% else %}
@@ -84,180 +84,7 @@
         </table>
     </div>
     <div class="modal fade" id="myModal1" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title color-black-ecole"><i class="fa fa-user color-black-ecole" aria-hidden="true"></i> Nouveau élève</h3>
-                </div>
-                <form action="{{ path('eleve_new') }}" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-lg-6">
-
-                                <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l301">Identifiant</label>
-                                            <input type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l302">Mot de passe</label>
-                                            <input type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <h5 class="color-black-ecole icmn-profile"> Informations sur l'élève</h5>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">Nom</label>
-                                            {{ form_widget(form.Utilisateur.nom) }}
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">Prénom</label>
-                                            {{ form_widget(form.Utilisateur.prenom) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">Date de naissance</label>
-                                            {{ form_widget(form.Utilisateur.dateNaissance) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">E-mail</label>
-                                            {{ form_widget(form.Utilisateur.email) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">Téléphone</label>
-                                            {{ form_widget(form.Utilisateur.telephone) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l15">Adresse</label>
-                                            {{ form_widget(form.Utilisateur.adresse) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l15">Methode de contact</label>
-                                            {{ form_widget(form.methodeContact) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5 class="color-black-ecole icmn-users"> Informations sur les parents</h5>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l30">Mère</label>
-                                            <input name="mere" type="text" class="form-control" placeholder="Mère" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l30">Père</label>
-                                            <input name="pere" type="text" class="form-control" placeholder="Père" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">E-mail mère</label>
-                                            <input type="text" class="form-control" placeholder="E-mail mère" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="l30">E-mail père</label>
-                                            <input type="text" class="form-control" placeholder="E-mail père" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l30">Téléphone mère</label>
-                                            <input type="text" class="form-control" placeholder="Téléphone mère" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="l30">Téléphone père</label>
-                                            <input type="text" class="form-control" placeholder="Téléphone père" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l15">Adresse mère</label>
-                                            <textarea class="form-control" rows="3" id="l15"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l15">Adresse père</label>
-                                            <textarea class="form-control" rows="3" id="l15"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l15">Responsable</label>
-                                            <select class="form-control">
-                                                <option>Père</option>
-                                                <option>Mère</option>
-                                                <option>Autre</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-
-                            <div class="col-lg-6">
-                                <h5 class="color-black-ecole icmn-image"> Image de l'élève</h5>
-                                <div class="cui-ecommerce--catalog--item">
-                                    <div class="cui-ecommerce--catalog--item--img">
-                                        <a href="javascript: void(0);">
-                                            <img src="../assets/common/img/temp/ecommerce/ecommerce-empty.jpg" />
-                                        </a>
-                                        <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
-                                            <i class="icmn-cross2"><!-- --></i> Remove
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    {{ form_widget(form.Utilisateur.imageFile) }}
-                                </div>
-                            </div>
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
-                    <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
-                </div>
-
-            {{ form_widget(form._token) }}
-            </form>
-
-            </div>
-        </div>
+        {{ render(controller('EJPAcademixBundle:Eleve:new')) }}
 
     </div>
     </section>

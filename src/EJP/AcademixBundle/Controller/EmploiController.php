@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Controller;
 
 use EJP\AcademixBundle\Entity\Emploi;
+use EJP\AcademixBundle\Form\EmploiType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -22,12 +23,15 @@ class EmploiController extends Controller
      */
     public function indexAction()
     {
+        $emploi = new Emploi();
         $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(EmploiType::class, $emploi);
 
         $emplois = $em->getRepository('EJPAcademixBundle:Emploi')->findAll();
 
         return $this->render('emploi/index.html.twig', array(
             'emplois' => $emplois,
+            'form' => $form->createView(),
         ));
     }
 
@@ -48,7 +52,7 @@ class EmploiController extends Controller
             $em->persist($emploi);
             $em->flush();
 
-            return $this->redirectToRoute('emploi_show', array('id' => $emploi->getId()));
+            return $this->redirectToRoute('emploi_index');
         }
 
         return $this->render('emploi/new.html.twig', array(

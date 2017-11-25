@@ -27,7 +27,6 @@
                 <th>Date de naissance</th>
                 <th>E-mail</th>
                 <th>Téléphone</th>
-                <th>Le CV</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,12 +39,11 @@
                 </th>
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
-                <td>{% if candidature.dateNaissance %}{{ candidature.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if candidature.createdAt %}{{ candidature.createdAt|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ candidature.email }}</td>
                 <td>{{ candidature.telephone }}</td>
-                <td><a href="javascript: void(0);" class="link-underlined">{{ candidature.cv }}</a></td>
                 <td>
-                    <a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-file-download2"><!-- --></i></a>
+                    <a href="{{ asset('uploads/cv/') }}{{ candidature.cv }}" class="link-underlined margin-right-5"><i class="icmn-file-download2"><!-- --></i></a>
                     <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i></a>
                 </td>
             </tr>

@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Candidature
 {
+
+    /**
+     * Utilisateur constructor.
+     */
+    public function __construct()
+    {
+
+        $this->createdAt = new \DateTime();
+
+    }
     /**
      * @var int
      *
@@ -46,18 +56,27 @@ class Candidature
      * @ORM\Column(name="telephone", type="string", length=255)
      */
     private $telephone;
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_naissance", type="date")
-     */
-    private $dateNaissance;
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="cv", type="string", length=255)
      */
     private $cv;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
+
+
+
+
     /**
      * Get id
      *
@@ -133,22 +152,6 @@ class Candidature
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getDateNaissance()
-    {
-        return $this->dateNaissance;
-    }
-
-    /**
-     * @param \DateTime $dateNaissance
-     */
-    public function setDateNaissance($dateNaissance)
-    {
-        $this->dateNaissance = $dateNaissance;
-    }
-
-    /**
      * @return string
      */
     public function getCv()
@@ -163,5 +166,24 @@ class Candidature
     {
         $this->cv = $cv;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+
 }
 
