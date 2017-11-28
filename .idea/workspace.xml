@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96b3d06a-29da-49fa-bf8e-e4d9ee1e7b3b" name="Default" comment="Form Editing enseignant&#10;Form Editing eleve&#10;Not required image for eleve &amp; enseignant">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_10_17_16_46_s.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_10_17_16_46_s.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/firstProject.iml" afterPath="$PROJECT_DIR$/.idea/firstProject.iml" />
+    <list default="true" id="96b3d06a-29da-49fa-bf8e-e4d9ee1e7b3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/classe/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/classe/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Classe.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Classe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/classe/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/classe/show.html.twig" />
     </list>
     <ignored path="firstProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,12 +44,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1419">
-              <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+            <state relative-caret-position="1683">
+              <caret line="99" column="69" lean-forward="false" selection-start-line="99" selection-start-column="69" selection-end-line="99" selection-end-column="69" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="163" lean-forward="false" selection-start-line="12" selection-start-column="163" selection-end-line="12" selection-end-column="163" />
+              <folding>
+                <element signature="e#3698#3705#1#HTML" expanded="true" />
+                <element signature="e#5122#5129#1#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/DataFixtures/ORM/EnseignantFixtures.php" />
         <option value="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_10_17_16_46_s.xml" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/DataFixtures/ORM/MatiereFixtures.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/DataFixtures/ORM/ClasseFixtures.php" />
@@ -207,6 +216,7 @@
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Classe.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/ClasseType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/classe/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/classe/show.html.twig" />
       </list>
     </option>
   </component>
@@ -265,6 +275,60 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="vendor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="symfony3">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="vendor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="sensio">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generator-bundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="symfony3">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="vendor">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="sensio">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="symfony3">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -288,58 +352,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="AcademixBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="symfony3">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EJP">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AcademixBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Form">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="symfony3">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EJP">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AcademixBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Entity">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -930,7 +942,7 @@
       <workItem from="1511615066317" duration="27178000" />
       <workItem from="1511707670500" duration="8398000" />
       <workItem from="1511786217406" duration="4834000" />
-      <workItem from="1511867720991" duration="2507000" />
+      <workItem from="1511867720991" duration="3730000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de parents Entity bejbej (first)">
       <created>1509983213857</created>
@@ -1009,11 +1021,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511791345442</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Modification Template Base.html.twig&#10;Ajout champs niveau dans la classe Classe&#10;Modification dans classe/index.php">
+      <created>1511870445349</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1511870445349</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250386000" />
+    <option name="totallyTimeSpent" value="251609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1027,7 +1046,7 @@
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1186" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2265625" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16822916" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49092284" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3420622" sideWeight="0.52420574" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24081632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1099,7 +1118,8 @@
     <MESSAGE value="Ajout evenement (sans image)&#10;Affectation des enseignant a l'evenement&#10;Show evenement (ne9sa)&#10;Show evenement liste des enseignants lié" />
     <MESSAGE value="Update parent entity&#10;Form parent ajout&#10;Coding with best practice modal" />
     <MESSAGE value="Form Editing enseignant&#10;Form Editing eleve&#10;Not required image for eleve &amp; enseignant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Form Editing enseignant&#10;Form Editing eleve&#10;Not required image for eleve &amp; enseignant" />
+    <MESSAGE value="Modification Template Base.html.twig&#10;Ajout champs niveau dans la classe Classe&#10;Modification dans classe/index.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification Template Base.html.twig&#10;Ajout champs niveau dans la classe Classe&#10;Modification dans classe/index.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1108,13 +1128,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/DataFixtures/ORM/ClasseFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/DataFixtures/ORM/MatiereFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
@@ -1461,9 +1474,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1419">
-          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        <state relative-caret-position="1683">
+          <caret line="99" column="69" lean-forward="false" selection-start-line="99" selection-start-column="69" selection-end-line="99" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="163" lean-forward="false" selection-start-line="12" selection-start-column="163" selection-end-line="12" selection-end-column="163" />
+          <folding>
+            <element signature="e#3698#3705#1#HTML" expanded="true" />
+            <element signature="e#5122#5129#1#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
