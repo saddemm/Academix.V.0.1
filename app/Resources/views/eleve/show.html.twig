@@ -1,44 +1,431 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} Elève{% endblock %}
 {% block body %}
-    <h1>Eleve</h1>
+    <nav class="top-submenu top-submenu-with-background">
+        <div class="profile-header">
+            <div class="profile-header-info">
+                <div class="row">
+                    <div class="col-xl-8 col-xl-offset-4">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ eleve.id }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ eleve.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Methodcontact</th>
-                <td>{{ eleve.methodContact }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ eleve.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Dateinscription</th>
-                <td>{% if eleve.dateInscription %}{{ eleve.dateInscription|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+                        <div class="profile-header-title">
+                            <h2><span class="color-rouge-ecole"> "Nom de l'élève"  </span></h2>
+                            <p>ELEVE | "Classe"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Profile -->
+    <div class="row">
+        <div class="col-xl-4">
+            <section class="panel profile-user" style="background-image: url({{ asset('../assets/common/img/temp/photos/11.jpeg') }})">
+                <div class="panel-body">
+                    <div class="profile-user-title text-center">
+                        <a class="avatar" href="javascript:void(0);">
+                            <img src="../assets/common/img/kid1.jpg" alt="Alternative text to the image">
+                        </a>
+                        <br />
 
-    <ul>
-        <li>
-            <a href="{{ path('eleve_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                        <br />
+                        <p >Dernière connexion: 2 Nov 2017 14:00PM</p><!-- dernière date de connexion -->
+                    </div>
+                </div>
+            </section>
+
+
+
+            <div class="widget widget-two">
+                <div class="widget-header">
+                    <span class="text-truncate text-nowrap icmn-profile color-black-ecole"> <strong>Informations de Base</strong></span>
+                </div>
+                <div class="widget-body clearfix">
+                    <dl class="dl-horizontal user-profile-dl">
+
+                        <dt><span class="icmn-vcard color-primary"> <strong> Contact Parent </strong></span></dt>
+                        <dd><i class="icmn-at-sign"></i> saddem.anane@gmail.com </dd>
+                        <dd><i class="icmn-mobile"></i> +216 22056260</dd>
+
+                    </dl>
+                </div>
+            </div>
+            <div class="widget widget-two">
+                <div class="widget-header">
+                    <span class="text-truncate text-nowrap icmn-pencil color-black-ecole"> <strong>Remarque</strong></span>
+                </div>
+                <div class="widget-body clearfix">
+                    <label class="form-control-label" for="l15"><span class="icmn-pencil5 color-primary"> <strong>Saisissez votre remarque</strong></span></label>
+                    <textarea class="form-control" rows="3" id="l15"></textarea>
+                    <br/>
+                    <button type="button" class="btn btn-primary icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-xl-8">
+            <section class="panel profile-user-content">
+                <div class="panel-body">
+                    <div class="nav-tabs-horizontal">
+                        <ul class="nav nav-tabs" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="javascript: void(0);" data-toggle="tab" data-target="#fiche_eleve" role="tab">
+                                    <i class="icmn-user"></i>
+                                    Fiche Elève
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#fiche_parent" role="tab">
+                                    <i class="icmn-tie"></i>
+                                    Fiche Parent
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#historique" role="tab">
+                                    <i class="icmn-design"></i>
+                                    Historique des études
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#remarques" role="tab">
+                                    <i class="icmn-pencil5"></i>
+                                    Remarques et Sanction
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#cnx" role="tab">
+                                    <i class="icmn-enter"></i>
+                                    Historiques des connexions
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content padding-vertical-20">
+                            <div class="tab-pane " id="cnx" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example4" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Id</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>id</td>
+                                            <td>Date</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="fiche_parent" role="tabpanel">
+                                <br />
+                                <h5>FICHE PARENTS</h5>
+                                <!-- Boucle For -->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l0">Nom</label>
+                                            <input value="{{ eleve.Parent.nom }}" type="text" class="form-control" id="l0">
+                                            <!-- nom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l1">Prénom</label>
+                                            <input value="{{ eleve..Parent.prenom }}" type="text" class="form-control" id="l0">
+                                            <!-- prénom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">E-mail</label>
+                                            <input value="{{ eleve.Parent.email }}" type="text" class="form-control" id="l0">
+                                            <!-- email -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Téléphone</label>
+                                            <input value="{{ eleve.Parent.tel }}" type="text" class="form-control" id="l0">
+                                            <!-- telephone -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Méthode de contact</label>
+                                            <select class="form-control">
+                                                <option>Courrier électronique</option>
+                                                <option>SMS</option>
+
+                                            </select>
+                                            <!-- telephone -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Adresse</label>
+                                            <textarea type="textarea" class="form-control" id="l0">{{ eleve.Parent.adresse }}</textarea>
+                                            <!-- telephone -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-actions">
+                                    <div class="form-group">
+                                        <button type="button" class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
+                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="remarques" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3 class="color-black-ecole">Liste des sanctions</h3>
+                                        <br/>
+                                        <table class="table table-hover nowrap" id="example2" width="100%">
+                                            <thead class="thead-default">
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Enseignant</th>
+                                            <th>Cause</th>
+                                            </thead>
+                                            <tbody>
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>21/11/2017</td>
+                                            <td>M. Khalfi</td>
+                                            <td>xxxxx</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <h3 class="color-black-ecole">Liste des remarques</h3>
+                                        <br/>
+                                        <table class="table table-hover nowrap" id="example3" width="100%">
+                                            <thead class="thead-default">
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Enseignant</th>
+                                            <th>Remarque</th>
+                                            </thead>
+                                            <tbody>
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>21/11/2017</td>
+                                            <td>M. Khalfi</td>
+                                            <td>xxxxx</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="historique" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example1" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Année Scolaire</th>
+                                                <th>Classe</th>
+                                                <th>Moyenne</th>
+                                                <th>Success</th>
+                                                <th>Bulletin</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>année scolaire</td>
+                                            <td>Classe</td>
+                                            <td>Moyenne</td>
+                                            <td>Success</td>
+                                            <td><a href="javascript: void(0);" class="link-underlined">Bulletin</a></td>
+                                            <td>
+                                                <center><a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-file-upload2"><!-- --></i></a></center>
+                                            </td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="fiche_eleve" role="tabpanel">
+                                <br />
+                                <h5>FICHE ELEVE</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l0">Nom</label>
+                                            <input value="{{ eleve.nom }}" type="text" class="form-control" id="l0">
+                                            <!-- nom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l1">Prénom</label>
+                                            <input value="{{ eleve.prénom }}" type="text" class="form-control" id="l0">
+                                            <!-- prénom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l3">Date de naissance</label>
+                                            <input value="{{ eleve.dateNaissance }}" type="text" class="form-control" id="l0">
+                                            <!-- date de naissance -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Genre</label>
+                                            <select class="form-control">
+                                                <option>Fille</option>
+                                                <option>Garçon</option>
+
+                                            </select>
+                                            <!-- genre -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">E-mail</label>
+                                            <input value="{{ eleve.email }}" type="text" class="form-control" id="l0">
+                                            <!-- email -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Téléphone</label>
+                                            <input value="{{ eleve.tel }}" type="text" class="form-control" id="l0">
+                                            <!-- telephone -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Méthode de contact</label>
+                                            <select class="form-control">
+                                                <option>Courrier électronique</option>
+                                                <option>SMS</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Date d'inscription</label>
+                                            <input value="{{ eleve.date_inscription }}" type="text" class="form-control" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Adresse</label>
+                                            <textarea class="form-control" id="l0">{{ eleve.adresse }}</textarea>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-actions">
+                                    <div class="form-group">
+                                        <button type="button" class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
+                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title color-black-ecole"><i class="fa fa-file-pdf-o color-black-ecole" aria-hidden="true"></i> NOUVEAU BULLETIN</h3>
+                            </div>
+                            <form action="{{ path('classe_new') }}" method="post" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+
+                                                    <div class="form-group ">
+                                                        <input type="file" id="l16">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-perso icmn-plus-circle"> Ajouter</button>
+                                <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- End Profile -->
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(function () {
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example2').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example3').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example4').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+
 {% endblock %}
