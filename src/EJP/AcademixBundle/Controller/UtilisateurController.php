@@ -6,6 +6,7 @@ use EJP\AcademixBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -48,9 +49,31 @@ class UtilisateurController extends Controller
 
     {
 
-
     }
 
+
+    /**
+     * Lists all utilisateur entities.
+     *
+     * @Route("/etat_ajax", name="utilisateur_etat_ajax")
+     * @Method("POST")
+     */
+    public function etatAction(Request $request)
+    {
+        $id=$request->request->get('id');
+        $etat=$request->request->get('etat');
+        $utilisateur = new Utilisateur();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $utilisateur = $em->getRepository('EJPAcademixBundle:Utilisateur')->find($id);
+        $utilisateur->setEtat($etat);
+        $em->flush();
+
+        return new Response("ok");
+
+
+    }
 
     /**
      * Lists all utilisateur entities.

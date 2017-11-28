@@ -52,11 +52,23 @@
                     <td><a href="javascript: void(0);" class="link-underlined">{{ enseignant.email }}</a></td>
                     <td>{{ enseignant.telephone }}</td>
                     <td>{{ enseignant.dateRecrutement | date('d M ,Y')}}</td>
-                    {% if enseignant.etat==1 %}
-                    <td><span class="label label-success">Activé</span></td>
+                    {% if enseignant.etat %}
+                        <td>
+                            <label class="switch">
+                                <input value="{{ enseignant.id }}" class="state_button" type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+
+                        </td>
                     {% else %}
 
-                    <td><span class="label label-warning">Desactivé</span></td>
+                        <td>
+
+                            <label class="switch">
+                                <input value="{{ enseignant.id }}" class="state_button" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
                     {% endif %}
                     <th scope="row">
                         <input type="checkbox">
@@ -87,7 +99,80 @@
 
 {% endblock %}
 
+{% block stylesheets %}
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {display:none;}
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #e0de00;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #e0de00;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+{% endblock %}
+
 {% block javascripts %}
+
+
+    <script>
+
+        $( ".state_button" ).change(function( event ) {
+            var etat = $(this).is(":checked");
+            etat = etat ? 1 : 0;
+            var id = $(this).val();
+            $.post( "{{ path("utilisateur_etat_ajax") }}", { id: id, etat : etat } , function( data ) {
+            });
+
+        });
+    </script>
 
     <!-- Page Scripts -->
     <script>

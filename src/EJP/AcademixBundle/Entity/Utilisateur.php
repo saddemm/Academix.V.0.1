@@ -43,7 +43,7 @@ class Utilisateur implements UserInterface, \Serializable
     {
 
         $this->createdAt = new \DateTime();
-        $this->etat = 1;
+        $this->etat = true;
         $this->setRoles(Role::roleFinder($this));
         $this->setPassword(Generator::generatePassword());
 
@@ -58,6 +58,14 @@ class Utilisateur implements UserInterface, \Serializable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=10)
+     */
+    private $sex;
 
     /**
      * @var string
@@ -121,9 +129,9 @@ class Utilisateur implements UserInterface, \Serializable
 
 
     /**
-     * @var integer
+     * @var boolean
      *
-     * @ORM\Column(name="etat", type="integer")
+     * @ORM\Column(name="etat", type="boolean")
      */
     private $etat;
 
@@ -209,26 +217,29 @@ class Utilisateur implements UserInterface, \Serializable
     /**
      * Set etat
      *
-     * @param integer $etat
+     * @param bool $etat
      *
      * @return Utilisateur
      */
     public function setEtat($etat)
     {
+
         $this->etat = $etat;
 
         return $this;
     }
 
     /**
-     * Get etat
-     *
-     * @return integer
-     */
+ * Get etat
+ *
+ * @return bool
+ */
     public function getEtat()
     {
         return $this->etat;
     }
+
+
 
     /**
      * @param string $password
@@ -493,6 +504,23 @@ class Utilisateur implements UserInterface, \Serializable
     public function getImageName()
     {
         return $this->imageName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @param string $sex
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+        return $this;
     }
 
 

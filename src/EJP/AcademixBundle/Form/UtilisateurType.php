@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UtilisateurType extends AbstractType
 {
@@ -25,7 +26,13 @@ class UtilisateurType extends AbstractType
             ->add('email',EmailType::class,array('attr' => array('class' => 'form-control')))
             ->add('telephone',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'form-control')))
-            ->add('dateNaissance',DateType::class,array('widget' => 'single_text', 'attr' => array('class' => 'form-control')));
+            ->add('dateNaissance',DateType::class,array('widget' => 'single_text', 'attr' => array('class' => 'form-control')))
+            ->add('sex', ChoiceType::class, array(
+                'attr' => array('class' => 'form-control'),
+                'choices'  => array(
+                    'H' => "H",
+                    'F' => "F"
+                )));
     }
     
     /**
