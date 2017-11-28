@@ -28,6 +28,13 @@ class Classe
      */
     private $nom;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="niveau", type="integer")
+     */
+    private $niveau;
+
 
     /**
      * Get id
@@ -61,6 +68,22 @@ class Classe
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * @param int $niveau
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
     }
 
     public function __toString()
