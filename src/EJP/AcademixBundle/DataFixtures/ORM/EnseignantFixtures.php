@@ -36,6 +36,7 @@ class EnseignantFixtures extends Fixture
             $enseignant->setDateNaissance(new \DateTime());
             $enseignant->setDateRecrutement(new \DateTime());
             $enseignant->setTelephone("2205826".$i);
+            $enseignant->setSex("F");
 
             $manager->persist($enseignant);
         }

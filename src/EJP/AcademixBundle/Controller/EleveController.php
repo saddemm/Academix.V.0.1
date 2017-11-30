@@ -2,7 +2,9 @@
 
 namespace EJP\AcademixBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use EJP\AcademixBundle\Entity\Eleve;
+use EJP\AcademixBundle\Entity\Parents;
 use EJP\AcademixBundle\Form\EleveType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -45,12 +47,44 @@ class EleveController extends Controller
     public function newAction(Request $request)
     {
         $eleve = new Eleve();
+        /*
+        $parent = new Parents();
+        $parent->setPrenom("Soiei");
+        $parent->setNom("SIe");
+        $parent->setEmail("SIseos");
+        $parent->setAdr("SOskaoisa");
+        $parent->setMethodeContact("OISoeie");
+        $parent->setTel("S0Keiosk");
+        $parent->setResponsable("OSkes");
+
+        $parent2 = new Parents();
+        $parent2->setPrenom("ZZZZZZZZ");
+        $parent2->setNom("ZZZZZ");
+        $parent2->setEmail("ZZZZZ");
+        $parent2->setAdr("ZZZZ");
+        $parent2->setMethodeContact("ZZZZ");
+        $parent2->setTel("ZZZZ");
+        $parent2->setResponsable("ZZZZ");
+
+
+        $eleve->addParent($parent);
+        $eleve->addParent($parent2);*/
+
+        /*
+        $parents=new ArrayCollection();
+        $parents->add($parent);
+        $parents->add($parent2);
+        $eleve->setParents($parents);*/
+
+
+
         $form = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
         $form->handleRequest($request);
 
 
-        if ($form->isSubmitted() && $form->isValid()) {
 
+
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($eleve);
@@ -73,11 +107,11 @@ class EleveController extends Controller
      */
     public function showAction(Eleve $eleve)
     {
-        $deleteForm = $this->createDeleteForm($eleve);
+        $form = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
 
         return $this->render('eleve/show.html.twig', array(
             'eleve' => $eleve,
-            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView()
         ));
     }
 
@@ -96,7 +130,7 @@ class EleveController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('eleve_edit', array('id' => $eleve->getId()));
+            return $this->redirectToRoute('eleve_show', array('id' => $eleve->getId()));
         }
 
         return $this->render('eleve/edit.html.twig', array(

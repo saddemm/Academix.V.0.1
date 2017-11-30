@@ -61,9 +61,12 @@
                     <td>{{ eleve.telephone }}</td>
                     <td>{{ eleve.dateNaissance | date('d M ,Y')}}</td>
                     <td>
+                        MethodeContact en crs
+                        {#
                         {% if (eleve.parents != null) %}
                         {{ eleve.parents.methodeContact }}
                         {% endif %}
+                        #}
                     </td>
                     {% if eleve.etat %}
                         <td>

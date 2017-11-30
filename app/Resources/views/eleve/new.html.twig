@@ -58,12 +58,6 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l15">Methode de contact</label>
-                                    {{ form_widget(form.parents.methodeContact) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
                                     <label for="l30">Date de naissance</label>
                                     {{ form_widget(form.Utilisateur.dateNaissance) }}
                                 </div>
@@ -101,59 +95,60 @@
 
                         <h5 class="color-black-ecole icmn-users"> Informations sur les parents</h5>
                         <div class="row">
+                            <div class="pars" data-prototype="{{ form_row(form.parents.vars.prototype)|e('html_attr') }}">
+                            {% for parent in form.parents %}
+                            <div class="par">
+
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l30">Nom mère</label>
-                                    {{ form_widget(form.parents.nomMere) }}
+                                    <label for="l30">Nom</label>
+                                    {{ form_widget(parent.nom) }}
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l30">Nom père</label>
-                                    {{ form_widget(form.parents.nomPere) }}
+                                    <label for="l30">Prénom</label>
+                                    {{ form_widget(parent.prenom) }}
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l30">E-mail mère</label>
-                                    {{ form_widget(form.parents.emailMere) }}
+                                    <label for="l30">E-mail</label>
+                                    {{ form_widget(parent.email) }}
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l30">E-mail père</label>
-                                    {{ form_widget(form.parents.emailPere) }}
+                                    <label for="l30">Téléphone</label>
+                                    {{ form_widget(parent.tel) }}
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="l30">Téléphone mère</label>
-                                    {{ form_widget(form.parents.telMere) }}
+                                    <label class="form-control-label" for="l15">Adresse</label>
+                                    {{ form_widget(parent.adr) }}
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l30">Téléphone père</label>
-                                    {{ form_widget(form.parents.telPere) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Adresse mère</label>
-                                    {{ form_widget(form.parents.adrMere) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Adresse père</label>
-                                    {{ form_widget(form.parents.adrPere) }}
-                                </div>
-                            </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Methode de contact</label>
+                                            {{ form_widget(parent.methodeContact) }}
+                                        </div>
+                                    </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="l15">Responsable</label>
-                                    {{ form_widget(form.parents.responsable) }}
+                                    {{ form_widget(parent.responsable) }}
                                 </div>
+                            </div>
+                            </div>
+
+                                <hr>
+                            {% endfor %}
+
+
+
                             </div>
 
                         </div>
@@ -174,5 +169,85 @@
             {{ form_widget(form._token) }}
         </form>
 
+
+
     </div>
 </div>
+
+{% block stylesheets %}
+<script>
+    var $collectionHolder;
+
+    // setup an "add a tag" link
+    var $addTagLink = $('<a href="#" class="add_tag_link">Add a tag</a>');
+    var $newLinkLi = $('<div class="pars"></div>').append($addTagLink);
+
+    jQuery(document).ready(function() {
+    // Get the ul that holds the collection of tags
+    $collectionHolder = $('div.pars');
+
+    // add the "add a tag" anchor and li to the tags ul
+    $collectionHolder.append($newLinkLi);
+
+        // add a delete link to all of the existing tag form li elements
+        $collectionHolder.find('.par').each(function() {
+            addTagFormDeleteLink($(this));
+        });
+
+    // count the current form inputs we have (e.g. 2), use that as the new
+    // index when inserting a new item (e.g. 2)
+    $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+    $addTagLink.on('click', function(e) {
+    // prevent the link from creating a "#" on the URL
+    e.preventDefault();
+
+    // add a new tag form (see next code block)
+    addTagForm($collectionHolder, $newLinkLi);
+    });
+    });
+
+
+    function addTagForm($collectionHolder, $newLinkLi) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        var newForm = prototype;
+        // You need this only if you didn't set 'label' => false in your tags field in TaskType
+        // Replace '__name__label__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        // newForm = newForm.replace(/__name__label__/g, index);
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        newForm = newForm.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<div class="par"></div>').append(newForm);
+        $newLinkLi.before($newFormLi);
+
+        addTagFormDeleteLink($newFormLi);
+    }
+
+    function addTagFormDeleteLink($tagFormLi) {
+        var $removeFormA = $('<a href="#">delete this tag</a>');
+        $tagFormLi.append($removeFormA);
+
+        $removeFormA.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // remove the li for the tag form
+            $tagFormLi.remove();
+        });
+    }
+
+</script>
+
+{% endblock %}

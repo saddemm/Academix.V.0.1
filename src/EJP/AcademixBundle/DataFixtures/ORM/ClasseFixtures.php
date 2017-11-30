@@ -26,6 +26,7 @@ class ClasseFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $classe = new Classe();
             $classe->setNom('CP '.$i);
+            $classe->setNiveau($i);
 
             $manager->persist($classe);
             $this->addReference('classe'.$i, $classe);

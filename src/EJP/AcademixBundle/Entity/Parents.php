@@ -5,10 +5,10 @@ namespace EJP\AcademixBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Parent
+ * Parents
  *
  * @ORM\Table(name="parents")
- * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\ParentRepository")
+ * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\ParentsRepository")
  */
 class Parents
 {
@@ -24,58 +24,37 @@ class Parents
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_mere", type="string", length=50, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=50)
      */
-    private $nomMere;
+    private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_pere", type="string", length=50, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=50)
      */
-    private $nomPere;
+    private $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tel_mere", type="string", length=50, nullable=true)
+     * @ORM\Column(name="tel", type="string", length=50)
      */
-    private $telMere;
+    private $tel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tel_pere", type="string", length=50, nullable=true)
+     * @ORM\Column(name="email", type="string", length=100)
      */
-    private $telPere;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email_mere", type="string", length=50, nullable=true)
+     * @ORM\Column(name="adr", type="string", length=100)
      */
-    private $emailMere;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email_pere", type="string", length=50, nullable=true)
-     */
-    private $emailPere;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adr_mere", type="string", length=50, nullable=true)
-     */
-    private $adrMere;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adr_pere", type="string", length=50, nullable=true)
-     */
-    private $adrPere;
+    private $adr;
 
     /**
      * @var string
@@ -89,17 +68,14 @@ class Parents
      *
      * @ORM\Column(name="responsable", type="string", length=50)
      */
-
     private $responsable;
 
-
     /**
-     * One Customer has One Cart.
-     * @ORM\OneToOne(targetEntity="Eleve", mappedBy="parents")
+     *
+     * @ORM\ManyToOne(targetEntity="Eleve", inversedBy="parents")
+     * @ORM\JoinColumn(name="eleve_id", referencedColumnName="id")
      */
-
     private $eleve;
-
 
     /**
      * Get id
@@ -112,195 +88,123 @@ class Parents
     }
 
     /**
-     * Set nomMere
+     * Set nom
      *
-     * @param string $nomMere
+     * @param string $nom
      *
      * @return Parents
      */
-    public function setNomMere($nomMere)
+    public function setNom($nom)
     {
-        $this->nomMere = $nomMere;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get nomMere
+     * Get nom
      *
      * @return string
      */
-    public function getNomMere()
+    public function getNom()
     {
-        return $this->nomMere;
+        return $this->nom;
     }
 
     /**
-     * Set nomPere
+     * Set prenom
      *
-     * @param string $nomPere
+     * @param string $prenom
      *
      * @return Parents
      */
-    public function setNomPere($nomPere)
+    public function setPrenom($prenom)
     {
-        $this->nomPere = $nomPere;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     /**
-     * Get nomPere
+     * Get prenom
      *
      * @return string
      */
-    public function getNomPere()
+    public function getPrenom()
     {
-        return $this->nomPere;
+        return $this->prenom;
     }
 
     /**
-     * Set telMere
+     * Set tel
      *
-     * @param string $telMere
+     * @param string $tel
      *
      * @return Parents
      */
-    public function setTelMere($telMere)
+    public function setTel($tel)
     {
-        $this->telMere = $telMere;
+        $this->tel = $tel;
 
         return $this;
     }
 
     /**
-     * Get telMere
+     * Get tel
      *
      * @return string
      */
-    public function getTelMere()
+    public function getTel()
     {
-        return $this->telMere;
+        return $this->tel;
     }
 
     /**
-     * Set telPere
+     * Set email
      *
-     * @param string $telPere
+     * @param string $email
      *
      * @return Parents
      */
-    public function setTelPere($telPere)
+    public function setEmail($email)
     {
-        $this->telPere = $telPere;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get telPere
+     * Get email
      *
      * @return string
      */
-    public function getTelPere()
+    public function getEmail()
     {
-        return $this->telPere;
+        return $this->email;
     }
 
     /**
-     * Set emailMere
+     * Set adr
      *
-     * @param string $emailMere
+     * @param string $adr
      *
      * @return Parents
      */
-    public function setEmailMere($emailMere)
+    public function setAdr($adr)
     {
-        $this->emailMere = $emailMere;
+        $this->adr = $adr;
 
         return $this;
     }
 
     /**
-     * Get emailMere
+     * Get adr
      *
      * @return string
      */
-    public function getEmailMere()
+    public function getAdr()
     {
-        return $this->emailMere;
-    }
-
-    /**
-     * Set emailPere
-     *
-     * @param string $emailPere
-     *
-     * @return Parents
-     */
-    public function setEmailPere($emailPere)
-    {
-        $this->emailPere = $emailPere;
-
-        return $this;
-    }
-
-    /**
-     * Get emailPere
-     *
-     * @return string
-     */
-    public function getEmailPere()
-    {
-        return $this->emailPere;
-    }
-
-    /**
-     * Set adrMere
-     *
-     * @param string $adrMere
-     *
-     * @return Parents
-     */
-    public function setAdrMere($adrMere)
-    {
-        $this->adrMere = $adrMere;
-
-        return $this;
-    }
-
-    /**
-     * Get adrMere
-     *
-     * @return string
-     */
-    public function getAdrMere()
-    {
-        return $this->adrMere;
-    }
-
-    /**
-     * Set adrPere
-     *
-     * @param string $adrPere
-     *
-     * @return Parents
-     */
-    public function setAdrPere($adrPere)
-    {
-        $this->adrPere = $adrPere;
-
-        return $this;
-    }
-
-    /**
-     * Get adrPere
-     *
-     * @return string
-     */
-    public function getAdrPere()
-    {
-        return $this->adrPere;
+        return $this->adr;
     }
 
     /**
@@ -328,6 +232,30 @@ class Parents
     }
 
     /**
+     * Set responsable
+     *
+     * @param string $responsable
+     *
+     * @return Parents
+     */
+    public function setResponsable($responsable)
+    {
+        $this->responsable = $responsable;
+
+        return $this;
+    }
+
+    /**
+     * Get responsable
+     *
+     * @return string
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
+    }
+
+    /**
      * @return mixed
      */
     public function getEleve()
@@ -341,24 +269,6 @@ class Parents
     public function setEleve($eleve)
     {
         $this->eleve = $eleve;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getResponsable()
-    {
-        return $this->responsable;
-    }
-
-    /**
-     * @param string $responsable
-     */
-    public function setResponsable($responsable)
-    {
-        $this->responsable = $responsable;
-
         return $this;
     }
 

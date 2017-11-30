@@ -8,8 +8,14 @@
                     <div class="col-xl-8 col-xl-offset-4">
 
                         <div class="profile-header-title">
-                            <h2><span class="color-rouge-ecole"> "Nom de l'élève"  </span></h2>
-                            <p>ELEVE | "Classe"</p>
+                            <h2><span class="color-rouge-ecole"> " {{ eleve.prenom }} {{ eleve.nom}}"  </span></h2>
+                            <p>
+                                {% if eleve.currentEtude !=null %}
+                                Classe : {{ eleve.currentEtude.classe.nom }}
+                                {% else %}
+                                {{ eleve.prenom }} {{ eleve.nom}} n'est pas encore affecté à une classe
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -23,7 +29,7 @@
                 <div class="panel-body">
                     <div class="profile-user-title text-center">
                         <a class="avatar" href="javascript:void(0);">
-                            <img src="../assets/common/img/kid1.jpg" alt="Alternative text to the image">
+                            <img src="{{ asset('uploads/photos/') }}{{ eleve.imageName }}" alt="Photo de profil eleve">
                         </a>
                         <br />
 
@@ -129,31 +135,32 @@
                                 <h5>FICHE PARENTS</h5>
                                 <!-- Boucle For -->
                                 <div class="row">
+                                    {%  for par in eleve.parents %}
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l0">Nom</label>
-                                            <input value="{{ eleve.Parent.nom }}" type="text" class="form-control" id="l0">
+                                            <input value="" type="text" class="form-control" id="l0">
                                             <!-- nom -->
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l1">Prénom</label>
-                                            <input value="{{ eleve..Parent.prenom }}" type="text" class="form-control" id="l0">
+                                            <input value="" type="text" class="form-control" id="l0">
                                             <!-- prénom -->
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l4">E-mail</label>
-                                            <input value="{{ eleve.Parent.email }}" type="text" class="form-control" id="l0">
+                                            <input value="" type="text" class="form-control" id="l0">
                                             <!-- email -->
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l4">Téléphone</label>
-                                            <input value="{{ eleve.Parent.tel }}" type="text" class="form-control" id="l0">
+                                            <input value="" type="text" class="form-control" id="l0">
                                             <!-- telephone -->
                                         </div>
                                     </div>
@@ -172,10 +179,11 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="l4">Adresse</label>
-                                            <textarea type="textarea" class="form-control" id="l0">{{ eleve.Parent.adresse }}</textarea>
+                                            <textarea type="textarea" class="form-control" id="l0"></textarea>
                                             <!-- telephone -->
                                         </div>
                                     </div>
+                                    {% endfor %}
 
                                 </div>
                                 <div class="form-actions">
@@ -246,18 +254,22 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            {% for etude in eleve.etude %}
+                                                <tr>
                                             <!-- boucle for la liste des etudes liés à un eleve-->
                                             <th scope="row">
                                                 <input type="checkbox">
                                             </th>
-                                            <td>année scolaire</td>
-                                            <td>Classe</td>
-                                            <td>Moyenne</td>
-                                            <td>Success</td>
+                                            <td>{{ etude.anneeScolaire }}</td>
+                                            <td>{{ etude.classe.nom }}</td>
+                                            <td>{{ etude.moyenne }}</td>
+                                            <td>{{ etude.succes }}</td>
                                             <td><a href="javascript: void(0);" class="link-underlined">Bulletin</a></td>
                                             <td>
                                                 <center><a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-file-upload2"><!-- --></i></a></center>
                                             </td>
+                                                </tr>
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -266,87 +278,8 @@
                             <div class="tab-pane active" id="fiche_eleve" role="tabpanel">
                                 <br />
                                 <h5>FICHE ELEVE</h5>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l0">Nom</label>
-                                            <input value="{{ eleve.nom }}" type="text" class="form-control" id="l0">
-                                            <!-- nom -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l1">Prénom</label>
-                                            <input value="{{ eleve.prénom }}" type="text" class="form-control" id="l0">
-                                            <!-- prénom -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l3">Date de naissance</label>
-                                            <input value="{{ eleve.dateNaissance }}" type="text" class="form-control" id="l0">
-                                            <!-- date de naissance -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Genre</label>
-                                            <select class="form-control">
-                                                <option>Fille</option>
-                                                <option>Garçon</option>
+                                {{ render(controller('EJPAcademixBundle:Eleve:edit' , {'id' : eleve.id})) }}
 
-                                            </select>
-                                            <!-- genre -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">E-mail</label>
-                                            <input value="{{ eleve.email }}" type="text" class="form-control" id="l0">
-                                            <!-- email -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Téléphone</label>
-                                            <input value="{{ eleve.tel }}" type="text" class="form-control" id="l0">
-                                            <!-- telephone -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Méthode de contact</label>
-                                            <select class="form-control">
-                                                <option>Courrier électronique</option>
-                                                <option>SMS</option>
-
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Date d'inscription</label>
-                                            <input value="{{ eleve.date_inscription }}" type="text" class="form-control" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Adresse</label>
-                                            <textarea class="form-control" id="l0">{{ eleve.adresse }}</textarea>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="form-actions">
-                                    <div class="form-group">
-                                        <button type="button" class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
-                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>

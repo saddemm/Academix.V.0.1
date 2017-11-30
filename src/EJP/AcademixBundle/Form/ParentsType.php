@@ -5,6 +5,7 @@ namespace EJP\AcademixBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ParentsType extends AbstractType
@@ -14,32 +15,26 @@ class ParentsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomMere',null,array('attr' => array('class' => 'form-control')))
-            ->add('nomPere',null,array('attr' => array('class' => 'form-control')))
-            ->add('telMere',null,array('attr' => array('class' => 'form-control')))
-            ->add('telPere',null,array('attr' => array('class' => 'form-control')))
-            ->add('emailMere',null,array('attr' => array('class' => 'form-control')))
-            ->add('emailPere',null,array('attr' => array('class' => 'form-control')))
-            ->add('adrMere',null,array('attr' => array('class' => 'form-control')))
-            ->add('adrPere',null,array('attr' => array('class' => 'form-control')))
+        $builder
+            ->add('nom',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('prenom',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('tel',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('email',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('adr',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('methodeContact', ChoiceType::class, array(
+                'attr' => array('class' => 'form-control'),
                 'choices'  => array(
-                    'Telephone' => "Telephone",
+                    'Téléphone' => "Téléphone",
                     'Email' => "Email",
-                    'Poste' => "Poste",
-                ),
-                'attr' => array(
-                    'class' => 'form-control'
-                )
-            ))->add('responsable', ChoiceType::class, array(
+                    'Poste' => "Poste"
+                )))
+            ->add('responsable', ChoiceType::class, array(
+                'attr' => array('class' => 'form-control'),
                 'choices'  => array(
+                    'Père' => "Père",
                     'Mère' => "Mère",
-                    'Père' => "Père"
-                ),
-                'attr' => array(
-                    'class' => 'form-control'
-                )
-            ));
+                    'Autre' => "Autre"
+                )));
     }
     
     /**
