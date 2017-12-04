@@ -1,32 +1,486 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} Enseignant{% endblock %}
 {% block body %}
-    <h1>Enseignant</h1>
+    <!-- Profile Header -->
+    <nav class="top-submenu top-submenu-with-background">
+        <div class="profile-header">
+            <div class="profile-header-info">
+                <div class="row">
+                    <div class="col-xl-8 col-xl-offset-4">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ enseignant.id }}</td>
-            </tr>
-            <tr>
-                <th>Daterecrutement</th>
-                <td>{% if enseignant.dateRecrutement %}{{ enseignant.dateRecrutement|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+                        <div class="profile-header-title">
+                            <h2><span class="color-rouge-ecole"> "Nom de l'ensignant"  </span></h2>
+                            <p>ENSEIGNANT | "Matière"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- End Profile Header -->
+    <!-- Profile -->
+    <div class="row">
+        <div class="col-xl-4">
+            <section class="panel profile-user" style="background-image: url({{ asset('../assets/common/img/temp/photos/10.jpeg') }})">
+                <div class="panel-body">
+                    <div class="profile-user-title text-center">
+                        <a class="avatar" href="javascript:void(0);">
+                            <img src="../assets/common/img/temp/avatars/3.jpg" alt="Alternative text to the image">
+                        </a>
+                        <br />
+                        <div class="btn-group btn-group-center" aria-label="" role="group">
 
-    <ul>
-        <li>
-            <a href="{{ path('enseignant_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('enseignant_edit', { 'id': enseignant.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                            <div class="btn-group">
+                                <button type="button" class="btn width-150 swal-btn-success-2" data-toggle="modal" data-target="#myModal1" >Classe</button>
+                            </div>
+                        </div>
+                        <br />
+                        <p >Dernière connexion: 2 Nov 2017 14:00PM</p><!-- dernière date de connexion -->
+                        <p>
+                            <span class="donut donut-success"></span>
+                            En ligne
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <div class="widget widget-three">
+                <div class="example-calendar-block"></div>
+            </div>
+
+        </div>
+        <div class="col-xl-8">
+            <section class="panel profile-user-content">
+                <div class="panel-body">
+                    <div class="nav-tabs-horizontal">
+                        <ul class="nav nav-tabs" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="javascript: void(0);" data-toggle="tab" data-target="#fiche_enseignant" role="tab">
+                                    <i class="icmn-tie"></i>
+                                    Fiche Enseignant
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#liste_classe" role="tab">
+                                    <i class="icmn-design"></i>
+                                    Classes enseignées
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#ressources" role="tab">
+                                    <i class="icmn-books"></i>
+                                    Ressources pédagogiques partagées
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#rdv" role="tab">
+                                    <i class="icmn-calendar-day"></i>
+                                    Les Rendez-Vous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#cnx" role="tab">
+                                    <i class="icmn-enter"></i>
+                                    Historiques des connexions
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content padding-vertical-20">
+                            <div class="tab-pane " id="ressources" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example3" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Type ressource</th>
+                                                <th>Ressources</th>
+                                                <th>Télecharger</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>word</td>
+                                            <td>cours.docx</td>
+                                            <td>
+                                                <center><a href="javascript: void(0);" class="link-underlined margin-right-5"><i class="icmn-file-download2"><!-- --></i></a></center>
+                                            </td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="rdv" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example2" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date rendez-vous</th>
+                                                <th>Heure rendez-vous</th>
+                                                <th>Parent de l'élève</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>Date rendez-vous</td>
+                                            <td>Heure rendez-vous</td>
+                                            <td>Parent de l'élève</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="cnx" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example4" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Id</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>id</td>
+                                            <td>Date</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="liste_classe" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table table-hover nowrap" id="example1" width="100%">
+                                            <thead class="thead-default">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Année Scolaire</th>
+                                                <th>Classe</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!-- boucle for la liste des etudes liés à un eleve-->
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>année scolaire</td>
+                                            <td>Classe</td>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="fiche_enseignant" role="tabpanel">
+                                <br />
+                                <h5>FICHE ENSEIGNANT</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l0">Nom</label>
+                                            <input value="{{ enseignant.nom }}" type="text" class="form-control" id="l0">
+                                            <!-- nom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l1">Prénom</label>
+                                            <input value="{{ enseignant.prénom }}" type="text" class="form-control" id="l0">
+                                            <!-- prénom -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l3">Date de naissance</label>
+                                            <input value="{{ enseignant.dateNaissance }}" type="text" class="form-control" id="l0">
+                                            <!-- date de naissance -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">E-mail</label>
+                                            <input value="{{ enseignant.email }}" type="text" class="form-control" id="l0">
+                                            <!-- email -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Téléphone</label>
+                                            <input value="{{ enseignant.tel }}" type="text" class="form-control" id="l0">
+                                            <!-- telephone -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Date de recrutement</label>
+                                            <input value="{{ enseignant.date_recrutement }}" type="text" class="form-control" id="l0">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l4">Matière</label>
+                                            <input value="{{ enseignant.Matiere.libelle }}" type="text" class="form-control" id="l0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="form-group">
+                                        <button type="button" class="btn width-150 btn-perso icmn-plus-circle"> Modifier</button>
+                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <!-- End Profile -->
+    <!-- Modals -->
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i> AFFECTATION</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="l30">Année Scolaire</label>
+                                        <!-- liste des années scolaires-->
+                                        <select class="form-control">
+                                            <option>2017/2018</option>
+                                            <option>2016/2017</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="l15">Classe</label>
+                                        <!-- liste des classe active pour l'année scolaire choisie -->
+                                        <select class="form-control">
+                                            <option>CP1</option>
+                                            <option>CP2</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-perso icmn-user-plus"> Affecter</button>
+                    <button type="button" class="btn btn-default icmn-user-circle"> Annuler</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Modals -->
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(function () {
+            // Datatables
+            $('#example1').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example2').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example3').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            // Datatables
+            $('#example4').DataTable({
+                "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]],
+                responsive: true,
+                "autoWidth": false
+            });
+        })
+    </script>
+    <script>
+        $(function() {
+
+            ///////////////////////////////////////////////////////////
+            // ADJUSTABLE TEXTAREA
+            autosize($('#textarea'));
+
+            ///////////////////////////////////////////////////////////
+            // CUSTOM SCROLL
+            if (!cleanUI.hasTouch) {
+                $('.custom-scroll').each(function() {
+                    $(this).jScrollPane({
+                        autoReinitialise: true,
+                        autoReinitialiseDelay: 100
+                    });
+                    var api = $(this).data('jsp'),
+                        throttleTimeout;
+                    $(window).bind('resize', function() {
+                        if (!throttleTimeout) {
+                            throttleTimeout = setTimeout(function() {
+                                api.reinitialise();
+                                throttleTimeout = null;
+                            }, 50);
+                        }
+                    });
+                });
+            }
+
+            ///////////////////////////////////////////////////////////
+            // CALENDAR
+            $('.example-calendar-block').fullCalendar({
+                //aspectRatio: 2,
+                height: 403,
+                header: {
+                    left: 'prev, next',
+                    center: 'title',
+                    right: 'month, agendaWeek, agendaDay'
+                },
+                buttonIcons: {
+                    prev: 'none fa fa-arrow-left',
+                    next: 'none fa fa-arrow-right',
+                    prevYear: 'none fa fa-arrow-left',
+                    nextYear: 'none fa fa-arrow-right'
+                },
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                viewRender: function(view, element) {
+                    if (!cleanUI.hasTouch) {
+                        $('.fc-scroller').jScrollPane({
+                            autoReinitialise: true,
+                            autoReinitialiseDelay: 100
+                        });
+                    }
+                },
+                defaultDate: '2016-05-12',
+                events: [
+                    {
+                        title: 'All Day Event',
+                        start: '2016-05-01',
+                        className: 'fc-event-success'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2016-05-09T16:00:00',
+                        className: 'fc-event-default'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2016-05-16T16:00:00',
+                        className: 'fc-event-success'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2016-05-11',
+                        end: '2016-05-14',
+                        className: 'fc-event-danger'
+                    }
+                ],
+                eventClick: function(calEvent, jsEvent, view) {
+                    if (!$(this).hasClass('event-clicked')) {
+                        $('.fc-event').removeClass('event-clicked');
+                        $(this).addClass('event-clicked');
+                    }
+                }
+            });
+
+            ///////////////////////////////////////////////////////////
+            // GRAPH
+            var cssAnimationData = {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    series: [
+                        [1, 2, 2.7, 0, 3, 5, 3, 4, 8, 10, 12, 7],
+                        [0, 1.2, 2, 7, 2.5, 9, 5, 8, 9, 11, 14, 4],
+                        [10, 9, 8, 6.5, 6.8, 6, 5.4, 5.3, 4.5, 4.4, 3, 2.8]
+                    ]
+                },
+                cssAnimationResponsiveOptions = [
+                    [{
+                        axisX: {
+                            labelInterpolationFnc: function(value, index) {
+                                return index % 2 !== 0 ? !1 : value
+                            }
+                        }
+                    }]
+                ];
+
+            new Chartist.Line(".chartist-one", cssAnimationData, {
+                plugins: [
+                    Chartist.plugins.tooltip()
+                ]}, cssAnimationResponsiveOptions);
+
+            ///////////////////////////////////////////////////////////
+            // CAROUSEL WIDGET
+            $('.carousel-widget').carousel({
+                interval: 4000
+            });
+
+            $('.carousel-widget-2').carousel({
+                interval: 6000
+            });
+
+            ///////////////////////////////////////////////////////////
+            // TOOLTIPS
+            $("[data-toggle=tooltip]").tooltip();
+
+        });
+    </script>
 {% endblock %}
