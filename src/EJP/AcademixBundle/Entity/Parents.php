@@ -66,9 +66,18 @@ class Parents
     /**
      * @var string
      *
-     * @ORM\Column(name="responsable", type="string", length=50)
+     * @ORM\Column(name="type", type="string", length=50)
+     */
+    private $type;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="responsable", type="boolean")
      */
     private $responsable;
+
+
 
     /**
      *
@@ -232,27 +241,20 @@ class Parents
     }
 
     /**
-     * Set responsable
-     *
-     * @param string $responsable
-     *
-     * @return Parents
+     * @param string $type
      */
-    public function setResponsable($responsable)
+    public function setType($type)
     {
-        $this->responsable = $responsable;
-
+        $this->type = $type;
         return $this;
     }
 
     /**
-     * Get responsable
-     *
      * @return string
      */
-    public function getResponsable()
+    public function getType()
     {
-        return $this->responsable;
+        return $this->type;
     }
 
     /**
@@ -269,6 +271,23 @@ class Parents
     public function setEleve($eleve)
     {
         $this->eleve = $eleve;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isResponsable()
+    {
+        return $this->responsable;
+    }
+
+    /**
+     * @param bool $responsable
+     */
+    public function setResponsable($responsable)
+    {
+        $this->responsable = $responsable;
         return $this;
     }
 

@@ -37,6 +37,28 @@ class ClasseController extends Controller
         ));
     }
 
+
+    /**
+     * Lists all classe entities.
+     *
+     * @Route("/list", name="classe_index_list")
+     * @Method("GET")
+     */
+
+    public function listAction()
+    {
+
+        $classe = new Classe();
+
+        $em = $this->getDoctrine()->getManager();
+
+        $classes = $em->getRepository('EJPAcademixBundle:Classe')->findAll();
+
+        return $this->render('classe/select.html.twig', array(
+            'classes' => $classes
+        ));
+    }
+
     /**
      * Creates a new classe entity.
      *

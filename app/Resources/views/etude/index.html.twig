@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etudes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Anneescolaire</th>
+                <th>Moyenne</th>
+                <th>Succes</th>
+                <th>Niveau</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etude in etudes %}
+            <tr>
+                <td><a href="{{ path('etude_show', { 'id': etude.id }) }}">{{ etude.id }}</a></td>
+                <td>{{ etude.anneeScolaire }}</td>
+                <td>{{ etude.moyenne }}</td>
+                <td>{{ etude.succes }}</td>
+                <td>{{ etude.niveau }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etude_show', { 'id': etude.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etude_edit', { 'id': etude.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etude_new') }}">Create a new etude</a>
+        </li>
+    </ul>
+{% endblock %}

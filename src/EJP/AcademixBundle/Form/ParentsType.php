@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,6 +22,7 @@ class ParentsType extends AbstractType
             ->add('tel',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('email',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('adr',TextType::class,array('attr' => array('class' => 'form-control')))
+            ->add('responsable',CheckboxType::class,array('required' => false, 'attr' => array('class' => 'form-control')))
             ->add('methodeContact', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control'),
                 'choices'  => array(
@@ -28,11 +30,13 @@ class ParentsType extends AbstractType
                     'Email' => "Email",
                     'Poste' => "Poste"
                 )))
-            ->add('responsable', ChoiceType::class, array(
+            ->add('type', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control'),
                 'choices'  => array(
                     'Père' => "Père",
                     'Mère' => "Mère",
+                    'Frère' => "Frère",
+                    'Soeur' => "Soeur",
                     'Autre' => "Autre"
                 )));
     }

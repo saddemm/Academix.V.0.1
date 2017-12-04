@@ -23,7 +23,7 @@ class EnseignantFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         // create 20 products! Bam!
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             $enseignant = new Enseignant();
             $enseignant->setNom('NomEns '.$i);
             $enseignant->setPrenom('PrenomEns '.$i);

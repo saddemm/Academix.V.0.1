@@ -38,7 +38,7 @@ class EleveFixtures extends Fixture
         $parents->add($parent);
 
         // create 20 products! Bam!
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             $eleve = new Eleve();
             $parent->setEleve($eleve);
 

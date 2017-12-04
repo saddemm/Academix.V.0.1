@@ -45,7 +45,7 @@ class Etude
     /**
      * @var int
      *
-     * @ORM\Column(name="niveau", type="integer")
+     * @ORM\Column(name="niveau", type="integer", nullable=true)
      */
     private $niveau;
 

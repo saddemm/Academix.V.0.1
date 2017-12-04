@@ -51,8 +51,8 @@
                     <td>{{ eleve.nom }} {{ eleve.prenom }}</td>
                     <td>{{ eleve.username }}</td>
                     <td>
-                        {% if eleve.currentEtude != null  %}
-                        {{ eleve.currentEtude.classe.nom }}
+                        {% if eleve.currentClasse is not empty  %}
+                        {{ eleve.currentClasse.nom }}
                         {% else  %}
                             Pas de classe
                         {% endif  %}

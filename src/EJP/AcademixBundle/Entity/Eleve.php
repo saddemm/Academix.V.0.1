@@ -3,8 +3,10 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Repository\RepositoryFactory;
+use EJP\AcademixBundle\Service\AnneeScolaire;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
@@ -21,6 +23,7 @@ class Eleve extends Utilisateur
     {
         parent::__construct();
         $this->parents = new ArrayCollection();
+        $this->etudes = new ArrayCollection();
 
     }
 
@@ -28,10 +31,10 @@ class Eleve extends Utilisateur
     /**
      * @var Etude
      * One eleve has Many etudes.
-     * @ORM\OneToMany(targetEntity="Etude", mappedBy="eleve")
+     * @ORM\OneToMany(targetEntity="Etude", mappedBy="eleve",cascade={"persist"})
      */
 
-    private $etude;
+    private $etudes;
 
 
     /**
@@ -41,41 +44,108 @@ class Eleve extends Utilisateur
 
     private $parents;
 
+    private $currentEtude;
+
+    private $currentEtudes;
+
+    private $parentsResponsable;
+
 
     /**
      * @return Etude
      */
     public function getCurrentEtude()
     {
-        $year =  2004;
+        $year =  AnneeScolaire::getAnneeScolaire();
+        $currentEtude = null;
+
+        /** @var Etude $etude */
+        foreach ($this->getEtudes() as $etude){
+            if ($etude->getAnneeScolaire()==$year){
+                $currentEtude=$etude;
+            }
+        }
+
+        return $currentEtude;
+
+        /*
         $etude = null;
         $i = 0;
-
-        while($etude == null && $i<count($this->getEtude())){
-            if($this->getEtude()[$i]->getAnneeScolaire()==$year){
-                $etude=$this->getEtude()[$i];
+        while($etude == null && $i<count($this->getEtudes())){
+            if($this->getEtudes()[$i]->getAnneeScolaire()==$year){
+                $etude=$this->getEtudes()[$i];
             }
             $i++;
         }
 
         return $etude;
+        */
+
     }
 
+    public function getCurrentEtudes()
+    {
+
+
+        $criteria = Criteria::create()->where(Criteria::expr()->eq("anneeScolaire", AnneeScolaire::getAnneeScolaire()));
+
+        $this->etudes = $this->etudes->matching($criteria);
+        return $this->etudes;
+    }
+
+    /**
+     * @param mixed $currentEtudes
+     */
+    public function setCurrentEtudes($currentEtudes)
+    {
+        $this->currentEtudes = $currentEtudes;
+        return $this;
+    }
+
+    public function getCurrentClasse()
+    {
+        $year = AnneeScolaire::getAnneeScolaire();
+        $currentClasse = null;
+
+        /** @var Etude $etude */
+        foreach ($this->getEtudes() as $etude) {
+            if ($etude->getAnneeScolaire() == $year && $etude->getClasse() != null) {
+                $currentClasse = $etude->getClasse();
+            }
+        }
+
+        return $currentClasse;
+
+    }
+
+    /**
+     * @param mixed $currentEtude
+     */
+    public function setCurrentEtude($currentEtude)
+    {
+        $this->currentEtude = $currentEtude;
+        return $this;
+    }
 
     /**
      * @return Etude
      */
-    public function getEtude()
+    public function getEtudes()
     {
-        return $this->etude;
+        return $this->etudes;
     }
 
     /**
      * @param mixed $etude
      */
-    public function setEtude($etude)
+    public function setEtudes($etudes)
     {
-        $this->etude = $etude;
+        if(!empty($etudes) && $etudes === $this->etudes) {
+            reset($etudes);
+            $etudes[key($etudes)] = clone current($etudes);
+        }
+
+        $this->etudes = $etudes;
         return $this;
     }
 
@@ -88,10 +158,25 @@ class Eleve extends Utilisateur
     }
 
     /**
+     * @return mixed
+     */
+    public function getParentsResponsable()
+    {
+        $criteria = Criteria::create()->where(Criteria::expr()->eq("responsable", true));
+
+
+        return $this->parents->matching($criteria);
+
+    }
+    /**
      * @param mixed $parents
      */
     public function setParents($parents)
     {
+        if(!empty($parents) && $parents === $this->parents) {
+            reset($parents);
+            $parents[key($parents)] = clone current($parents);
+        }
         $this->parents = $parents;
         return $this;
     }
@@ -108,7 +193,8 @@ class Eleve extends Utilisateur
      */
     public function addEtude(\EJP\AcademixBundle\Entity\Etude $etude)
     {
-        $this->etude[] = $etude;
+        $etude->setEleve($this);
+        $this->etudes[] = $etude;
 
         return $this;
     }
@@ -120,7 +206,7 @@ class Eleve extends Utilisateur
      */
     public function removeEtude(\EJP\AcademixBundle\Entity\Etude $etude)
     {
-        $this->etude->removeElement($etude);
+        $this->etudes->removeElement($etude);
     }
 
     /**

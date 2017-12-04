@@ -1,0 +1,12 @@
+
+    <h1>Etude edit</h1>
+
+    <form action="{{ path('etude_edit', {'id' : etude.id}) }}" method="post">
+        {{ form_widget(edit_form) }}
+        {{ form_widget(edit_form._token) }}
+        <br>
+        <input class="btn width-150 btn-primary icmn-plus-circle" type="submit" value="Edit" />
+    </form>
+
+
+

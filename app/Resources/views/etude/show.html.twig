@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etude</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etude.id }}</td>
+            </tr>
+            <tr>
+                <th>Anneescolaire</th>
+                <td>{{ etude.anneeScolaire }}</td>
+            </tr>
+            <tr>
+                <th>Moyenne</th>
+                <td>{{ etude.moyenne }}</td>
+            </tr>
+            <tr>
+                <th>Succes</th>
+                <td>{{ etude.succes }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ etude.niveau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etude_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('etude_edit', { 'id': etude.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

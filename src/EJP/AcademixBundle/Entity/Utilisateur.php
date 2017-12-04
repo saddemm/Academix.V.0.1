@@ -5,6 +5,7 @@ namespace EJP\AcademixBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use EJP\AcademixBundle\Service\Generator;
 use EJP\AcademixBundle\Service\Role;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
@@ -119,6 +120,13 @@ class Utilisateur implements UserInterface, \Serializable
     private $createdAt;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime",nullable=true)
+     */
+    private $updatedAt;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=255)
@@ -177,6 +185,24 @@ class Utilisateur implements UserInterface, \Serializable
         $this->createdAt = $createdAt;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
 
     /**
      * @return string
@@ -472,6 +498,10 @@ class Utilisateur implements UserInterface, \Serializable
     public function setMyFile(File $thefile = null)
     {
         $this->myFile = $thefile;
+
+        if ($thefile instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
 
 
         return $this;

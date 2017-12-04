@@ -1,6 +1,6 @@
 
 
-    <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
+
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -56,6 +56,20 @@
                 </div>
             </div>
 
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label" for="l4">File</label>
+                    {{ form_widget(form.Utilisateur.myFile) }}
+
+                </div>
+            </div>
+
+
+
+            <div class="clearfix"></div>
+
+           {# {% include 'eleve/parents.html.twig' %}#}
+
         </div>
         <div class="form-actions">
             <div class="form-group">
@@ -66,5 +80,5 @@
 
 
         {{ form_widget(form._token) }}
-    </form>
+
 

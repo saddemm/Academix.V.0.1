@@ -1,0 +1,5 @@
+<select name="classe" class="form-control">
+    {% for classe in classes %}
+        <option value="{{ classe.id }}">{{ classe.nom }}</option>
+    {% endfor %}
+</select>

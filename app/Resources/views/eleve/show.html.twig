@@ -10,8 +10,8 @@
                         <div class="profile-header-title">
                             <h2><span class="color-rouge-ecole"> " {{ eleve.prenom }} {{ eleve.nom}}"  </span></h2>
                             <p>
-                                {% if eleve.currentEtude !=null %}
-                                Classe : {{ eleve.currentEtude.classe.nom }}
+                                {% if eleve.currentClasse !=null %}
+                                Classe : {{ eleve.currentClasse.nom }}
                                 {% else %}
                                 {{ eleve.prenom }} {{ eleve.nom}} n'est pas encore affecté à une classe
                                 {% endif %}
@@ -49,8 +49,12 @@
                     <dl class="dl-horizontal user-profile-dl">
 
                         <dt><span class="icmn-vcard color-primary"> <strong> Contact Parent </strong></span></dt>
-                        <dd><i class="icmn-at-sign"></i> saddem.anane@gmail.com </dd>
-                        <dd><i class="icmn-mobile"></i> +216 22056260</dd>
+                        {% for responsable in eleve.parentsResponsable %}
+                            <dd><i class="icmn-user3"></i> {{ responsable.type }} </dd>
+                        <dd><i class="icmn-at-sign"></i> {{ responsable.email }} </dd>
+                        <dd><i class="icmn-mobile"></i> {{ responsable.tel }}</dd>
+                            <br>
+                        {% endfor %}
 
                     </dl>
                 </div>
@@ -105,6 +109,13 @@
                                     Historiques des connexions
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#classe" role="tab">
+                                    <i class="icmn-enter"></i>
+                                    Changer de classe
+                                </a>
+                            </li>
                         </ul>
                         <div class="tab-content padding-vertical-20">
                             <div class="tab-pane " id="cnx" role="tabpanel">
@@ -130,69 +141,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane " id="fiche_parent" role="tabpanel">
-                                <br />
-                                <h5>FICHE PARENTS</h5>
-                                <!-- Boucle For -->
-                                <div class="row">
-                                    {%  for par in eleve.parents %}
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l0">Nom</label>
-                                            <input value="" type="text" class="form-control" id="l0">
-                                            <!-- nom -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l1">Prénom</label>
-                                            <input value="" type="text" class="form-control" id="l0">
-                                            <!-- prénom -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">E-mail</label>
-                                            <input value="" type="text" class="form-control" id="l0">
-                                            <!-- email -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Téléphone</label>
-                                            <input value="" type="text" class="form-control" id="l0">
-                                            <!-- telephone -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Méthode de contact</label>
-                                            <select class="form-control">
-                                                <option>Courrier électronique</option>
-                                                <option>SMS</option>
 
-                                            </select>
-                                            <!-- telephone -->
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Adresse</label>
-                                            <textarea type="textarea" class="form-control" id="l0"></textarea>
-                                            <!-- telephone -->
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-
-                                </div>
-                                <div class="form-actions">
-                                    <div class="form-group">
-                                        <button type="button" class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
-                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="tab-pane " id="remarques" role="tabpanel">
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -254,14 +203,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for etude in eleve.etude %}
+                                            {% for etude in eleve.etudes %}
                                                 <tr>
                                             <!-- boucle for la liste des etudes liés à un eleve-->
                                             <th scope="row">
                                                 <input type="checkbox">
                                             </th>
                                             <td>{{ etude.anneeScolaire }}</td>
-                                            <td>{{ etude.classe.nom }}</td>
+                                            <td>
+                                                {% if etude.classe is not empty %}
+                                                {{ etude.classe.nom }}
+                                                {% else %}
+                                                    N'est pas affecté
+                                                    {% endif %}
+                                            </td>
                                             <td>{{ etude.moyenne }}</td>
                                             <td>{{ etude.succes }}</td>
                                             <td><a href="javascript: void(0);" class="link-underlined">Bulletin</a></td>
@@ -275,12 +230,93 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="tab-pane " id="fiche_parent" role="tabpanel">
+                                <br />
+                                <h5>FICHE PARENTS</h5>
+                                <!-- Boucle For -->
+
+
+                                <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post">
+                                    <div class="row">
+
+
+
+                                        {% include 'eleve/parents.html.twig' %}
+
+                                        {{ form_widget(form._token) }}
+
+
+
+                                    </div>
+
+
+
+                                    <div class="form-actions">
+                                        <div class="form-group">
+                                            <button class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
+                                            <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+                                        </div>
+                                    </div>
+
+
+                                    {{ form_widget(form._token) }}
+                                </form>
+
+
+                            </div>
+
+
+
                             <div class="tab-pane active" id="fiche_eleve" role="tabpanel">
                                 <br />
                                 <h5>FICHE ELEVE</h5>
+                                <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
                                 {{ render(controller('EJPAcademixBundle:Eleve:edit' , {'id' : eleve.id})) }}
+                                </form>
 
                         </div>
+
+                            <div class="tab-pane " id="classe" role="tabpanel">
+                                <div class="row">
+
+
+                                        <div class="col-lg-6">
+
+
+                                            {#
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="l4">Classe</label>
+                                                        {% for etude in form.currentEtudes %}
+
+                                                            {{ form_widget(etude.classe) }}
+
+
+
+
+                                                        {% endfor %}
+
+
+
+
+
+                                                    </div>
+                                                      #}
+
+
+                                                {% if eleve.currentEtudes is not empty %}
+
+                                                {{ render(controller('EJPAcademixBundle:Etude:edit' , {'id' : eleve.currentEtudes[0].id})) }}
+
+                                                {% endif %}
+
+
+
+                                            </div>
+
+
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="modal fade" id="myModal" role="dialog">
@@ -299,7 +335,7 @@
                                                 <div class="form-group">
 
                                                     <div class="form-group ">
-                                                        <input type="file" id="l16">
+                                                        <input type="text" id="l16">
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,6 +349,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </section>
         </div>
@@ -360,5 +397,17 @@
             });
         })
     </script>
+
+
+    <script>
+        $(".avatar").click(function() {
+            $("input[type='file']").click();
+        });
+    </script>
+
+
+     <script src="{{ asset('customJs/parents.js') }}"></script>
+
+
 
 {% endblock %}

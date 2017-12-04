@@ -121,10 +121,14 @@ class EnseignantController extends Controller
     public function editAction(Request $request, Enseignant $enseignant)
     {
         $deleteForm = $this->createDeleteForm($enseignant);
+
+
         $editForm = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
         $editForm->handleRequest($request);
 
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('enseignant_edit', array('id' => $enseignant->getId()));
