@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Service\AnneeScolaire;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -21,6 +22,7 @@ class Emploi
     {
 
         $this->createdAt = new \DateTime();
+        $this->anneeScolaire=AnneeScolaire::getAnneeScolaire();
     }
 
 
@@ -57,7 +59,6 @@ class Emploi
 
     /**
      * @var Classe
-     *
      * @ORM\ManyToOne(targetEntity="Classe")
      * @ORM\JoinColumn(name="classe_id", referencedColumnName="id")
      */
@@ -68,7 +69,7 @@ class Emploi
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * @Assert\File(
      *     maxSize="1M",
-     *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
+     *     mimeTypes={"application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
      * )
      * @Vich\UploadableField(mapping="emploi_file", fileNameProperty="lien")
      *

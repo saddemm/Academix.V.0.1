@@ -36,6 +36,8 @@ class Classe
     private $niveau;
 
 
+
+
     /**
      * Get id
      *

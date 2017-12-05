@@ -20,11 +20,12 @@
                 GESTION DES CLASSES
             </h3>
         </div>
+        <div class="row">
+            <div class="col-lg-4">
         <div class="panel-body">
             <table class="table table-hover nowrap" id="example1" width="100%">
                 <thead class="thead-default">
                 <tr>
-                    <th>#</th>
                     <th>Classe</th>
                     <th>Niveau</th>
                     <th>Action</th>
@@ -33,19 +34,18 @@
                 <tbody>
                 {% for classe in classes %}
                     <tr>
-                        <th scope="row">
-                            <input type="checkbox">
-                        </th>
                         <td>{{ classe.nom }}</td>
                         <td>{{ classe.niveau }}</td>
                         <td>
-                            <a href="{{ path('classe_show', { 'id': classe.id }) }};" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i>Détail</a>
-                            <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i>Archiver</a>
+                            <a href="{{ path('classe_edit', { 'id': classe.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i>Détail</a>
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+            </div>
+
         </div>
         <div class="modal fade" id="myModal1" role="dialog">
             <div class="modal-dialog">

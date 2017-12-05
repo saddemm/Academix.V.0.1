@@ -13,7 +13,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="col-lg-12">
                         <h5 class="color-black-ecole icmn-stack-picture"> Informations sur l'événement</h5>
                         <div class="form-group">
@@ -47,8 +47,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 " >
-                <div class="col-lg-12">
+
+                <div class="col-lg-4">
+                    <h4>Product Image</h4>
+                    <div class="cui-ecommerce--catalog--item">
+                        <div class="cui-ecommerce--catalog--item--img">
+                            <a href="javascript: void(0);">
+                                <img src="{{ asset('uploads/evenements/') }}{{ evenement.imageName }}" />
+                            </a>
+                            <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
+                                <i class="icmn-cross2"><!-- --></i> Remove
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="l16">
+                        <br>
+                        <small>Technical information for user</small>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6">
                     <h5 class="color-black-ecole icmn-user-tie"> La liste des enseignants affectés</h5>
                     <div class="row">
                         <table class="table thead-default">
@@ -78,158 +98,13 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="app-gallery clearfix">
-            <h5 class="color-black-ecole icmn-stack-picture"> Galerie Images</h5>
-            <div class="app-gallery-item edit" style="background-image: url({{ asset('asset../assets/common/img/temp/photos/1.jpeg') }})">
-                <div class="app-gallery-item-hover">
-                    <div class="btn-group margin-inline">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-                            <i class="icmn-pencil7"></i>
-                        </button>
-                        <button type="button" class="btn">
-                            <i class="icmn-bin3"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="app-gallery-item edit" style="background-image: url({{ asset('asset../assets/common/img/temp/photos/1.jpeg') }})">
-                <div class="app-gallery-item-hover">
-                    <div class="btn-group margin-inline">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-                            <i class="icmn-pencil7"></i>
-                        </button>
-                        <button type="button" class="btn">
-                            <i class="icmn-bin3"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="app-gallery-item edit" style="background-image: url({{ asset('asset../assets/common/img/temp/photos/1.jpeg') }})">
-                <div class="app-gallery-item-hover">
-                    <div class="btn-group margin-inline">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-                            <i class="icmn-pencil7"></i>
-                        </button>
-                        <button type="button" class="btn">
-                            <i class="icmn-bin3"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="app-gallery-item edit" style="background-image: url({{ asset('asset../assets/common/img/temp/photos/1.jpeg') }})">
-                <div class="app-gallery-item-hover">
-                    <div class="btn-group margin-inline">
-                        <button type="button" class="btn " data-toggle="modal" data-target="#myModal">
-                            <i class="icmn-pencil7"></i>
-                        </button>
-                        <button type="button" class="btn">
-                            <i class="icmn-bin3"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="app-gallery-item edit" style="background-image: url({{ asset('asset../assets/common/img/temp/photos/1.jpeg') }})">
-                <div class="app-gallery-item-hover">
-                    <div class="btn-group margin-inline">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-                            <i class="icmn-pencil7"></i>
-                        </button>
-                        <button type="button" class="btn">
-                            <i class="icmn-bin3"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="modal fade" id="myModal1" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title color-black-ecole"><i class="fa fa-picture-o color-black-ecole" aria-hidden="true"></i> Ajouter une image</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-12">
-
-                                    <div class="cui-ecommerce--catalog--item">
-                                        <div class="cui-ecommerce--catalog--item--img">
-                                            <a href="javascript: void(0);">
-                                                <img src="../assets/common/img/temp/ecommerce/ecommerce-empty.jpg" />
-                                            </a>
-                                            <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
-                                                <i class="icmn-cross2"><!-- --></i> Remove
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <input type="file" id="l16">
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </form>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-perso icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
-                        <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
-                    </div>
-                </div>
 
             </div>
-        </div>
 
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title color-black-ecole"><i class="fa fa-picture-o color-black-ecole" aria-hidden="true"></i> Modifier l'image</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-12">
 
-                                    <div class="cui-ecommerce--catalog--item">
-                                        <div class="cui-ecommerce--catalog--item--img">
-                                            <a href="javascript: void(0);">
-                                                <img src="../assets/common/img/temp/photos/2.jpeg" />
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <input type="file" id="l16">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-perso icmn-checkmark" data-dismiss="modal"> Modifier</button>
-                        <button type="button" class="btn btn-default icmn-cross"> Annuler</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
         </div>
     </section>

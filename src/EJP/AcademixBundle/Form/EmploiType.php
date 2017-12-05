@@ -15,8 +15,7 @@ class EmploiType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('myFile',FileType::class,array('attr' => array('class' => 'form-control')))
-                ->add('classe',null,array('attr' => array('class' => 'form-control')))
-                ->add('anneeScolaire',null,array('attr' => array('class' => 'form-control')));
+                ->add('classe',null,array('attr' => array('class' => 'form-control')));
     }
     
     /**

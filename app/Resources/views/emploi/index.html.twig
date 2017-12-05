@@ -18,6 +18,7 @@
 
             <i class="fa fa-calendar color-black-ecole" aria-hidden="true"></i>
             GESTION DES EMPLOIS
+
         </h3>
     </div>
 
@@ -25,12 +26,10 @@
         <table class="table table-hover nowrap" id="example1" width="100%">
             <thead class="thead-default">
             <tr>
-                <th>#</th>
                 <th>Année scolaire</th>
                 <th>Classe</th>
                 <th>Publié le </th>
-                <th>Emploi du temps</th>
-                <th></th>
+                <th>Voir</th>
 
             </tr>
             </thead>
@@ -38,18 +37,16 @@
             <tbody>
             {% for emploi in emplois %}
                 <tr>
-                    <th scope="row">
-                        <input type="checkbox">
-                    </th>
                     <td>{{ emploi.anneeScolaire }}</td>
                     <td>{{ emploi.classe }}</td>
                     <td>{% if emploi.createdAt %}{{ emploi.createdAt|date('Y-m-d') }}{% endif %}</td>
-                    <td>{{ emploi.lien }}</td>
+                    <td><a href="{{ asset('uploads/emploi/') }}{{ emploi.lien }}" class="icmn-file-download">Telecharger</a>
+                        {{ form_start(deleteForms[emploi.id]) }}
+                        <a class="icmn-cross" href="#" onclick="$(this).closest('form').submit()">Supprimer</a>
+                        {{ form_end(deleteForms[emploi.id]) }}
 
-                    <td>
-                        <a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-pencil5"><!-- --></i></a>
-                        <a href="javascript: void(0);" class="link-underlined" ><i class="icmn-archive"><!-- --></i></a>
                     </td>
+
                 </tr>
             {% endfor %}
             </tbody>
@@ -73,12 +70,6 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l30">Année Scolaire</label>
-                                                {{ form_widget(form.anneeScolaire) }}
-                                            </div>
-                                        </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="l15">Classe</label>

@@ -1,21 +1,107 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} Evénement{% endblock %}
 {% block body %}
-    <h1>Evenement edit</h1>
+    <section class="panel panel-with-borders">
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        <div class="panel-body">
+            <div class="row">
+                <form action="{{ path('evenement_edit', {'id' : evenement.id}) }}" method="post" enctype="multipart/form-data">
 
-    <ul>
-        <li>
-            <a href="{{ path('evenement_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-4 pull-lg-right">
+                            <h4>Product Image</h4>
+                            <div class="cui-ecommerce--catalog--item">
+                                <div class="cui-ecommerce--catalog--item--img">
+                                    <a href="javascript: void(0);">
+                                        <img src="{{ asset('uploads/evenements/') }}{{ evenement.imageName }}" />
+                                    </a>
+                                    <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
+                                        <i class="icmn-cross2"><!-- --></i> Remove
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.myFile) }}
+                                <br>
+                                <small>Uploader une image pour l'évenement</small>
+                            </div>
+                        </div>
+
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="l30">Titre</label>
+                            {{ form_widget(form.titre) }}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="l30">Date de l'événement</label>
+                            {{ form_widget(form.dateEvenement) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="l30">Heure début</label>
+                            {{ form_widget(form.heureDebut) }}
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="l30">Heure Fin</label>
+                            {{ form_widget(form.heureFin) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label class="form-control-label" for="l15">Description</label>
+                            {{ form_widget(form.description) }}
+                        </div>
+                    </div>
+
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label class="form-control-label" for="l15">Enseignant affecté(s)</label>
+                                {{ form_widget(form.enseignants) }}
+                            </div>
+                        </div>
+
+                    <div class="col-lg-8">
+                    <button class="btn btn-perso icmn-plus-circle">
+                        Modifier
+                    </button>
+                    </div>
+
+
+
+
+
+                    </div>
+                    {{ form_widget(form._token) }}
+                </form>
+
+                 <br>
+
+
+
+                </div>
+
+            </div>
+
+
+    </section>
+    <!-- End Gallery -->
+
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 {% endblock %}

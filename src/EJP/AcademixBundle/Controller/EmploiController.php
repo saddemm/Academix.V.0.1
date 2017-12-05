@@ -27,11 +27,21 @@ class EmploiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(EmploiType::class, $emploi);
 
+
+
+
         $emplois = $em->getRepository('EJPAcademixBundle:Emploi')->findAll();
+
+        $deleteForms = array();
+
+        foreach ($emplois as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity)->createView();
+        }
 
         return $this->render('emploi/index.html.twig', array(
             'emplois' => $emplois,
             'form' => $form->createView(),
+            'deleteForms' => $deleteForms,
         ));
     }
 

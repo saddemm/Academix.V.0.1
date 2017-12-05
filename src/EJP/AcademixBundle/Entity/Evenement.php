@@ -3,12 +3,17 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Evenement
  *
  * @ORM\Table(name="evenement")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\EvenementRepository")
+ * @Vich\Uploadable
  */
 class Evenement
 {
@@ -89,6 +94,27 @@ class Evenement
      */
 
     private $enseignants;
+
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
+     * )
+     * @Vich\UploadableField(mapping="evenement_file", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $myFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $imageName;
+
 
 
     /**
@@ -285,6 +311,38 @@ class Evenement
         $this->enseignants = $enseignants;
 
         return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getMyFile()
+    {
+        return $this->myFile;
+    }
+
+    /**
+     * @param File $myFile
+     */
+    public function setMyFile(File $myFile=null)
+    {
+        $this->myFile = $myFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string $imageName
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
     }
 }
 

@@ -75,9 +75,17 @@ class EvenementController extends Controller
 
         $evenements = $em->getRepository('EJPAcademixBundle:Evenement')->findAll();
 
+
+        $deleteForms = array();
+
+        foreach ($evenements as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity)->createView();
+        }
+
         return $this->render('evenement/index.html.twig', array(
             'evenements' => $evenements,
             'form' => $form->createView(),
+            'deleteForms' => $deleteForms,
         ));
     }
 
@@ -98,7 +106,7 @@ class EvenementController extends Controller
             $em->persist($evenement);
             $em->flush();
 
-            return $this->redirectToRoute('evenement_show', array('id' => $evenement->getId()));
+            return $this->redirectToRoute('evenement_edit', array('id' => $evenement->getId()));
         }
 
         return $this->render('evenement/new.html.twig', array(
@@ -143,7 +151,7 @@ class EvenementController extends Controller
 
         return $this->render('evenement/edit.html.twig', array(
             'evenement' => $evenement,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
