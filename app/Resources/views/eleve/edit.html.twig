@@ -58,8 +58,8 @@
 
             <div class="col-lg-12">
                 <div class="form-group">
-                    <label class="form-control-label" for="l4">File</label>
-                    {{ form_widget(form.Utilisateur.myFile) }}
+                    <i class="icmn-image"></i><label class="form-control-label" for="l4"> Modifier l'image</label>
+                    {{ form_widget(form.Utilisateur.myFile, {'attr': {'data-default-file': asset('uploads/photos/'~eleve.imageName)}}) }}
 
                 </div>
             </div>

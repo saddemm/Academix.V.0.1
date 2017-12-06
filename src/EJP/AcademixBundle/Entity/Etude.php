@@ -4,12 +4,17 @@ namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use EJP\AcademixBundle\Service\AnneeScolaire;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Etude
  *
  * @ORM\Table(name="etude")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\EtudeRepository")
+ * @Vich\Uploadable
  */
 class Etude
 {
@@ -69,6 +74,33 @@ class Etude
      * @ORM\JoinColumn(name="classe_id", referencedColumnName="id")
      */
     private $classe;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+     * )
+     * @Vich\UploadableField(mapping="bulletin_file", fileNameProperty="bulletin")
+     *
+     * @var File
+     */
+
+    private $myFile;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     *
+     * @var string
+     */
+    private $bulletin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime",nullable=true)
+     */
+    private $updatedAt;
 
 
     /**
@@ -199,6 +231,59 @@ class Etude
     {
         return $this->classe;
     }
+
+    public function setMyFile(File $thefile = null)
+    {
+        $this->myFile = $thefile;
+
+        if ($thefile instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
+
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getMyFile()
+    {
+        return $this->myFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBulletin()
+    {
+        return $this->bulletin;
+    }
+
+    /**
+     * @param string $bulletin
+     */
+    public function setBulletin($bulletin)
+    {
+        $this->bulletin = $bulletin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
 
     public function __toString()
     {

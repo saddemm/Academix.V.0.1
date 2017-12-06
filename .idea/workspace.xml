@@ -4,32 +4,20 @@
     <list default="true" id="96b3d06a-29da-49fa-bf8e-e4d9ee1e7b3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/edit_parent.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/edit_parent.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/parents.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/parents.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/emploi/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/emploi/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/evenement/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/evenement/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/matiere/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/matiere/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/matiere/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/matiere/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EleveController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EleveController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/MatiereController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/MatiereController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/TestyController.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/TestyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Eleve.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Eleve.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseignant.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseignant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseigne.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseigne.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Matiere.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Matiere.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EleveType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EleveType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EnseignantType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EnseignantType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EmploiType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EmploiType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/MatiereType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/MatiereType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php" afterPath="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php" />
     </list>
     <ignored path="firstProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,12 +57,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/matiere/index.html.twig">
+      <file leaf-file-name="EtudeType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="249">
+              <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="85" />
+              <folding>
+                <element signature="e#43#83#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,80 +72,88 @@
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="62" lean-forward="false" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatiereType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/MatiereType.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="15" column="82" lean-forward="false" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+              <caret line="208" column="110" lean-forward="false" selection-start-line="208" selection-start-column="110" selection-end-line="208" selection-end-column="110" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatiereController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/MatiereController.php">
+      <file leaf-file-name="UtilisateurType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="323">
+              <caret line="27" column="109" lean-forward="false" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/matiere/new.html.twig">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            <state relative-caret-position="657">
+              <caret line="125" column="45" lean-forward="false" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matiere.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Matiere.php">
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            <state relative-caret-position="-5224">
+              <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enseignant.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseignant.php">
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-              <folding>
-                <element signature="e#45#93#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnseignantType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EnseignantType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="86" />
+            <state relative-caret-position="249">
+              <caret line="60" column="90" lean-forward="false" selection-start-line="60" selection-start-column="90" selection-end-line="60" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/index.html.twig">
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="402">
+              <caret line="95" column="16" lean-forward="false" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="127" column="42" lean-forward="false" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvenementType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="31" column="109" lean-forward="false" selection-start-line="31" selection-start-column="109" selection-end-line="31" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -165,17 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lien</find>
-      <find>image</find>
-      <find>Galerie</find>
-      <find>Ajout</find>
-      <find>;</find>
-      <find>Candida</find>
-      <find>préno</find>
-      <find>Déta</find>
-      <find>current</find>
-      <find>parent</find>
-      <find>eleve_edit_parents</find>
       <find>add</find>
       <find>currentEtudes</find>
       <find>is emp</find>
@@ -183,10 +170,8 @@
       <find>enseigné</find>
       <find>liste_classe</find>
       <find>AFFECTATION</find>
-      <find>uploads</find>
       <find>Alté</find>
       <find>liste</find>
-      <find>upload</find>
       <find>liste_c</find>
       <find>bootstrap/3.3.6/css/bootstrap.min.css</find>
       <find>render</find>
@@ -195,11 +180,23 @@
       <find>classe</find>
       <find>Gest</find>
       <find>Nom</find>
+      <find>etude</find>
+      <find>date</find>
+      <find>update</find>
+      <find>File</find>
+      <find>vich</find>
+      <find>dropify</find>
+      <find>$('.dropify').dropify()</find>
+      <find>Etude</find>
+      <find>classe_</find>
+      <find>&quot;classe</find>
+      <find>uploads</find>
+      <find>file</find>
+      <find>upload</find>
     </findStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:fixtures:load " />
       <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:generate:crud EJPAcademixBundle:Etude" />
@@ -224,6 +221,7 @@
       <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:generate:crud EJPAcademixBundle:Enseigne" />
       <command text="s doctrine:schema:update --force " />
+      <command text="s cache:clear" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -232,20 +230,16 @@
       <GitPushTagMode />
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Classe.php" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Onetoones.php" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/OnetoonesController.php" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/OnetoonesType.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Repository/CandidatureRepository.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EmploiType.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Emploi.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EmploiController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/emploi/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Evenement.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/evenement/show.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EvenementController.php" />
@@ -254,12 +248,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/classe/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/TestyController.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Saddem.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/SaddemType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/parents/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/eleve/parents.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/eleve/edit_parent.html.twig" />
@@ -269,23 +259,34 @@
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseigne.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/enseigne/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseigneController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EnseigneType.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EnseignantType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/enseignant/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/evenement/edit.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Matiere.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/matiere/new.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/matiere/index.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseignant.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/MatiereType.php" />
         <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/MatiereController.php" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EtudeController.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/emploi/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EmploiType.php" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php" />
+        <option value="$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig" />
       </list>
     </option>
   </component>
@@ -874,6 +875,76 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emploi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eleve" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -1038,7 +1109,7 @@
       <workItem from="1512390712190" duration="1344000" />
       <workItem from="1512394353021" duration="14153000" />
       <workItem from="1512486332469" duration="32149000" />
-      <workItem from="1512569356217" duration="23000" />
+      <workItem from="1512569356217" duration="8508000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de parents Entity bejbej (first)">
       <created>1509983213857</created>
@@ -1145,11 +1216,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512497579850</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Finalisation eleve&#10;Reglage classe&#10;reglage evenement index,edit,show&#10;reglage emploi&#10;path correct in base">
+      <created>1512569449558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1512569449558</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414196000" />
+    <option name="totallyTimeSpent" value="422681000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1162,11 +1240,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-372" width="1936" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15565032" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15565032" sideWeight="0.4902439" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49092284" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22339405" sideWeight="0.55277187" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22339405" sideWeight="0.55490404" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24081632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22339405" sideWeight="0.44509596" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4017258" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1178,7 +1258,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22339405" sideWeight="0.44722813" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29459903" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1238,96 +1317,16 @@
     <MESSAGE value="Modification Template Base.html.twig&#10;Ajout champs niveau dans la classe Classe&#10;Modification dans classe/index.php" />
     <MESSAGE value="Mise en place des composants etudiant show&#10;- EleveType Form&#10;- Event listener&#10;- Parent responsable" />
     <MESSAGE value="Finalisation eleve&#10;Reglage classe&#10;reglage evenement index,edit,show&#10;reglage emploi&#10;path correct in base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalisation eleve&#10;Reglage classe&#10;reglage evenement index,edit,show&#10;reglage emploi&#10;path correct in base" />
+    <MESSAGE value="Dropify implemented (js for file download)&#10;Bulletin implemented in edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dropify implemented (js for file download)&#10;Bulletin implemented in edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/TestyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#49#85#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Testy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Disponibilite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Saddem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EnseignantController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/classe/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/ClasseType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/SaddemType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="101" column="75" lean-forward="false" selection-start-line="101" selection-start-column="75" selection-end-line="101" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/SaddemController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1340,6 +1339,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="68" column="6" lean-forward="false" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,17 +1350,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="7" lean-forward="false" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/edit_parent.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,6 +1370,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="95" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,6 +1378,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="37" column="3" lean-forward="false" selection-start-line="37" selection-start-column="3" selection-end-line="45" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1390,6 +1386,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-669">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,6 +1394,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="853">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1404,6 +1402,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1426,27 +1427,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="379" column="4" lean-forward="false" selection-start-line="379" selection-start-column="4" selection-end-line="383" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="113" column="62" lean-forward="false" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
+          <folding>
+            <marker date="1510581090201" expanded="true" signature="0:62" ph="&lt;IfModule mod_authz_core.c&gt;" />
+            <marker date="1510581090201" expanded="true" signature="63:142" ph="&lt;IfModule !mod_authz_core.c&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1454,6 +1438,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="175" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1461,13 +1446,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="88" column="29" lean-forward="false" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,6 +1468,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="112" column="14" lean-forward="false" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1500,38 +1480,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="197" column="87" lean-forward="false" selection-start-line="197" selection-start-column="87" selection-end-line="197" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Utilisateur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="479" column="14" lean-forward="false" selection-start-line="479" selection-start-column="8" selection-end-line="479" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="70" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="31" column="70" lean-forward="false" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="92" column="52" lean-forward="false" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1539,6 +1492,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="491" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="605" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1566,19 +1520,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Enseignant.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
           <folding>
-            <element signature="e#45#93#0#PHP" expanded="true" />
+            <element signature="e#45#93#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1587,14 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="62" lean-forward="false" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1619,6 +1558,188 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Emploi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="69" column="7" lean-forward="false" selection-start-line="69" selection-start-column="7" selection-end-line="72" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Evenement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="326" column="4" lean-forward="false" selection-start-line="326" selection-start-column="4" selection-end-line="329" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EtudeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="90" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Controller/EvenementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1887">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="108" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Etude.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Entity/Utilisateur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="172" column="19" lean-forward="false" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/emploi/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/emploi/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="110" column="23" lean-forward="false" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="178" column="17" lean-forward="false" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EmploiType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="113" lean-forward="false" selection-start-line="16" selection-start-column="113" selection-end-line="16" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EvenementType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="31" column="109" lean-forward="false" selection-start-line="31" selection-start-column="109" selection-end-line="31" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/UtilisateurType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="109" lean-forward="false" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/etude/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="127" column="42" lean-forward="false" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJP/AcademixBundle/Form/EtudeType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="85" />
+          <folding>
+            <element signature="e#43#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="125" column="45" lean-forward="false" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5224">
+          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="208" column="110" lean-forward="false" selection-start-line="208" selection-start-column="110" selection-end-line="208" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/enseignant/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="95" column="16" lean-forward="false" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/eleve/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="60" column="90" lean-forward="false" selection-start-line="60" selection-start-column="90" selection-end-line="60" selection-end-column="90" />
           <folding />
         </state>
       </provider>

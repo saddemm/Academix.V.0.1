@@ -105,23 +105,15 @@
 
 
                     <div class="col-lg-6">
-                        <h5 class="color-black-ecole icmn-image"> Image de l'enseignant</h5>
-                        <div class="cui-ecommerce--catalog--item">
-                            <div class="cui-ecommerce--catalog--item--img">
-                                <a href="javascript: void(0);">
-                                    <img src="../assets/common/img/temp/ecommerce/ecommerce-empty.jpg" />
-                                </a>
-                                <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
-                                    <i class="icmn-cross2"><!-- --></i> Remove
-                                </a>
-                            </div>
-                        </div>
+
                         <div class="form-group ">
+                            <label class="form-control-label" for="l15">Choisir une image</label>
                             {{ form_widget(form.Utilisateur.myFile) }}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label class="form-control-label" for="l15">Affecter les classes</label>
                             {{ form_widget(form.currentEnseigne) }}
                         </div>
                     </div>
@@ -138,3 +130,12 @@
     </div>
 
 </div>
+{% block javascripts %}
+    <script>
+        $(function() {
+
+            $('.dropify').dropify();
+
+        });
+    </script>
+{% endblock %}

@@ -29,7 +29,7 @@ class EvenementType extends AbstractType
             ->add('heureFin', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control'),
                 'choices'  => Rangeme::rangeme(1,12)))
-            ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'form-control')))
+            ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify')))
             ->add('enseignants',null,array('attr' => array('class' => 'ui fluid search dropdown')));
     }
     

@@ -113,7 +113,7 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#classe" role="tab">
                                     <i class="icmn-enter"></i>
-                                    Changer de classe
+                                    Classe & bulletin
                                 </a>
                             </li>
                         </ul>
@@ -190,25 +190,20 @@
                             <div class="tab-pane " id="historique" role="tabpanel">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <table class="table table-hover nowrap" id="example1" width="100%">
+                                        <table class="table table-striped" id="example1" width="100%">
                                             <thead class="thead-default">
                                             <tr>
-                                                <th>#</th>
                                                 <th>Année Scolaire</th>
                                                 <th>Classe</th>
                                                 <th>Moyenne</th>
                                                 <th>Success</th>
                                                 <th>Bulletin</th>
-                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             {% for etude in eleve.etudes %}
                                                 <tr>
                                             <!-- boucle for la liste des etudes liés à un eleve-->
-                                            <th scope="row">
-                                                <input type="checkbox">
-                                            </th>
                                             <td>{{ etude.anneeScolaire }}</td>
                                             <td>
                                                 {% if etude.classe is not empty %}
@@ -219,10 +214,8 @@
                                             </td>
                                             <td>{{ etude.moyenne }}</td>
                                             <td>{{ etude.succes }}</td>
-                                            <td><a href="javascript: void(0);" class="link-underlined">Bulletin</a></td>
-                                            <td>
-                                                <center><a href="javascript: void(0);" class="link-underlined margin-right-5" data-toggle="modal" data-target="#myModal"><i class="icmn-file-upload2"><!-- --></i></a></center>
-                                            </td>
+                                            <td><a href="{{ asset('uploads/bulletins/') }}{{ etude.bulletin }}" class="icmn-file-download">Telecharger bulletin</a></td>
+
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
@@ -379,7 +372,7 @@
 
     <script>
         $(".avatar").click(function() {
-            $("input[type='file']").click();
+            $("#ejp_academixbundle_eleve_Utilisateur_myFile").click();
         });
     </script>
 

@@ -1,140 +1,112 @@
-{% extends 'base.html.twig' %}
+<form action="{{ path('enseignant_edit', { 'id': enseignant.id }) }}" method="post" enctype="multipart/form-data">
+    <br />
+    <h5>FICHE ENSEIGNANT</h5>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l301">Identifiant</label>
+                <input value="{{ enseignant.username }}" type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l302">Mot de passe</label>
+                <input value="{{ enseignant.password }}" type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
+            </div>
+        </div>
+    </div>
+    <h5 class="color-black-ecole icmn-profile"> Informations sur l'enseignant</h5>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l30">Nom</label>
 
-{% block body %}
+                {{ form_widget(form.Utilisateur.nom) }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l30">Prénom</label>
+                {{ form_widget(form.Utilisateur.prenom) }}
+            </div>
+        </div>
 
-    <section class="panel panel-with-borders">
-    <div class="panel-heading">
 
-            <h3 class="modal-title color-black-ecole"><i class="fa fa-black-tie color-black-ecole" aria-hidden="true"></i> Modifier enseignant</h3>
 
-        <form action="{{ path('enseignant_edit', { 'id': enseignant.id }) }}" method="post" enctype="multipart/form-data">
-            <div class="modal-body">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l30">E-mail</label>
+                {{ form_widget(form.Utilisateur.email) }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l30">Téléphone</label>
+                {{ form_widget(form.Utilisateur.telephone) }}
+            </div>
+        </div>
 
-                <div class="row">
-                    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="l15">Sex</label>
+                {{ form_widget(form.Utilisateur.sex) }}
+            </div>
 
-                        <h5 class="color-black-ecole icmn-cogs"> Informations sur le compte</h5>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l301">Identifiant</label>
-                                    <input value="{{ enseignant.username }}" type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l302">Mot de passe</label>
-                                    <input value="{{ enseignant.password }}" type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="color-black-ecole icmn-profile"> Informations sur l'enseignant</h5>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l30">Nom</label>
+        </div>
 
-                                    {{ form_widget(form.Utilisateur.nom) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l30">Prénom</label>
-                                    {{ form_widget(form.Utilisateur.prenom) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l30">E-mail</label>
-                                    {{ form_widget(form.Utilisateur.email) }}
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="l30">Téléphone</label>
-                                    {{ form_widget(form.Utilisateur.telephone) }}
-                                </div>
-                            </div>
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Sex</label>
-                                    {{ form_widget(form.Utilisateur.sex) }}
-                                </div>
-                            </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="l15">Date de naissance</label>
+                {{ form_widget(form.Utilisateur.dateNaissance) }}
+            </div>
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Date de naissance</label>
-                                    {{ form_widget(form.Utilisateur.dateNaissance) }}
-                                </div>
-                            </div>
+        </div>
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Date recrutement</label>
-                                    {{ form_widget(form.dateRecrutement) }}
-                                </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="l15">Date recrutement</label>
+                {{ form_widget(form.dateRecrutement) }}
+            </div>
 
-                            </div>
+        </div>
 
 
 
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Matière</label>
-                                    {{ form_widget(form.matiere) }}
-                                </div>
-                            </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="l15">Matière</label>
+                {{ form_widget(form.matiere) }}
+            </div>
+        </div>
 
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="l15">Adresse</label>
-                                    {{ form_widget(form.Utilisateur.adresse) }}
-                                </div>
-                            </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="l15">Adresse</label>
+                {{ form_widget(form.Utilisateur.adresse) }}
+            </div>
+
+        </div>
 
 
-                            <div class="col-lg-12">
-                                <h5 class="color-black-ecole icmn-image"> Image de l'enseignant</h5>
-                                <div class="cui-ecommerce--catalog--item">
-                                    <div class="cui-ecommerce--catalog--item--img">
-                                        <a href="javascript: void(0);">
-                                            <img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" />
-                                        </a>
-                                        <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
-                                            <i class="icmn-cross2"><!-- --></i> Remove
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    {{ form_widget(form.Utilisateur.myFile) }}
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-
-
-                </div>
+        <div class="col-lg-12">
+            <div class="form-group ">
+                <i class="icmn-image"></i><label class="form-control-label" for="l15"> Modifier l'image</label>
+                {{ form_widget(form.Utilisateur.myFile, {'attr': {'data-default-file': asset('uploads/photos/'~enseignant.imageName)}}) }}
 
             </div>
-            <div class="modal-footer">
+        </div>
+        {{ form_widget(form._token) }}
 
-                <button class="btn btn-perso icmn-plus-circle"> Modifier</button>
-                <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
-            </div>
-            {{ form_widget(form._token) }}
-        </form>
+
     </div>
 
-    </section>
+    <div class="form-actions">
+        <div class="form-group">
+            <button class="btn btn-perso icmn-plus-circle"> Modifier</button>
+        </div>
+    </div>
 
-
-{% endblock %}
+</form>
