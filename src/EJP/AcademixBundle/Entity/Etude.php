@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Service\AnneeScolaire;
 
 /**
  * Etude
@@ -12,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Etude
 {
+    public function __construct()
+    {
+
+        $this->anneeScolaire = AnneeScolaire::getAnneeScolaire();
+    }
+
     /**
      * @var int
      *

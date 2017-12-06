@@ -102,6 +102,17 @@
 
 {% endblock %}
 
+{% block javascripts %}
+
+<script>
+
+    $('.ui.dropdown')
+        .dropdown();
+</script>
+
+{% endblock %}
+
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/uidropdown/semantic.min.css') }}">
+    <script src="{{ asset('../assets/vendors/uidropdown/semantic.min.js') }}"></script>
 {% endblock %}

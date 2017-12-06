@@ -3,6 +3,7 @@
 namespace EJP\AcademixBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Service\AnneeScolaire;
 
 /**
  * Enseigne
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Enseigne
 {
+
+    public function __construct()
+    {
+        $this->anneeScolaire = AnneeScolaire::getAnneeScolaire();
+    }
     /**
      * @var int
      *
@@ -29,19 +35,23 @@ class Enseigne
     private $anneeScolaire;
 
     /**
-     * @var \stdClass
      *
-     * @ORM\Column(name="classe", type="object")
+     * @ORM\ManyToMany(targetEntity="Classe")
+     *
      */
+
     private $classe;
 
+
     /**
+     * @var Enseignant
      *
-     * @ORM\ManyToMany(targetEntity="Evenement")
-     *
+     * @ORM\ManyToOne(targetEntity="Enseignant")
+     * @ORM\JoinColumn(name="enseignant_id", referencedColumnName="id")
      */
 
-    private $evenements;
+
+    private $enseignant;
 
 
     /**
@@ -104,21 +114,19 @@ class Enseigne
 
 
     /**
-     * @param mixed $evenements
+     * @return Enseignant
      */
-    public function setEvenements($evenements)
+    public function getEnseignant()
     {
-        $this->evenements = $evenements;
-
-        return $this;
+        return $this->enseignant;
     }
 
     /**
-     * @return mixed
+     * @param Enseignant $enseignant
      */
-    public function getEvenements()
+    public function setEnseignant($enseignant)
     {
-        return $this->evenements;
+        $this->enseignant = $enseignant;
     }
 }
 

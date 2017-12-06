@@ -237,32 +237,12 @@
                                 <!-- Boucle For -->
 
 
-                                <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post">
                                     <div class="row">
 
 
-
-                                        {% include 'eleve/parents.html.twig' %}
-
-                                        {{ form_widget(form._token) }}
-
-
+                                        {{ render(controller('EJPAcademixBundle:Eleve:editParents' , {'id' : eleve.id})) }}
 
                                     </div>
-
-
-
-                                    <div class="form-actions">
-                                        <div class="form-group">
-                                            <button class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
-                                            <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
-                                        </div>
-                                    </div>
-
-
-                                    {{ form_widget(form._token) }}
-                                </form>
-
 
                             </div>
 
@@ -271,9 +251,9 @@
                             <div class="tab-pane active" id="fiche_eleve" role="tabpanel">
                                 <br />
                                 <h5>FICHE ELEVE</h5>
-                                <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
+
                                 {{ render(controller('EJPAcademixBundle:Eleve:edit' , {'id' : eleve.id})) }}
-                                </form>
+
 
                         </div>
 
@@ -304,11 +284,9 @@
                                                       #}
 
 
-                                                {% if eleve.currentEtudes is not empty %}
 
-                                                {{ render(controller('EJPAcademixBundle:Etude:edit' , {'id' : eleve.currentEtudes[0].id})) }}
+                                                {{ render(controller('EJPAcademixBundle:Etude:edit' , {'id' : eleve.currentEtude.id})) }}
 
-                                                {% endif %}
 
 
 

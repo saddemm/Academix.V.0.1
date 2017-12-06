@@ -106,9 +106,12 @@ class EnseignantController extends Controller
     {
         $deleteForm = $this->createDeleteForm($enseignant);
 
+        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+
         return $this->render('enseignant/show.html.twig', array(
             'enseignant' => $enseignant,
             'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView()
         ));
     }
 
@@ -131,7 +134,7 @@ class EnseignantController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('enseignant_edit', array('id' => $enseignant->getId()));
+            return $this->redirectToRoute('enseignant_show', array('id' => $enseignant->getId()));
         }
 
         return $this->render('enseignant/edit.html.twig', array(

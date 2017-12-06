@@ -74,7 +74,7 @@
                         <input type="checkbox">
                     </th>
                     <td>
-                        <a href="{{ path('enseignant_edit', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-pencil5"><!-- --></i> Détails</a>
+                        <a href="{{ path('enseignant_show', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-pencil5"><!-- --></i> Détails</a>
                         <a href="{{ path('enseignant_delete', { 'id': enseignant.id }) }}" class="link-underlined"><i class="icmn-archive"><!-- --></i> Archiver</a>
 
                     </td>
@@ -157,10 +157,23 @@
             border-radius: 50%;
         }
     </style>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/uidropdown/semantic.min.css') }}">
+    <script src="{{ asset('../assets/vendors/uidropdown/semantic.min.js') }}"></script>
+
+
+
+
 {% endblock %}
 
 {% block javascripts %}
 
+    <script>
+
+        $('.ui.dropdown')
+            .dropdown();
+    </script>
 
     <script>
 
@@ -191,3 +204,5 @@
 
 
 {% endblock %}
+
+

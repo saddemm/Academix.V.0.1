@@ -1,5 +1,6 @@
 
 
+<form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -80,4 +81,4 @@
 
         {{ form_widget(form._token) }}
 
-
+</form>

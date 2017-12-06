@@ -2,15 +2,15 @@
 {% block title %} Enseignant{% endblock %}
 {% block body %}
     <!-- Profile Header -->
-    <nav class="top-submenu top-submenu-with-background">
+    <nav class="top-submenu top-submenu-with-background" xmlns="http://www.w3.org/1999/html">
         <div class="profile-header">
             <div class="profile-header-info">
                 <div class="row">
                     <div class="col-xl-8 col-xl-offset-4">
 
                         <div class="profile-header-title">
-                            <h2><span class="color-rouge-ecole"> "Nom de l'ensignant"  </span></h2>
-                            <p>ENSEIGNANT | "Matière"</p>
+                            <h2><span class="color-rouge-ecole"> {{ enseignant.prenom }} {{ enseignant.nom }}  </span></h2>
+                            <p>Matière | {{ enseignant.matiere }}</p>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="panel-body">
                     <div class="profile-user-title text-center">
                         <a class="avatar" href="javascript:void(0);">
-                            <img src="../assets/common/img/temp/avatars/3.jpg" alt="Alternative text to the image">
+                             <img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" alt="Votre photo">
                         </a>
                         <br />
                         <div class="btn-group btn-group-center" aria-label="" role="group">
@@ -168,97 +168,172 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane " id="liste_classe" role="tabpanel">
+                            <div class="tab-pane" id="liste_classe" role="tabpanel">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <table class="table table-hover nowrap" id="example1" width="100%">
                                             <thead class="thead-default">
                                             <tr>
-                                                <th>#</th>
                                                 <th>Année Scolaire</th>
                                                 <th>Classe</th>
 
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <!-- boucle for la liste des etudes liés à un eleve-->
-                                            <th scope="row">
-                                                <input type="checkbox">
-                                            </th>
-                                            <td>année scolaire</td>
-                                            <td>Classe</td>
+                                            <tr>
+                                            {% for enseigne in enseignant.enseignes %}
+
+                                            <td>{{ enseigne.anneeScolaire }}</td>
+                                            <td>
+
+                                            {% for classe in enseigne.classe %}
+                                            {{ classe }}
+                                            {% endfor %}
+                                            </td>
+                                            {% endfor %}
+                                            </tr>
+
 
                                             </tbody>
                                         </table>
+
+                                        <div class="form-actions">
+                                            <div class="form-group">
+                                                <button data-toggle="modal" data-target="#myModal1" class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane active" id="fiche_enseignant" role="tabpanel">
+                                <form action="{{ path('enseignant_edit', { 'id': enseignant.id }) }}" method="post" enctype="multipart/form-data">
                                 <br />
                                 <h5>FICHE ENSEIGNANT</h5>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="l0">Nom</label>
-                                            <input value="{{ enseignant.nom }}" type="text" class="form-control" id="l0">
-                                            <!-- nom -->
+                                            <label for="l301">Identifiant</label>
+                                            <input value="{{ enseignant.username }}" type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="l1">Prénom</label>
-                                            <input value="{{ enseignant.prénom }}" type="text" class="form-control" id="l0">
-                                            <!-- prénom -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l3">Date de naissance</label>
-                                            <input value="{{ enseignant.dateNaissance }}" type="text" class="form-control" id="l0">
-                                            <!-- date de naissance -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">E-mail</label>
-                                            <input value="{{ enseignant.email }}" type="text" class="form-control" id="l0">
-                                            <!-- email -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Téléphone</label>
-                                            <input value="{{ enseignant.tel }}" type="text" class="form-control" id="l0">
-                                            <!-- telephone -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Date de recrutement</label>
-                                            <input value="{{ enseignant.date_recrutement }}" type="text" class="form-control" id="l0">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="l4">Matière</label>
-                                            <input value="{{ enseignant.Matiere.libelle }}" type="text" class="form-control" id="l0">
+                                            <label for="l302">Mot de passe</label>
+                                            <input value="{{ enseignant.password }}" type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
                                         </div>
                                     </div>
                                 </div>
+                                <h5 class="color-black-ecole icmn-profile"> Informations sur l'enseignant</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Nom</label>
+
+                                            {{ form_widget(form.Utilisateur.nom) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Prénom</label>
+                                            {{ form_widget(form.Utilisateur.prenom) }}
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">E-mail</label>
+                                            {{ form_widget(form.Utilisateur.email) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l30">Téléphone</label>
+                                            {{ form_widget(form.Utilisateur.telephone) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Sex</label>
+                                            {{ form_widget(form.Utilisateur.sex) }}
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Date de naissance</label>
+                                            {{ form_widget(form.Utilisateur.dateNaissance) }}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Date recrutement</label>
+                                            {{ form_widget(form.dateRecrutement) }}
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Matière</label>
+                                            {{ form_widget(form.matiere) }}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="l15">Adresse</label>
+                                            {{ form_widget(form.Utilisateur.adresse) }}
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-lg-12">
+                                        <h5 class="color-black-ecole icmn-image"> Image de l'enseignant</h5>
+                                        <div class="cui-ecommerce--catalog--item">
+                                            <div class="cui-ecommerce--catalog--item--img">
+                                                <a href="javascript: void(0);">
+                                                    <img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" />
+                                                </a>
+                                                <a href="javascript: void(0);" class="link-underlined cui-ecommerce--catalog--item--img-remove">
+                                                    <i class="icmn-cross2"><!-- --></i> Remove
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            {{ form_widget(form.Utilisateur.myFile) }}
+                                        </div>
+                                    </div>
+                                    {{ form_widget(form._token) }}
+
+
+                                </div>
+
                                 <div class="form-actions">
                                     <div class="form-group">
-                                        <button type="button" class="btn width-150 btn-perso icmn-plus-circle"> Modifier</button>
-                                        <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+                                        <button class="btn btn-perso icmn-plus-circle"> Modifier</button>
                                     </div>
                                 </div>
 
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+                </div>
 
             </section>
-        </div>
+
     </div>
     <!-- End Profile -->
     <!-- Modals -->
@@ -267,46 +342,31 @@
 
             <!-- Modal content-->
             <div class="modal-content">
+             <form action="{{ path('enseigne_edit', {'id' : enseignant.currentEnseigne.id}) }}" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i> AFFECTATION</h3>
+                    <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i>  Affectation de classe</h3>
                 </div>
                 <div class="modal-body">
-                    <form>
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="l30">Année Scolaire</label>
-                                        <!-- liste des années scolaires-->
-                                        <select class="form-control">
-                                            <option>2017/2018</option>
-                                            <option>2016/2017</option>
 
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="l15">Classe</label>
+
                                         <!-- liste des classe active pour l'année scolaire choisie -->
-                                        <select class="form-control">
-                                            <option>CP1</option>
-                                            <option>CP2</option>
-
-                                        </select>
+                                        {{ render(controller('EJPAcademixBundle:Enseigne:edit', {'id' : enseignant.currentEnseigne.id})) }}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
 
-                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-perso icmn-user-plus"> Affecter</button>
-                    <button type="button" class="btn btn-default icmn-user-circle"> Annuler</button>
+                    <button class="btn btn-perso icmn-user-plus"> Affecter</button>
                 </div>
+                </form>
             </div>
 
         </div>
@@ -483,4 +543,27 @@
 
         });
     </script>
+
+    <script>
+        $(".avatar").click(function() {
+            $("input[type='file']").click();
+        });
+        </script>
+
+         <script>
+
+        $('.ui.dropdown')
+  .dropdown();
+
+    </script>
+
+{% endblock %}
+
+
+
+{% block stylesheets %}
+
+ <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/uidropdown/semantic.min.css') }}">
+ <script src="{{ asset('../assets/vendors/uidropdown/semantic.min.js') }}"></script>
+
 {% endblock %}

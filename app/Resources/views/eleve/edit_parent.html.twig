@@ -1,4 +1,10 @@
-
-
-
-
+<form action="{{ path('eleve_edit_parents', { 'id': eleve.id }) }}" method="post">
+{% include 'eleve/parents.html.twig' %}
+    <div class="form-actions">
+        <div class="form-group">
+            <button class="btn width-150 btn-primary icmn-plus-circle"> Modifier</button>
+            <button type="button" class="btn btn-default icmn-minus-circle"> Annuler</button>
+        </div>
+    </div>
+    {{ form_widget(form._token) }}
+</form>

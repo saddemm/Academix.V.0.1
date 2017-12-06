@@ -13,7 +13,7 @@ class MatiereType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('libelle');
+        $builder->add('nom',null,array('attr' => array('class' => 'form-control')));
     }
     
     /**

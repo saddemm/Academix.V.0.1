@@ -44,11 +44,12 @@ class Eleve extends Utilisateur
 
     private $parents;
 
+    /**
+     * @var Etude
+     *
+     */
+
     private $currentEtude;
-
-    private $currentEtudes;
-
-    private $parentsResponsable;
 
 
     /**
@@ -83,24 +84,18 @@ class Eleve extends Utilisateur
 
     }
 
-    public function getCurrentEtudes()
-    {
-
-
-        $criteria = Criteria::create()->where(Criteria::expr()->eq("anneeScolaire", AnneeScolaire::getAnneeScolaire()));
-
-        $this->etudes = $this->etudes->matching($criteria);
-        return $this->etudes;
-    }
-
     /**
-     * @param mixed $currentEtudes
+     * @param mixed $currentEtude
      */
-    public function setCurrentEtudes($currentEtudes)
+    public function setCurrentEtude($currentEtude)
     {
-        $this->currentEtudes = $currentEtudes;
+
+        $this->currentEtude = $currentEtude;
+        $this->currentEtude->setEleve($this);
+        $this->etudes->add($currentEtude);
         return $this;
     }
+
 
     public function getCurrentClasse()
     {
@@ -118,14 +113,7 @@ class Eleve extends Utilisateur
 
     }
 
-    /**
-     * @param mixed $currentEtude
-     */
-    public function setCurrentEtude($currentEtude)
-    {
-        $this->currentEtude = $currentEtude;
-        return $this;
-    }
+
 
     /**
      * @return Etude
@@ -144,6 +132,7 @@ class Eleve extends Utilisateur
             reset($etudes);
             $etudes[key($etudes)] = clone current($etudes);
         }
+
 
         $this->etudes = $etudes;
         return $this;

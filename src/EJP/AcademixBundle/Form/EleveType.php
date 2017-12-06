@@ -30,13 +30,7 @@ class EleveType extends AbstractType
                 'by_reference' => false,
                 'allow_delete' => true
             ))
-            ->add('currentEtudes', CollectionType::class, array(
-                'entry_type' => EtudeType::class,
-                'entry_options' => array('label' => false,'attr' => array('class' => 'form-control')),
-                'allow_add' => true,
-                'by_reference' => false
-
-            ));
+            ->add('currentEtude', EtudeType::class);
 
 
 
@@ -57,9 +51,9 @@ class EleveType extends AbstractType
 
             }
 
-            if (!in_array('currentEtudes',array_keys($eleve))) {
+            if (!in_array('currentEtude',array_keys($eleve))) {
 
-                $form->remove('currentEtudes');
+                $form->remove('currentEtude');
 
             }
 

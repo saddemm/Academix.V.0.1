@@ -16,7 +16,8 @@ class EnseignantType extends AbstractType
     {
         $builder->add('Utilisateur', UtilisateurType::class)
                 ->add('dateRecrutement',DateType::class,array('widget' => 'single_text','attr' => array('class' => 'form-control')))
-                ->add('matiere',null,array('attr' => array('class' => 'form-control')));
+                ->add('matiere',null,array('attr' => array('class' => 'form-control')))
+                ->add('currentEnseigne',EnseigneType::class);
 
     }
     

@@ -4,17 +4,21 @@ namespace EJP\AcademixBundle\Controller;
 
 use EJP\AcademixBundle\Entity\Testy;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
 /**
  * Testy controller.
- *
+ * @Route("testy")
  */
 class TestyController extends Controller
 {
     /**
-     * Lists all testy entities.
+     * Lists all temoignage entities.
      *
+     * @Route("/", name="testy_index")
+     * @Method("GET")
      */
     public function indexAction()
     {

@@ -24,9 +24,9 @@ class Matiere
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=20)
+     * @ORM\Column(name="nom", type="string", length=20)
      */
-    private $libelle;
+    private $nom;
 
 
     /**
@@ -40,32 +40,24 @@ class Matiere
     }
 
     /**
-     * Set libelle
-     *
-     * @param string $libelle
-     *
-     * @return Matiere
+     * @return string
      */
-    public function setLibelle($libelle)
+    public function getNom()
     {
-        $this->libelle = $libelle;
-
-        return $this;
+        return $this->nom;
     }
 
     /**
-     * Get libelle
-     *
-     * @return string
+     * @param string $nom
      */
-    public function getLibelle()
+    public function setNom($nom)
     {
-        return $this->libelle;
+        $this->nom = $nom;
     }
 
     function __toString()
     {
-        return $this->libelle;
+        return $this->nom;
     }
 }
 

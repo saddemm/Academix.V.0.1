@@ -23,6 +23,51 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class EleveController extends Controller
 {
+
+    /**
+     * Displays a form to edit an existing eleve entity.
+     *
+     * @Route("/{id}/editParents", name="eleve_edit_parents")
+     * @Method({"GET", "POST"})
+     */
+    public function editParentsAction(Request $request, Eleve $eleve)
+    {
+
+        $originalParents= new ArrayCollection();
+
+        // Create an ArrayCollection of the current Parent objects in the database
+        foreach ($eleve->getParents() as $par) {
+            $originalParents->add($par);
+        }
+
+        $editForm = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
+        $editForm->handleRequest($request);
+
+
+
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            // remove the relationship between the parent and the Eleve
+            foreach ($originalParents as $par) {
+                if (false === $eleve->getParents()->contains($par)) {
+
+                    $em->remove($par);
+                }
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('eleve_show', array('id' => $eleve->getId()));
+        }
+
+        return $this->render('eleve/edit_parent.html.twig', array(
+            'eleve' => $eleve,
+            'form' => $editForm->createView()
+        ));
+    }
+
+
     /**
      * Lists all eleve entities.
      *
@@ -53,10 +98,7 @@ class EleveController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $eleve = new Eleve();
-        $etude = new Etude();
 
-        $etude->setAnneeScolaire(AnneeScolaire::getAnneeScolaire());
-        $etude->setEleve($eleve);
 
 
 
@@ -67,12 +109,7 @@ class EleveController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $classe_id=$request->request->get('classe');
-            $classe = $em->getRepository('EJPAcademixBundle:Classe')->find($classe_id);
-
-            $etude->setClasse($classe);
             $em->persist($eleve);
-            $em->persist($etude);
             $em->flush();
 
             return $this->redirectToRoute('eleve_index', array('id' => $eleve->getId()));
@@ -110,13 +147,6 @@ class EleveController extends Controller
     public function editAction(Request $request, Eleve $eleve)
     {
 
-        $originalParents= new ArrayCollection();
-
-        // Create an ArrayCollection of the current Parent objects in the database
-        foreach ($eleve->getParents() as $par) {
-            $originalParents->add($par);
-        }
-
         $deleteForm = $this->createDeleteForm($eleve);
         $editForm = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
         $editForm->handleRequest($request);
@@ -126,13 +156,6 @@ class EleveController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            // remove the relationship between the parent and the Eleve
-            foreach ($originalParents as $par) {
-                if (false === $eleve->getParents()->contains($par)) {
-
-                    $em->remove($par);
-                }
-            }
 
            $em->flush();
 
