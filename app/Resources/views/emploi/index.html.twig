@@ -57,50 +57,12 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <form action="{{ path('emploi_new') }}" method="post" enctype="multipart/form-data">
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h3 class="modal-title color-black-ecole"><i class="fa fa-book color-black-ecole" aria-hidden="true"></i> Nouveau emploi du temps</h3>
                 </div>
-                <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h5 class="color-black-ecole icmn-calendar5"> Informations sur l'emploi</h5>
-                                <div class="row">
-                                    <div class="col-lg-12">
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="l15">Classe</label>
-                                                {{ form_widget(form.classe) }}
-                                            </div>
-                                        </div>
-
-                                        <h5 class="color-black-ecole icmn-file-upload2"> Chargez le document</h5>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-
-                                                <div class="form-group ">
-                                                    {{ form_widget(form.myFile) }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
-                    <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
-                </div>
-
-            {{ form_widget(form._token) }}
-            </form>
+                {{ render(controller('EJPAcademixBundle:Emploi:new')) }}
             </div>
 
         </div>
@@ -109,13 +71,7 @@
 </section>
 {% endblock %}
 {% block javascripts %}
-        <script>
-            $(function() {
 
-                $('.dropify').dropify();
-
-            });
-        </script>
     <script>
         $(function () {
             $('#example1').DataTable({
@@ -125,4 +81,6 @@
             });
         })
     </script>
+
+
 {% endblock %}

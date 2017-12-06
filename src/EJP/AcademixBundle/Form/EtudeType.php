@@ -15,7 +15,7 @@ class EtudeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('classe',null,array('attr' => array('class' => 'form-control')))
-                ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify')));
+                ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify', 'data-allowed-file-extensions' => 'doc docx xls xlsx pdf')));
     }
     
     /**

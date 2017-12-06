@@ -128,7 +128,7 @@
                         <i class="left-menu-link-icon icmn-library color-jaune-ecole"><!-- --></i>
                         Ecole
                     </a>
-                    <ul class="left-menu-list list-unstyled">
+                    <ul class="left-menu-list list-unstyled" {% block menu_block %} {% endblock %}>
                         <li>
                             <a class="left-menu-link icmn-user" href="{{ path('eleve_index') }}">
                                 Elèves
@@ -156,7 +156,7 @@
                 </li>
 
                 <li >
-                    <a class="left-menu-link" href="ejp-gestion-documents.html">
+                    <a class="left-menu-link" href="{{ path('document_index') }}">
                         <i class="left-menu-link-icon icmn-books color-jaune-ecole"><!-- --></i>
                         Documents
                     </a>
@@ -291,7 +291,6 @@
         </div>
     </div>
 
-</div>
 </div>
 <div class="main-backdrop"><!-- --></div>
 

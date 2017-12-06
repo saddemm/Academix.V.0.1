@@ -14,7 +14,7 @@ class EmploiType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify')))
+        $builder->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify', 'data-allowed-file-extensions' => 'doc docx xls xlsx pdf')))
                 ->add('classe',null,array('attr' => array('class' => 'form-control')));
     }
     

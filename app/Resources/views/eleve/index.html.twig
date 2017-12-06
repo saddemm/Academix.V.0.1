@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %} Elèves{% endblock %}
 {% block body %}
+    {% block menu_block %}  style="display: block;" {% endblock %}
 
     <section class="panel panel-with-borders">
     <div class="panel-heading">
         <h3 class="color-black-ecole">
-            <div class="dropdown pull-right">
-                <button type="button" class="btn btn-perso dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Selectionnez une action
-                </button>
-                <ul class="dropdown-menu">
-                    <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#myModal1" > Nouveau</a>
+            <div class="pull-right">
+                <button class="btn btn-perso icmn-user-plus" data-toggle="modal" data-target="#myModal1"> Nouveau elève</button>
 
-                    <li class="dropdown-divider"> </li>
-                    <a class="dropdown-item icmn-user-minus" href="javascript: void(0);"> Archiver</a>
-                </ul>
+
             </div>
 
             <i class="fa fa-user color-black-ecole" aria-hidden="true"></i>

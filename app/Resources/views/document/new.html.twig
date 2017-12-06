@@ -1,16 +1,63 @@
-{% extends 'base.html.twig' %}
+<form action="{{ path('document_new') }}" method="post" enctype="multipart/form-data">
+    <div class="modal-body">
 
-{% block body %}
-    <h1>Document creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="color-black-ecole icmn-calendar5"> Informations sur le document</h5>
+                <div class="row">
+                    <div class="col-lg-12">
 
-    <ul>
-        <li>
-            <a href="{{ path('document_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="l15">Type du document</label>
+                                {{ form_widget(form.type) }}
+                            </div>
+                        </div>
+
+                        <h5 class="color-black-ecole icmn-file-upload2"> Chargez le document</h5>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+
+                                <div class="form-group ">
+                                    {{ form_widget(form.myFile) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="l15">Visible dans le site ?</label><br>
+                                <label class="switch">
+                                    {{ form_widget(form.etat) }}
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-perso icmn-plus-circle"> Ajouter</button>
+        <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
+    </div>
+
+    {{ form_widget(form._token) }}
+</form>
+
+{% block javascripts %}
+    <script>
+    $(function() {
+
+    $('.dropify').dropify();
+
+    });
+    </script>
+
 {% endblock %}

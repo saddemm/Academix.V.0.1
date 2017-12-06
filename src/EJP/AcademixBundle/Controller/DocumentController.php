@@ -5,7 +5,9 @@ namespace EJP\AcademixBundle\Controller;
 use EJP\AcademixBundle\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Document controller.
@@ -14,6 +16,31 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class DocumentController extends Controller
 {
+
+    /**
+     * Lists all etats entities.
+     *
+     * @Route("/document_etat_ajax", name="document_etat_ajax")
+     * @Method("POST")
+     */
+    public function etatAction(Request $request)
+    {
+        $id=$request->request->get('id');
+        $etat=$request->request->get('etat');
+        $document = new Document();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $document = $em->getRepository(Document::class)->find($id);
+        $document->setEtat($etat);
+        $em->flush();
+
+        return new Response("ok");
+
+
+    }
+
+
     /**
      * Lists all document entities.
      *
@@ -26,8 +53,15 @@ class DocumentController extends Controller
 
         $documents = $em->getRepository('EJPAcademixBundle:Document')->findAll();
 
+        $deleteForms = array();
+
+        foreach ($documents as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity)->createView();
+        }
+
         return $this->render('document/index.html.twig', array(
             'documents' => $documents,
+            'deleteForms' => $deleteForms
         ));
     }
 
@@ -48,7 +82,7 @@ class DocumentController extends Controller
             $em->persist($document);
             $em->flush();
 
-            return $this->redirectToRoute('document_show', array('id' => $document->getId()));
+            return $this->redirectToRoute('document_index');
         }
 
         return $this->render('document/new.html.twig', array(

@@ -25,7 +25,7 @@ class UtilisateurType extends AbstractType
             ->add('adresse',TextareaType::class,array('attr' => array('class' => 'form-control')))
             ->add('email',EmailType::class,array('attr' => array('class' => 'form-control')))
             ->add('telephone',TextType::class,array('attr' => array('class' => 'form-control')))
-            ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify')))
+            ->add('myFile',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify', 'data-allowed-file-extensions' => 'jpg jpeg png')))
             ->add('dateNaissance',DateType::class,array('widget' => 'single_text', 'attr' => array('class' => 'form-control')))
             ->add('sex', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control'),
