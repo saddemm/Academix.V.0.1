@@ -64,7 +64,7 @@ class Etude
     /**
      *
      * @ORM\ManyToOne(targetEntity="Eleve")
-     * @ORM\JoinColumn(name="eleve_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="eleve_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $eleve;
 

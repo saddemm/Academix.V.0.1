@@ -24,7 +24,7 @@ class ClasseType extends AbstractType
                     '4' => "4",
                     '5' => "5",
                     '6' => "6",
-                )));;
+                )));
     }
     
     /**

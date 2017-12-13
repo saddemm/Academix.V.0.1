@@ -45,6 +45,13 @@ class Enseignant extends Utilisateur
 
     private $enseignes;
 
+    /**
+     * @var Disponibilite
+     * One enseignant has Many disponibilities.
+     * @ORM\OneToMany(targetEntity="Disponibilite", mappedBy="enseignant",cascade={"persist"})
+     */
+
+    private $disponibilites;
 
     /** @var Enseigne  */
 
@@ -166,5 +173,21 @@ class Enseignant extends Utilisateur
     public function setEnseignes($enseignes)
     {
         $this->enseignes = $enseignes;
+    }
+
+    /**
+     * @return Disponibilite
+     */
+    public function getDisponibilites()
+    {
+        return $this->disponibilites;
+    }
+
+    /**
+     * @param Disponibilite $disponibilites
+     */
+    public function setDisponibilites($disponibilites)
+    {
+        $this->disponibilites = $disponibilites;
     }
 }

@@ -26,7 +26,7 @@ security:
             form_login:
                 login_path: utilisateur_login
                 check_path: utilisateur_login
-                default_target_path: utilisateur_login
+                default_target_path: eleve_index
 
 
 

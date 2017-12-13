@@ -93,11 +93,11 @@ class ClasseController extends Controller
      */
     public function showAction(Classe $classe)
     {
-        $deleteForm = $this->createDeleteForm($classe);
+        $form = $this->createForm('EJP\AcademixBundle\Form\ClasseType', $classe);
 
         return $this->render('classe/show.html.twig', array(
             'classe' => $classe,
-            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView(),
         ));
     }
 

@@ -47,7 +47,7 @@ class Enseigne
      * @var Enseignant
      *
      * @ORM\ManyToOne(targetEntity="Enseignant")
-     * @ORM\JoinColumn(name="enseignant_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="enseignant_id", referencedColumnName="id", onDelete="CASCADE")
      */
 
 

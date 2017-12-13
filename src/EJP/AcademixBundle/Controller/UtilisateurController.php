@@ -27,14 +27,17 @@ class UtilisateurController extends Controller
     public function loginAction(Request $request)
 
     {
+        $authUtils = $this->get('security.authentication_utils');
 
-        $errors="test";
+        // get the login error if there is one
+        $error = $authUtils->getLastAuthenticationError();
 
-        $lastUserName= "test";
+        // last username entered by the user
+        $lastUserName = $authUtils->getLastUsername();
 
 
         return $this->render('utilisateur/login.html.twig', array(
-            'errors' => $errors,
+            'error' => $error,
             'username' => $lastUserName
         ));
     }

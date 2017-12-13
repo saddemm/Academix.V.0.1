@@ -2,7 +2,9 @@
 
 namespace EJP\AcademixBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Service\AnneeScolaire;
 
 /**
  * Classe
@@ -12,6 +14,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Classe
 {
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->etudes = new ArrayCollection();
+        $this->enseignes = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -34,6 +46,25 @@ class Classe
      * @ORM\Column(name="niveau", type="integer")
      */
     private $niveau;
+
+
+    /**
+     * @var Etude
+     * @ORM\OneToMany(targetEntity="Etude", mappedBy="classe",cascade={"persist"})
+     */
+
+    private $etudes;
+
+    /**
+     * @var Enseigne
+     * @ORM\ManyToMany(targetEntity="Enseigne", mappedBy="classe",cascade={"persist"})
+     */
+
+    private $enseignes;
+
+    private $currentEtudes;
+
+    private $currentEnseignes;
 
 
 
@@ -92,5 +123,113 @@ class Classe
     {
         return $this->nom;
     }
-}
 
+
+    /**
+     * Add etude
+     *
+     * @param \EJP\AcademixBundle\Entity\Etude $etude
+     *
+     * @return Classe
+     */
+    public function addEtude(Etude $etude)
+    {
+        $this->etudes[] = $etude;
+
+        return $this;
+    }
+
+    /**
+     * Remove etude
+     *
+     * @param Etude $etude
+     */
+    public function removeEtude(Etude $etude)
+    {
+        $this->etudes->removeElement($etude);
+    }
+
+    /**
+     * Get etudes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtudes()
+    {
+        return $this->etudes;
+    }
+
+
+    /**
+     * Add enseigne
+     *
+     * @param \EJP\AcademixBundle\Entity\Enseigne $enseigne
+     *
+     * @return Classe
+     */
+    public function addEnseigne(Enseigne $enseigne)
+    {
+        $this->enseignes[] = $enseigne;
+
+        return $this;
+    }
+
+    /**
+     * Remove enseigne
+     *
+     * @param \EJP\AcademixBundle\Entity\Enseigne $enseigne
+     */
+    public function removeEnseigne(Enseigne $enseigne)
+    {
+        $this->enseignes->removeElement($enseigne);
+    }
+
+    /**
+     * Get enseignes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnseignes()
+    {
+        return $this->enseignes;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentEnseignes()
+    {
+        $year =  AnneeScolaire::getAnneeScolaire();
+        $currentEnseignes = new ArrayCollection();
+
+        /** @var Enseigne $enseigne */
+        foreach ($this->getEnseignes() as $enseigne){
+            if ($enseigne->getAnneeScolaire()==$year){
+                $currentEnseignes->add($enseigne);
+            }
+        }
+
+        return $currentEnseignes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentEtudes()
+    {
+        $year =  AnneeScolaire::getAnneeScolaire();
+        $currentEtudes = new ArrayCollection();
+
+        /** @var Etude $etude */
+        foreach ($this->getEtudes() as $etude){
+            if ($etude->getAnneeScolaire()==$year){
+                $currentEtudes->add($etude);
+            }
+        }
+
+        return $currentEtudes;
+    }
+
+
+}

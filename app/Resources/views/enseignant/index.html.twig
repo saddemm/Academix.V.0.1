@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
-
+ {% block menu_block %}  style="display: block;" {% endblock %}
 {% block body %}
 
-    {% block menu_block %}  style="display: block;" {% endblock %}
+
     <section class="panel panel-with-borders">
         <div class="panel-heading">
             <h3 class="color-black-ecole">
@@ -50,7 +50,7 @@
                     <td><a href="javascript: void(0);" class="cui-ecommerce--dashboard--list--img"><img src="{{ asset('uploads/photos/') }}{{ enseignant.imageName }}" /></a></td>
                     <td>{{ enseignant.nom }} {{ enseignant.prenom }}</td>
                     <td>{{ enseignant.username }}</td>
-                    <td>Français</td>
+                    <td>{{ enseignant.matiere }}</td>
                     <td><a href="javascript: void(0);" class="link-underlined">{{ enseignant.email }}</a></td>
                     <td>{{ enseignant.telephone }}</td>
                     <td>{{ enseignant.dateRecrutement | date('d M ,Y')}}</td>

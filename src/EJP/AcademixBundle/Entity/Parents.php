@@ -82,7 +82,7 @@ class Parents
     /**
      *
      * @ORM\ManyToOne(targetEntity="Eleve", inversedBy="parents")
-     * @ORM\JoinColumn(name="eleve_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="eleve_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $eleve;
 

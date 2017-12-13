@@ -22,21 +22,21 @@ class HoraireRDV
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="heure_debut", type="string", length=10)
+     * @ORM\Column(name="heure_debut", type="integer")
      */
     private $heureDebut;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="heure_fin", type="string", length=255)
+     * @ORM\Column(name="heure_fin", type="integer")
      */
     private $heureFin;
 
     /**
-     *
+     * @var Disponibilite
      * @ORM\ManyToOne(targetEntity="Disponibilite")
      * @ORM\JoinColumn(name="disponibilite_id", referencedColumnName="id")
      */
@@ -55,23 +55,7 @@ class HoraireRDV
     }
 
     /**
-     * Set heureDebut
-     *
-     * @param string $heureDebut
-     *
-     * @return HoraireRDV
-     */
-    public function setHeureDebut($heureDebut)
-    {
-        $this->heureDebut = $heureDebut;
-
-        return $this;
-    }
-
-    /**
-     * Get heureDebut
-     *
-     * @return string
+     * @return int
      */
     public function getHeureDebut()
     {
@@ -79,23 +63,15 @@ class HoraireRDV
     }
 
     /**
-     * Set heureFin
-     *
-     * @param string $heureFin
-     *
-     * @return HoraireRDV
+     * @param int $heureDebut
      */
-    public function setHeureFin($heureFin)
+    public function setHeureDebut($heureDebut)
     {
-        $this->heureFin = $heureFin;
-
-        return $this;
+        $this->heureDebut = $heureDebut;
     }
 
     /**
-     * Get heureFin
-     *
-     * @return string
+     * @return int
      */
     public function getHeureFin()
     {
@@ -103,9 +79,17 @@ class HoraireRDV
     }
 
     /**
+     * @param int $heureFin
+     */
+    public function setHeureFin($heureFin)
+    {
+        $this->heureFin = $heureFin;
+    }
+
+    /**
      * Set disponibilite
      *
-     * @param \stdClass $disponibilite
+     * @param Disponibilite $disponibilite
      *
      * @return HoraireRDV
      */
@@ -119,7 +103,7 @@ class HoraireRDV
     /**
      * Get disponibilite
      *
-     * @return \stdClass
+     * @return Disponibilite
      */
     public function getDisponibilite()
     {

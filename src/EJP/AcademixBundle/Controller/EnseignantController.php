@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use EJP\AcademixBundle\Form\EnseignantType;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Enseignant controller.
@@ -18,6 +19,30 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class EnseignantController extends Controller
 {
+
+    /**
+     * Finds and displays a enseignant entity.
+     *
+     * @Route("/profile", name="enseignant_show_user")
+     * @Method("GET")
+     * @Security("has_role('ROLE_ENSEIGNANT')")
+     */
+    public function showUserAction()
+    {
+        $enseignant = $this->container->get('security.token_storage')->getToken()->getUser();
+        $deleteForm = $this->createDeleteForm($enseignant);
+
+        $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+
+        return $this->render('enseignant/show_user.html.twig', array(
+            'enseignant' => $enseignant,
+            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView()
+        ));
+    }
+
+
+
     /**
      * Lists all enseignant entities.
      *
@@ -26,9 +51,6 @@ class EnseignantController extends Controller
      */
     public function indexAction()
     {
-
-
-
         $em = $this->getDoctrine()->getManager();
 
         $enseignants = $em->getRepository(Enseignant::class)->findAll();
@@ -134,7 +156,7 @@ class EnseignantController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('enseignant_show', array('id' => $enseignant->getId()));
+            return $this->redirect($request->server->get('HTTP_REFERER'));
         }
 
         return $this->render('enseignant/edit.html.twig', array(

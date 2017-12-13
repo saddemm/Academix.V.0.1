@@ -2,6 +2,7 @@
 
 namespace EJP\AcademixBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Disponibilite
 {
+
+    function __construct()
+    {
+        $this->horairesRDV = new ArrayCollection();
+        $this->etat=true;
+    }
+
     /**
      * @var int
      *
@@ -29,9 +37,9 @@ class Disponibilite
     private $jour;
 
     /**
-     * @var int
+     * @var boolean
      *
-     * @ORM\Column(name="etat", type="integer")
+     * @ORM\Column(name="etat", type="boolean")
      */
     private $etat;
 
@@ -42,6 +50,14 @@ class Disponibilite
      */
 
     private $enseignant;
+
+
+    /**
+     * @var HoraireRDV
+     * @ORM\OneToMany(targetEntity="HoraireRDV", mappedBy="disponibilite",cascade={"persist"})
+     */
+
+    private $horairesRDV;
 
 
     /**
@@ -81,7 +97,7 @@ class Disponibilite
     /**
      * Set etat
      *
-     * @param integer $etat
+     * @param boolean $etat
      *
      * @return Disponibilite
      */
@@ -95,7 +111,7 @@ class Disponibilite
     /**
      * Get etat
      *
-     * @return int
+     * @return boolean
      */
     public function getEtat()
     {
@@ -125,5 +141,49 @@ class Disponibilite
     {
         return $this->enseignant;
     }
-}
 
+    /**
+     * Add horairesRDV
+     *
+     * @param \EJP\AcademixBundle\Entity\HoraireRDV $horairesRDV
+     *
+     * @return Disponibilite
+     */
+    public function addHorairesRDV(HoraireRDV $horairesRDV)
+    {
+
+        $horairesRDV->setDisponibilite($this);
+        $this->horairesRDV[] = $horairesRDV;
+
+        return $this;
+    }
+
+    /**
+     * Remove horairesRDV
+     *
+     * @param \EJP\AcademixBundle\Entity\HoraireRDV $horairesRDV
+     */
+    public function removeHorairesRDV(HoraireRDV $horairesRDV)
+    {
+        $this->horairesRDV->removeElement($horairesRDV);
+    }
+
+    /**
+     * Get horairesRDV
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHorairesRDV()
+    {
+        return $this->horairesRDV;
+    }
+
+    /**
+     * @param Parents $horairesRDV
+     */
+    public function setHorairesRDV($horairesRDV)
+    {
+        $this->horairesRDV = $horairesRDV;
+    }
+
+}
