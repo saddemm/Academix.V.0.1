@@ -35,9 +35,10 @@ class Enseigne
     private $anneeScolaire;
 
     /**
+     * @var Enseignant
      *
-     * @ORM\ManyToMany(targetEntity="Classe")
-     *
+     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\JoinColumn(name="classe_id", referencedColumnName="id", onDelete="SET NULL")
      */
 
     private $classe;
@@ -47,7 +48,7 @@ class Enseigne
      * @var Enseignant
      *
      * @ORM\ManyToOne(targetEntity="Enseignant")
-     * @ORM\JoinColumn(name="enseignant_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="enseignant_id", referencedColumnName="id", onDelete="SET NULL")
      */
 
 
@@ -91,7 +92,7 @@ class Enseigne
     /**
      * Set classe
      *
-     * @param \stdClass $classe
+     * @param Classe $classe
      *
      * @return Enseigne
      */

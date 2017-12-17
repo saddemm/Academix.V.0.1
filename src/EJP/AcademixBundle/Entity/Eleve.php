@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Repository\RepositoryFactory;
 use EJP\AcademixBundle\Service\AnneeScolaire;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
@@ -14,9 +15,24 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *
  * @ORM\Table(name="eleve")
  * @ORM\Entity(repositoryClass="EJP\AcademixBundle\Repository\EleveRepository")
+ * @ORM\HasLifecycleCallbacks()
+ *
  */
 class Eleve extends Utilisateur
 {
+
+    /**
+     * @ORM\PrePersist
+     */
+
+    public function setFirstEtude(){
+
+        $etude = new Etude();
+        $etude->setEleve($this);
+        $etude->setClasse($this->currentClasse);
+        $this->etudes->add($etude);
+
+    }
 
 
     public function __construct()
@@ -51,6 +67,59 @@ class Eleve extends Utilisateur
 
     private $currentEtude;
 
+    private $currentClasse;
+
+    private $bulletin;
+
+
+    /**
+     * @param mixed $bulletin
+     */
+    public function setBulletin(File $bulletin = null)
+    {
+        $etude = $this->getCurrentEtude();
+        $etude->setMyFile($bulletin);
+        $this->bulletin = $bulletin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBulletin()
+    {
+        return $this->bulletin;
+    }
+
+    public function getCurrentClasse()
+    {
+        // L'ors de l'ajout d'un nouveau eleve, l'etude va être null
+        if ($this->getCurrentEtude() != null) {
+
+            $currentClasse = $this->getCurrentEtude()->getClasse();
+            return $currentClasse;
+        }
+        return null;
+
+    }
+
+    /**
+     * @param mixed $currentClasse
+     */
+    public function setCurrentClasse($currentClasse)
+    {
+        // L'ors de l'ajout d'un nouveau eleve, l'etude va être null
+        if ($this->getCurrentEtude() != null){
+
+        $etude = $this->getCurrentEtude();
+        $etude->setClasse($currentClasse);
+        $this->currentClasse = $currentClasse;
+
+        }else{
+            // sinon on la prépare pour la prepersistance
+            $this->currentClasse = $currentClasse;
+
+        }
+    }
 
     /**
      * @return Etude
@@ -97,21 +166,7 @@ class Eleve extends Utilisateur
     }
 
 
-    public function getCurrentClasse()
-    {
-        $year = AnneeScolaire::getAnneeScolaire();
-        $currentClasse = null;
 
-        /** @var Etude $etude */
-        foreach ($this->getEtudes() as $etude) {
-            if ($etude->getAnneeScolaire() == $year && $etude->getClasse() != null) {
-                $currentClasse = $etude->getClasse();
-            }
-        }
-
-        return $currentClasse;
-
-    }
 
 
 
@@ -182,7 +237,8 @@ class Eleve extends Utilisateur
      */
     public function addEtude(\EJP\AcademixBundle\Entity\Etude $etude)
     {
-        $etude->setEleve($this);
+        // je l'est elevé pour voir si sa marche sans ou pas
+        //$etude->setEleve($this);
         $this->etudes[] = $etude;
 
         return $this;

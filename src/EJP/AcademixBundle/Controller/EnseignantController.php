@@ -2,6 +2,8 @@
 
 namespace EJP\AcademixBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use EJP\AcademixBundle\Entity\Classe;
 use EJP\AcademixBundle\Entity\Enseignant;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -138,6 +140,23 @@ class EnseignantController extends Controller
     }
 
     /**
+     * Displays a form to edit an existing classe entity.
+     *
+     * @Route("/{id}/ensaffectation", name="classe_ens_affectation")
+     * @Method("POST")
+     */
+    public function affectationAction(Request $request, Enseignant $enseignant)
+    {
+
+        $editForm = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
+
+        return $this->render('enseignant/affectation.html.twig', array(
+            'form' => $editForm->createView(),
+            'enseignant' => $enseignant
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing enseignant entity.
      *
      * @Route("/{id}/edit", name="enseignant_edit")
@@ -145,6 +164,14 @@ class EnseignantController extends Controller
      */
     public function editAction(Request $request, Enseignant $enseignant)
     {
+        $originalEnseignes= new ArrayCollection();
+
+
+        foreach ($enseignant->getEnseignes() as $en) {
+            $originalEnseignes->add($en);
+        }
+
+
         $deleteForm = $this->createDeleteForm($enseignant);
 
 
@@ -153,8 +180,17 @@ class EnseignantController extends Controller
 
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
 
-            $this->getDoctrine()->getManager()->flush();
+            foreach ($originalEnseignes as $en) {
+                if (false === $enseignant->getEnseignes()->contains($en)) {
+
+                    $em->remove($en);
+                }
+            }
+
+
+            $em->flush();
 
             return $this->redirect($request->server->get('HTTP_REFERER'));
         }

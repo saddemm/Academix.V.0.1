@@ -27,6 +27,28 @@ class EleveController extends Controller
     /**
      * Displays a form to edit an existing eleve entity.
      *
+     * @Route("/{id}/editBulletin", name="eleve_edit_bulletin")
+     * @Method("POST")
+     */
+    public function editBulletinAction(Request $request, Eleve $eleve)
+    {
+
+        $deleteForm = $this->createDeleteForm($eleve);
+        $editForm = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
+
+        return $this->render('eleve/edit_bulletin.html.twig', array(
+            'eleve' => $eleve,
+            'form' => $editForm->createView()
+        ));
+    }
+
+
+
+    // Se controlleur est utile pour dire que les parents peuvent se supprimer toute
+
+    /**
+     * Displays a form to edit an existing eleve entity.
+     *
      * @Route("/{id}/editParents", name="eleve_edit_parents")
      * @Method({"GET", "POST"})
      */

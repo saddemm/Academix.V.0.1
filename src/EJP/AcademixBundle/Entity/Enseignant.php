@@ -19,6 +19,8 @@ class Enseignant extends Utilisateur
     {
         parent::__construct();
         $this->enseignes = new ArrayCollection();
+        $this->bassas = new ArrayCollection();
+        $this->disponibilites = new ArrayCollection();
     }
 
     /**
@@ -53,42 +55,70 @@ class Enseignant extends Utilisateur
 
     private $disponibilites;
 
-    /** @var Enseigne  */
 
-    private $currentEnseigne;
+
+    private $currentEnseignes;
+
+
+    private $bassas;
+
+    public function addBassa(Classe $classe){
+
+        $enseigne = new Enseigne();
+        $enseigne->setClasse($classe);
+        $enseigne->setEnseignant($this);
+        $this->enseignes->add($enseigne);
+    }
+
+    public function removeBassa(Classe $classe){
+        /** @var Enseigne $en */
+        foreach ($this->getCurrentEnseignes() as $en){
+            if ($en->getClasse() == $classe){
+                $this->removeEnseigne($en);
+            }
+        }
+    }
+
+
 
     /**
-     * @return Enseigne
+     * @return ArrayCollection
      */
-    public function getCurrentEnseigne()
+
+    public function getBassas()
     {
 
+        $classes = new ArrayCollection();
+        /** @var Enseigne $en */
+        foreach ($this->getCurrentEnseignes() as $en){
+            $classes->add($en->getClasse());
+        }
+
+        return $classes;
+    }
+
+
+
+
+
+    public function getCurrentEnseignes()
+    {
 
         $year =  AnneeScolaire::getAnneeScolaire();
 
-        $currentEnseigne = null;
+        $currentEnseignes = new ArrayCollection();
 
         foreach ($this->getEnseignes() as $enseigne){
             if ($enseigne->getAnneeScolaire()==$year){
-                $currentEnseigne=$enseigne;
+                $currentEnseignes->add($enseigne);
             }
         }
 
-
-
-        return $currentEnseigne;
+        return $currentEnseignes;
     }
 
-    /**
-     * @param mixed $currentEnseigne
-     */
-    public function setCurrentEnseigne($currentEnseigne)
-    {
-        $this->currentEnseigne = $currentEnseigne;
-        $this->currentEnseigne->setEnseignant($this);
-        $this->enseignes->add($currentEnseigne);
 
-    }
+
 
 
 
@@ -160,7 +190,7 @@ class Enseignant extends Utilisateur
     /**
      * Get enseignes
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return ArrayCollection
      */
     public function getEnseignes()
     {

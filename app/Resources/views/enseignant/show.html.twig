@@ -208,7 +208,7 @@
                             </div>
                             <div class="tab-pane active" id="fiche_enseignant" role="tabpanel">
                                 {{ render(controller('EJPAcademixBundle:Enseignant:edit',{'id' : enseignant.id})) }}
-                        </div>
+                            </div>
                     </div>
                 </div>
                 </div>
@@ -223,31 +223,7 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-             <form action="{{ path('enseigne_edit', {'id' : enseignant.currentEnseigne.id}) }}" method="post">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i>  Affectation de classe</h3>
-                </div>
-                <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-
-                                        <!-- liste des classe active pour l'année scolaire choisie -->
-                                        {{ render(controller('EJPAcademixBundle:Enseigne:edit', {'id' : enseignant.currentEnseigne.id})) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-perso icmn-user-plus"> Affecter</button>
-                </div>
-                </form>
+                {{ render(controller('EJPAcademixBundle:Enseignant:affectation',{'id' : enseignant.id})) }}
             </div>
 
         </div>

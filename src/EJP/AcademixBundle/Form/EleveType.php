@@ -3,12 +3,15 @@
 namespace EJP\AcademixBundle\Form;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use EJP\AcademixBundle\Entity\Classe;
 use EJP\AcademixBundle\Entity\Eleve;
 use EJP\AcademixBundle\Entity\Parents;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -23,6 +26,7 @@ class EleveType extends AbstractType
     {
 
         $builder->add('Utilisateur', UtilisateurType::class)
+            ->add('bulletin',FileType::class,array('required' => false, 'attr' => array('class' => 'dropify', 'data-allowed-file-extensions' => 'doc docx xls xlsx pdf')))
             ->add('parents', CollectionType::class, array(
                 'entry_type' => ParentsType::class,
                 'entry_options' => array('label' => false,'attr' => array('class' => 'form-control')),
@@ -30,7 +34,12 @@ class EleveType extends AbstractType
                 'by_reference' => false,
                 'allow_delete' => true
             ))
-            ->add('currentEtude', EtudeType::class);
+            ->add('currentClasse', EntityType::class , array(
+                'attr' => array('class' => 'form-control'),
+                'required' => false,
+                'class'    => Classe::class,
+                'expanded' => false,
+                'multiple' => false, ));
 
 
 
@@ -39,11 +48,7 @@ class EleveType extends AbstractType
 
             $eleve = $event->getData();
             $form = $event->getForm();
-            $eleveObj = $form->getData();
 
-
-
-            //Je me suis arrêté la, le dernier parent ne se suprime pas (par ce qu'il recoit le vide
 
               if (!in_array('parents',array_keys($eleve)) && count($eleve)>0) {
 
@@ -51,11 +56,19 @@ class EleveType extends AbstractType
 
             }
 
-            if (!in_array('currentEtude',array_keys($eleve))) {
+            if (!in_array('currentClasse',array_keys($eleve))) {
 
-                $form->remove('currentEtude');
+                $form->remove('currentClasse');
 
             }
+
+            if (!in_array('bulletin',array_keys($eleve))) {
+
+                $form->remove('bulletin');
+
+            }
+
+
 
             if (!in_array('Utilisateur',array_keys($eleve))) {
 

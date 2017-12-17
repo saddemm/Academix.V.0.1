@@ -2,7 +2,10 @@
 
 namespace EJP\AcademixBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use EJP\AcademixBundle\Entity\Classe;
+use EJP\AcademixBundle\Entity\Eleve;
+use EJP\AcademixBundle\Entity\Etude;
 use EJP\AcademixBundle\Form\ClasseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -101,6 +104,25 @@ class ClasseController extends Controller
         ));
     }
 
+
+    /**
+     * Displays a form to edit an existing classe entity.
+     *
+     * @Route("/{id}/affectation", name="classe_affectation")
+     * @Method("POST")
+     */
+    public function affectationAction(Request $request, Classe $classe)
+    {
+
+        $editForm = $this->createForm('EJP\AcademixBundle\Form\ClasseType', $classe);
+
+        return $this->render('classe/affectation.html.twig', array(
+            'form' => $editForm->createView(),
+            'classe' => $classe
+        ));
+    }
+
+
     /**
      * Displays a form to edit an existing classe entity.
      *
@@ -109,14 +131,33 @@ class ClasseController extends Controller
      */
     public function editAction(Request $request, Classe $classe)
     {
+
+        $originalEnseignes= new ArrayCollection();
+
+        // Create an ArrayCollection of the current Parent objects in the database
+        foreach ($classe->getEnseignes() as $en) {
+            $originalEnseignes->add($en);
+        }
+
+
+        $em = $this->getDoctrine()->getManager();
+
         $deleteForm = $this->createDeleteForm($classe);
         $editForm = $this->createForm('EJP\AcademixBundle\Form\ClasseType', $classe);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('classe_edit', array('id' => $classe->getId()));
+            foreach ($originalEnseignes as $en) {
+                if (false === $classe->getEnseignes()->contains($en)) {
+
+                    $em->remove($en);
+                }
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('classe_show', array('id' => $classe->getId()));
         }
 
         return $this->render('classe/edit.html.twig', array(

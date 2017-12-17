@@ -291,5 +291,10 @@ class Parents
         return $this;
     }
 
+    public function __toString()
+    {
+       return $this->getNom().' ToString de parent';
+    }
+
 }
 

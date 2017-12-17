@@ -22,6 +22,8 @@ class Classe
     {
         $this->etudes = new ArrayCollection();
         $this->enseignes = new ArrayCollection();
+        $this->eleves = new ArrayCollection();
+        $this->enseignants = new ArrayCollection();
     }
 
     /**
@@ -50,19 +52,25 @@ class Classe
 
     /**
      * @var Etude
-     * @ORM\OneToMany(targetEntity="Etude", mappedBy="classe",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Etude", mappedBy="classe", cascade={"all"})
      */
 
     private $etudes;
 
     /**
      * @var Enseigne
-     * @ORM\ManyToMany(targetEntity="Enseigne", mappedBy="classe",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Enseigne", mappedBy="classe", cascade={"all"})
      */
 
     private $enseignes;
 
-    private $currentEtudes;
+
+
+    private $eleves;
+
+    private $enseignants;
+
+    private $currentEtude;
 
     private $currentEnseignes;
 
@@ -78,6 +86,94 @@ class Classe
     {
         return $this->id;
     }
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEnseignants()
+    {
+        $enseignants= new ArrayCollection();
+
+        /** @var Enseigne $en */
+        foreach ($this->enseignes as $en){
+            $enseignants[] = $en->getEnseignant();
+        }
+
+        return $enseignants;
+    }
+
+
+    /** @param Enseignant $enseignant */
+    public function addEnseignant($enseignant){
+
+
+        $enseigne = new Enseigne();
+
+        $enseigne->setClasse($this);
+        $enseigne->setEnseignant($enseignant);
+
+        $this->addEnseigne($enseigne);
+
+    }
+
+    /** @param Enseignant $enseignant */
+    public function removeEnseignant($enseignant){
+
+        /** @var Enseigne $en */
+
+        $enseignes = $this->getCurrentEnseignes();
+        foreach ($enseignes as $en){
+            if ($en->getEnseignant()===$enseignant){
+
+                $this->removeEnseigne($en);
+            }
+        }
+
+
+    }
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEleves()
+    {
+        $eleves= new ArrayCollection();
+
+        //XX113 changer par les currentEtudes
+        /** @var Etude $et */
+        foreach ($this->etudes as $et){
+            $eleves[] = $et->getEleve();
+    }
+
+        return $eleves;
+    }
+
+    /**
+     * Add eleve
+     *
+     *
+     */
+    public function addEleve(Eleve $eleve)
+    {
+
+
+        $et = $eleve->getCurrentEtude();
+        if ($et != null){
+        $et->setClasse($this);
+        $this->eleves[] = $eleve;
+        }
+
+    }
+
+    public function removeEleve(Eleve $eleve){
+
+        $et = $eleve->getCurrentEtude();
+        $et->setClasse(null);
+    }
+
+
 
     /**
      * Set nom
@@ -134,6 +230,7 @@ class Classe
      */
     public function addEtude(Etude $etude)
     {
+
         $this->etudes[] = $etude;
 
         return $this;
@@ -146,6 +243,7 @@ class Classe
      */
     public function removeEtude(Etude $etude)
     {
+
         $this->etudes->removeElement($etude);
     }
 
@@ -156,6 +254,7 @@ class Classe
      */
     public function getEtudes()
     {
+
         return $this->etudes;
     }
 
@@ -181,7 +280,9 @@ class Classe
      */
     public function removeEnseigne(Enseigne $enseigne)
     {
+
         $this->enseignes->removeElement($enseigne);
+
     }
 
     /**
@@ -196,7 +297,7 @@ class Classe
 
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getCurrentEnseignes()
     {
@@ -230,6 +331,31 @@ class Classe
 
         return $currentEtudes;
     }
+
+    /**
+     * @param Etude $etudes
+     */
+    public function setEtudes($etudes)
+    {
+        /** @var Etude $et */
+        foreach ($etudes as $et){
+            $et->setClasse($this);
+        }
+
+        $this->etudes = $etudes;
+    }
+
+    /**
+     * @param ArrayCollection $enseignes
+     */
+    public function setEnseignes($enseignes)
+    {
+        $this->enseignes = $enseignes;
+    }
+
+
+
+
 
 
 }

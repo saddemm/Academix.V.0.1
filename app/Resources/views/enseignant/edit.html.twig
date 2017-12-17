@@ -11,7 +11,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label for="l302">Mot de passe</label>
-                <input value="{{ enseignant.password }}" type="text" class="form-control" placeholder="Mot de passe" disabled="" id="l0">
+                <input value="{{ enseignant.password }}" type="password" class="form-control password" placeholder="Mot de passe" disabled="" id="l0">
             </div>
         </div>
     </div>
@@ -110,3 +110,17 @@
     </div>
 
 </form>
+
+{% block javascripts %}
+    <script src="{{ asset('../assets/vendors/showpassword/bootstrap-show-password.min.js') }}"></script>
+    <script>
+        // Show/Hide Password
+        $('.password').password({
+            eyeClass: '',
+            eyeOpenClass: 'icmn-eye',
+            eyeCloseClass: 'icmn-eye-blocked'
+        });
+    </script>
+
+
+{% endblock %}

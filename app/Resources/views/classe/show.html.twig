@@ -5,17 +5,11 @@
         <div class="panel-heading">
             <h3 class="color-black-ecole">
                 <div class="dropdown pull-right">
-                    <button type="button" class="btn btn-perso dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
-                        Selectionnez une action
-                    </button>
-                    <ul class="dropdown-menu">
-                        <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#myModal1" > Affecter un élève</a>
-                        <a class="dropdown-item icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#myModal" > Affecter un enseignant</a>
-                    </ul>
+                    <a class="btn icmn-user-plus" href="javascript: void(0);" data-toggle="modal" data-target="#modalEleve" > Affectation</a>
                 </div>
 
                 <i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i>
-                GESTION DES CLASSES
+                Gestion de la classe {{ classe.nom }}
             </h3>
         </div>
         <div class="panel-body">
@@ -28,7 +22,6 @@
                     <thead class="thead-default">
                     <tr>
                         <th>Nom & Prenom</th>
-                        <th>id</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -36,9 +29,8 @@
                     {% for etude in classe.currentEtudes %}
                         <tr>
                             <td>{{ etude.eleve.nom }} {{ etude.eleve.prenom }}</td>
-                            <td>{{ etude.eleve.id }}</td>
                             <td>
-                                <a href="{{ path('classe_edit', { 'id': classe.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i>Détail</a>
+                                <a href="{{ path('eleve_show', { 'id': etude.eleve.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détail</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -50,12 +42,10 @@
                 <i class="fa fa-black-tie color-black-ecole" aria-hidden="true"></i>
                 Liste des enseignants
 
-
                 <table class="table table-hover nowrap" id="example2" width="100%">
                     <thead class="thead-default">
                     <tr>
                         <th>Nom & Prenom</th>
-                        <th>id</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -63,9 +53,8 @@
                     {% for enseigne in classe.currentEnseignes %}
                         <tr>
                             <td>{{ enseigne.enseignant.nom }} {{ enseigne.enseignant.prenom }}</td>
-                            <td>{{ enseigne.enseignant.id }}</td>
                             <td>
-                                <a href="{{ path('classe_edit', { 'id': classe.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i>Détail</a>
+                                <a href="{{ path('enseignant_show', { 'id': enseigne.enseignant.id }) }}" class="link-underlined margin-right-5"><i class="icmn-pencil5"><!-- --></i> Détail</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -75,54 +64,16 @@
             </div>
             </div>
         </div>
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
+
+
+
+        <div class="modal fade" id="modalEleve" role="dialog">
+            <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i> AFFECTER DES ENSEIGNANTS</h3>
-                    </div>
-                    <form action="{{ path('classe_edit') }}" method="post" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    {{ form_widget(form) }}
-                                    {{ form_widget(form._token) }}
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-perso icmn-user-plus"> Affecter</button>
-                        <button type="button" class="btn btn-default icmn-user-cancel"> Annuler</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal1" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i> AFFECTER DES ELEVES</h3>
-                    </div>
-                    <form action="{{ path('classe_new') }}" method="post" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="col-lg-12">
-                                        <!-- liste multiple des eleves-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-perso icmn-user-plus"> Affecter</button>
-                        <button type="button" class="btn btn-default icmn-user-cancel"> Annuler</button>
-                    </div>
+
+                   {{ render(controller('EJPAcademixBundle:Classe:affectation', {'id' : classe.id })) }}
+
                 </div>
             </div>
         </div>
@@ -148,5 +99,17 @@
             });
         })
     </script>
+
+    <script>
+
+        $('.ui.dropdown')
+            .dropdown();
+
+    </script>
     <!-- End Page Scripts -->
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('../assets/vendors/uidropdown/semantic.min.css') }}">
+    <script src="{{ asset('../assets/vendors/uidropdown/semantic.min.js') }}"></script>
 {% endblock %}

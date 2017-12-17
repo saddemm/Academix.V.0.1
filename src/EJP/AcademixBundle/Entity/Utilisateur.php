@@ -387,7 +387,7 @@ class Utilisateur implements UserInterface, \Serializable
 
     public function __toString()
     {
-        return $this->getNom();
+        return $this->getNom().' '.$this->getPrenom();
     }
 
     /**

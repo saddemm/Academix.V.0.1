@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %} Elève{% endblock %}
+{% block menu_block %}  style="display: block;" {% endblock %}
 {% block body %}
-    {% block menu_block %}  style="display: block;" {% endblock %}
+
     <nav class="top-submenu top-submenu-with-background">
         <div class="profile-header">
             <div class="profile-header-info">
@@ -16,6 +17,7 @@
                                 {% else %}
                                 {{ eleve.prenom }} {{ eleve.nom}} n'est pas encore affecté à une classe
                                 {% endif %}
+
                             </p>
                         </div>
                     </div>
@@ -215,12 +217,27 @@
                                             </td>
                                             <td>{{ etude.moyenne }}</td>
                                             <td>{{ etude.succes }}</td>
-                                            <td><a href="{{ asset('uploads/bulletins/') }}{{ etude.bulletin }}" class="icmn-file-download">Telecharger bulletin</a></td>
+                                            <td>
+                                                {% if etude.bulletin != null %}
+                                                <a href="{{ asset('uploads/bulletins/') }}{{ etude.bulletin }}" class="icmn-file-download">Telecharger bulletin</a>
+                                                {% else %}
+                                                    N'a pas de bulletin
+                                                {% endif %}
+                                            </td>
 
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
                                         </table>
+
+                                        <div class="form-actions">
+                                            <div class="form-group">
+                                                <button class="btn btn-primary icmn-plus-circle" data-toggle="modal" data-target="#modalClasse"> Changer de classe</button>
+                                                <button class="btn btn-primary icmn-plus-circle" data-toggle="modal" data-target="#modalBulletin"> Charger bulletin</button>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -258,32 +275,9 @@
                                         <div class="col-lg-6">
 
 
-                                            {#
-                                                    <div class="form-group">
-                                                        <label class="form-control-label" for="l4">Classe</label>
-                                                        {% for etude in form.currentEtudes %}
-
-                                                            {{ form_widget(etude.classe) }}
-
-
-
-
-                                                        {% endfor %}
-
-
-
-
-
-                                                    </div>
-                                                      #}
-
-
-
                                                 {{ render(controller('EJPAcademixBundle:Etude:edit' , {'id' : eleve.currentEtude.id})) }}
 
 
-
-
                                             </div>
 
 
@@ -291,37 +285,35 @@
                             </div>
                     </div>
                 </div>
-                <div class="modal fade" id="myModal" role="dialog">
+
+
+                    {#Modals#}
+
+                <div class="modal fade" id="modalClasse" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h3 class="modal-title color-black-ecole"><i class="fa fa-file-pdf-o color-black-ecole" aria-hidden="true"></i> NOUVEAU BULLETIN</h3>
-                            </div>
-                            <form action="{{ path('classe_new') }}" method="post" enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
 
-                                                    <div class="form-group ">
-                                                        <input type="text" id="l16">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-perso icmn-plus-circle"> Ajouter</button>
-                                <button type="button" class="btn btn-default icmn-cancel-circle"> Annuler</button>
-                            </div>
+                            {% include 'eleve/edit_classe.html.twig' %}
+
                         </div>
                     </div>
                 </div>
+
+                    <div class="modal fade" id="modalBulletin" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+
+                               {{ render(controller('EJPAcademixBundle:Eleve:editBulletin',{'id' : eleve.id} )) }}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
             </section>
         </div>

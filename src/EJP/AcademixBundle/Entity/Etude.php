@@ -71,7 +71,7 @@ class Etude
     /**
      *
      * @ORM\ManyToOne(targetEntity="Classe")
-     * @ORM\JoinColumn(name="classe_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="classe_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $classe;
 
@@ -287,7 +287,7 @@ class Etude
 
     public function __toString()
     {
-        return "Test Affichage Etude";
+        return $this->getEleve()->getPrenom().' '.$this->getEleve()->getNom();
     }
 
 }

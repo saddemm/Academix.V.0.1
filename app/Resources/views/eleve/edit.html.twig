@@ -1,6 +1,22 @@
 
 
 <form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l301">Identifiant</label>
+                <input value="{{ eleve.username }}" type="text" class="form-control" placeholder="Identifiant" disabled="" id="l0">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="l302">Mot de passe</label>
+                <input value="{{ eleve.password }}" type="password" class="form-control password" placeholder="Mot de passe"id="l0" disabled>
+            </div>
+        </div>
+    </div>
+
+    <h5 class="color-black-ecole icmn-profile"> Informations sur l'élève</h5>
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -82,3 +98,17 @@
         {{ form_widget(form._token) }}
 
 </form>
+
+{% block javascripts %}
+    <script src="{{ asset('../assets/vendors/showpassword/bootstrap-show-password.min.js') }}"></script>
+    <script>
+        // Show/Hide Password
+        $('.password').password({
+            eyeClass: '',
+            eyeOpenClass: 'icmn-eye',
+            eyeCloseClass: 'icmn-eye-blocked'
+        });
+    </script>
+
+
+{% endblock %}
