@@ -1,0 +1,49 @@
+
+
+        {{ form_widget(form.jour) }}
+
+
+           <div class="pars" data-prototype="{{ form_row(form.horairesRDV.vars.prototype)|e('html_attr') }}">
+               {% for horaire in form.horairesRDV %}
+                   <div class="par">
+
+                       <div class="col-lg-6">
+                           <div class="form-group">
+                               <label for="l30">Heur debut</label>
+                               {{ form_widget(horaire.heurDebut) }}
+                           </div>
+                       </div>
+
+                       <div class="col-lg-6">
+                           <div class="form-group">
+                               <label for="l30">Heur debut</label>
+                               {{ form_widget(horaire.heurFin) }}
+                           </div>
+                       </div>
+
+
+
+                       <div class="clearfix"></div>
+
+
+
+
+
+                   </div>
+
+
+                   <hr>
+               {% endfor %}
+
+
+
+           </div>
+
+
+           {{ form_widget(form._token) }}
+
+
+       {% block javascripts %}
+           <script src="{{ asset('customJs/horairesRDV.js') }}"></script>
+
+       {% endblock %}

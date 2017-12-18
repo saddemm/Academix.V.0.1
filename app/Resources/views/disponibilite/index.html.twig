@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Disponibilites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Jour</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for disponibilite in disponibilites %}
+            <tr>
+                <td><a href="{{ path('disponibilite_show', { 'id': disponibilite.id }) }}">{{ disponibilite.id }}</a></td>
+                <td>{{ disponibilite.jour }}</td>
+                <td>{% if disponibilite.etat %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('disponibilite_show', { 'id': disponibilite.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('disponibilite_edit', { 'id': disponibilite.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('disponibilite_new') }}">Create a new disponibilite</a>
+        </li>
+    </ul>
+{% endblock %}

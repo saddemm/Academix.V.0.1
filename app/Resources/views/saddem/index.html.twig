@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Saddems list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for saddem in saddems %}
+            <tr>
+                <td><a href="{{ path('saddem_show', { 'id': saddem.id }) }}">{{ saddem.id }}</a></td>
+                <td>{{ saddem.nom }}</td>
+                <td>{{ saddem.prenom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('saddem_show', { 'id': saddem.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('saddem_edit', { 'id': saddem.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('saddem_new') }}">Create a new saddem</a>
+        </li>
+    </ul>
+{% endblock %}

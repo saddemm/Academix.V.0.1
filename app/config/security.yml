@@ -35,5 +35,4 @@ security:
                 target: utilisateur_login
     access_control:
         - { path: ^/bo/utilisateur/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/bo/parents, role: ROLE_ELEVE }
-        - { path: ^/bo/contact, role: ROLE_ENSEIGNANT }
+        - { path: ^/bo, role: IS_AUTHENTICATED_FULLY }

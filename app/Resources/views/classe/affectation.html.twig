@@ -1,0 +1,33 @@
+<form action="{{ path('classe_edit', { 'id': classe.id }) }}" method="post">
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title color-black-ecole"><i class="fa fa-pencil color-black-ecole" aria-hidden="true"></i> Affectes des élèves à la classe <b>{{ classe.nom }}</b> </h3>
+        </div>
+
+        <div class="modal-body">
+
+                <div class="row">
+                        <div class="col-lg-6">
+                                <div class="form-group">
+                                        <label for="l30">Eleves</label>
+                                    {{ form_widget(form.eleves) }}
+                                </div>
+                        </div>
+
+
+
+                        <div class="col-lg-6">
+                                <div class="form-group">
+                                        <label for="l30">Enseignants</label>
+                                    {{ form_widget(form.enseignants) }}
+
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal-footer">
+                <button class="btn btn-perso icmn-user-plus"> Affecter</button>
+        </div>
+    {{ form_widget(form._token) }}
+</form>

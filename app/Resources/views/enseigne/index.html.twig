@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enseignes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Anneescolaire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enseigne in enseignes %}
+            <tr>
+                <td><a href="{{ path('enseigne_show', { 'id': enseigne.id }) }}">{{ enseigne.id }}</a></td>
+                <td>{{ enseigne.anneeScolaire }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('enseigne_show', { 'id': enseigne.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('enseigne_edit', { 'id': enseigne.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('enseigne_new') }}">Create a new enseigne</a>
+        </li>
+    </ul>
+{% endblock %}

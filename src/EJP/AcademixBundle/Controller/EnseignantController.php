@@ -32,13 +32,11 @@ class EnseignantController extends Controller
     public function showUserAction()
     {
         $enseignant = $this->container->get('security.token_storage')->getToken()->getUser();
-        $deleteForm = $this->createDeleteForm($enseignant);
 
         $form = $this->createForm('EJP\AcademixBundle\Form\EnseignantType', $enseignant);
 
         return $this->render('enseignant/show_user.html.twig', array(
             'enseignant' => $enseignant,
-            'delete_form' => $deleteForm->createView(),
             'form' => $form->createView()
         ));
     }

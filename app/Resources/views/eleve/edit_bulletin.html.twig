@@ -1,0 +1,38 @@
+<form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post" enctype="multipart/form-data">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title color-black-ecole"><i class="fa fa-file-pdf-o color-black-ecole" aria-hidden="true"></i> Choisissez une classe</h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12">
+
+                {% if null == eleve.currentEtude.bulletin %}
+                    <div class="alert alert-info fade in alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        <strong>Info!</strong> Cette elève n'a pas encore de bulletin.
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning fade in alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        <strong>Warning!</strong> Cette elève à déjà un bulletin, si vous ajouter un nouveau l'ancien sera écraser.
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="l15">Mettre le bulletin en ligne</label>
+                    {{ form_widget(form.bulletin, {'attr': {'required': 'true'}}) }}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-perso icmn-plus-circle"> Charger</button>
+        <button type="button" class="btn btn-default icmn-cancel-circle" data-dismiss="modal"> Annuler</button>
+    </div>
+    {{ form_widget(form._token) }}
+</form>

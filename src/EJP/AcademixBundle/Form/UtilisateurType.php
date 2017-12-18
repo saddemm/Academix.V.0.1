@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -20,6 +22,8 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+            ->add('remarque', TextareaType::class,array('attr' => array('class' => 'form-control')))
             ->add('nom',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('prenom',TextType::class,array('attr' => array('class' => 'form-control')))
             ->add('adresse',TextareaType::class,array('attr' => array('class' => 'form-control')))
@@ -33,6 +37,24 @@ class UtilisateurType extends AbstractType
                     'H' => "H",
                     'F' => "F"
                 )));
+
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+
+
+            $user = $event->getData();
+            $form = $event->getForm();
+
+
+            if (in_array('remarque',array_keys($user))) {
+
+
+                $form->remove('nom')->remove('prenom')->remove('adresse')->remove('email')
+                    ->remove('telephone')->remove('myFile')->remove('dateNaissance')->remove('sex');
+
+            }
+
+
+        });
     }
     
     /**

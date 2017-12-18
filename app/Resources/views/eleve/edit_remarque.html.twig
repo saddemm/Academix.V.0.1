@@ -1,0 +1,8 @@
+<form action="{{ path('eleve_edit', { 'id': eleve.id }) }}" method="post">
+    <label class="form-control-label" for="l15"><span class="icmn-pencil5 color-primary"> <strong>Saisissez votre remarque</strong></span></label>
+
+    {{ form_widget(form.Utilisateur.remarque) }}
+    <br/>
+    <button class="btn btn-primary icmn-plus-circle" data-dismiss="modal"> Ajouter</button>
+    {{ form_widget(form._token) }}
+</form>

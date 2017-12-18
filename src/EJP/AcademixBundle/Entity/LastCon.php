@@ -30,7 +30,7 @@ class LastCon
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -132,6 +132,11 @@ class LastCon
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    function __toString()
+    {
+        return $this->date.'';
     }
 }
 

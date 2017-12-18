@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Horairerdvs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Heuredebut</th>
+                <th>Heurefin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for horaireRDV in horaireRDVs %}
+            <tr>
+                <td><a href="{{ path('horairerdv_show', { 'id': horaireRDV.id }) }}">{{ horaireRDV.id }}</a></td>
+                <td>{{ horaireRDV.heureDebut }}</td>
+                <td>{{ horaireRDV.heureFin }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('horairerdv_show', { 'id': horaireRDV.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('horairerdv_edit', { 'id': horaireRDV.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('horairerdv_new') }}">Create a new horaireRDV</a>
+        </li>
+    </ul>
+{% endblock %}

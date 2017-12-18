@@ -2,7 +2,9 @@
 
 namespace EJP\AcademixBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use EJP\AcademixBundle\Form\RemarqueType;
 use EJP\AcademixBundle\Service\Generator;
 use EJP\AcademixBundle\Service\Role;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -47,6 +49,7 @@ class Utilisateur implements UserInterface, \Serializable
         $this->etat = true;
         $this->setRoles(Role::roleFinder($this));
         $this->setPassword(Generator::generatePassword());
+        $this->remarques = new ArrayCollection();
 
     }
 
@@ -99,7 +102,7 @@ class Utilisateur implements UserInterface, \Serializable
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -141,14 +144,18 @@ class Utilisateur implements UserInterface, \Serializable
 
     private $lastcons;
 
-
     /**
-     * @return LastCon
+     * @var Remarque
+     * One Utilisateur has Many remqrques.
+     * @ORM\OneToMany(targetEntity="Remarque", mappedBy="utilisateur",cascade={"persist"})
      */
-    public function getLastcons()
-    {
-        return $this->lastcons;
-    }
+
+    private $remarques;
+
+    private $remarque;
+
+
+
 
 
 
@@ -187,7 +194,59 @@ class Utilisateur implements UserInterface, \Serializable
 
 
     /**
-     * @return date
+     * @param Remarque $remarque
+     */
+    public function setRemarque($rq)
+    {
+        $remarque = new Remarque();
+        $remarque->setLabel($rq);
+        $remarque->setUtilisateur($this);
+        $this->addRemarque($remarque);
+        $this->remarque=$remarque;
+    }
+
+    /**
+     * @return Remarque
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
+    }
+
+    /**
+     * @return Remarque
+     */
+    public function getRemarques()
+    {
+        return $this->remarques;
+    }
+
+
+    /**
+     * @param Remarque $remarque
+     */
+    function addRemarque($remarque){
+        $this->remarques->add($remarque);
+    }
+
+    /**
+     * @param Remarque $remarque
+     */
+    function removeRemarque($remarque){
+        $this->remarques->removeElement($remarque);
+    }
+
+    /**
+     * @return LastCon
+     */
+    public function getLastcons()
+    {
+        return $this->lastcons;
+    }
+
+
+    /**
+     * @return \DateTime
      */
     public function getCreatedAt()
     {

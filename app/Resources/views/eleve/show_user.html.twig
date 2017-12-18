@@ -10,12 +10,12 @@
                     <div class="col-xl-8 col-xl-offset-4">
 
                         <div class="profile-header-title">
-                            <h2><span class="color-rouge-ecole"> " {{ eleve.prenom }} {{ eleve.nom}}"  </span></h2>
+                            <h2><span class="color-rouge-ecole"> {{ eleve.prenom }} {{ eleve.nom}}  </span></h2>
                             <p>
                                 {% if eleve.currentClasse !=null %}
                                 Classe : {{ eleve.currentClasse.nom }}
                                 {% else %}
-                                {{ eleve.prenom }} {{ eleve.nom}} n'est pas encore affecté à une classe
+                                Vous n'êtes pas encore affecté à une classe, contactez la direction
                                 {% endif %}
 
                             </p>
@@ -37,7 +37,6 @@
                         <br />
 
                         <br />
-                        <p >Dernière connexion: 2 Nov 2017 14:00PM</p><!-- dernière date de connexion -->
                     </div>
                 </div>
             </section>
@@ -48,10 +47,34 @@
                 <div class="widget-header">
                     <span class="text-truncate text-nowrap icmn-profile color-black-ecole"> <strong>Informations de Base</strong></span>
                 </div>
+
                 <div class="widget-body clearfix">
                     <dl class="dl-horizontal user-profile-dl">
 
-                        <dt><span class="icmn-vcard color-primary"> <strong> Contact Parent </strong></span></dt>
+                        <dt><span class="icmn-vcard color-primary"> <strong> Dernière connexion </strong></span></dt>
+
+                        {#avoir l'avant derniere valeur de connexion#}
+                        {% if eleve.lastcons|length > 1 %}
+                        <dd> {{ eleve.lastcons[eleve.lastcons|length-2].date|date('d M Y  \\a  H:i') }}</dd>
+                        {% else %}
+                        <dd> C'est votre première connexion </dd>
+
+                            <script>
+                                swal({
+                                    title: "Bienvenu dans votre espace élève de l'école Jacques Prévert",
+                                    text: "C'est votre première connexion",
+                                    type: "success",
+                                    confirmButtonClass: "btn-success",
+                                    confirmButtonText: "Ok"
+                                });
+                            </script>
+
+                        {% endif %}
+                        <br>
+
+
+
+                        <dt><span class="icmn-vcard color-primary"> <strong> Contact </strong></span></dt>
                         {% for responsable in eleve.parentsResponsable %}
                             <dd><i class="icmn-user3"></i> {{ responsable.type }} </dd>
                         <dd><i class="icmn-at-sign"></i> {{ responsable.email }} </dd>
@@ -64,10 +87,12 @@
             </div>
             <div class="widget widget-two">
                 <div class="widget-header">
-                    <span class="text-truncate text-nowrap icmn-pencil color-black-ecole"> <strong>Remarque</strong></span>
+                    <span class="text-truncate text-nowrap icmn-pencil color-black-ecole"> <strong>Travaille à faire</strong></span>
                 </div>
                 <div class="widget-body clearfix">
-                    {% include 'eleve/edit_remarque.html.twig' %}
+                    <label class="form-control-label" for="l15"><span class="icmn-pencil5 color-primary"> <strong>Vous avez un travail à faire pour le 27/02</strong></span></label>
+
+
                 </div>
 
             </div>
@@ -85,12 +110,7 @@
                                     Fiche Elève
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#fiche_parent" role="tab">
-                                    <i class="icmn-tie"></i>
-                                    Fiche Parent
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#historique" role="tab">
                                     <i class="icmn-design"></i>
@@ -103,51 +123,38 @@
                                     Remarques et Sanction
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#cnx" role="tab">
-                                    <i class="icmn-enter"></i>
-                                    Historiques des connexions
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link " href="javascript: void(0);" data-toggle="tab" data-target="#classe" role="tab">
-                                    <i class="icmn-enter"></i>
-                                    Classe & bulletin
-                                </a>
-                            </li>
+
+
                         </ul>
                         <div class="tab-content padding-vertical-20">
-                            <div class="tab-pane " id="cnx" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <table class="table table-hover nowrap" id="example4" width="100%">
-                                            <thead class="thead-default">
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>IP</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for lastcon in eleve.lastcons %}
-                                                <tr>
 
-                                                    <td>{{ lastcon.date|date }}</td>
-                                                    <td>{{ lastcon.ip }}</td>
-                                                </tr>
-
-                                            {% endfor %}
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="tab-pane " id="remarques" role="tabpanel">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h3 class="color-black-ecole">Liste des sanctions</h3>
+                                        <br/>
+                                        <table class="table table-hover nowrap" id="example2" width="100%">
+                                            <thead class="thead-default">
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Enseignant</th>
+                                            <th>Cause</th>
+                                            </thead>
+                                            <tbody>
+                                            <th scope="row">
+                                                <input type="checkbox">
+                                            </th>
+                                            <td>21/11/2017</td>
+                                            <td>M. Khalfi</td>
+                                            <td>xxxxx</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <h3 class="color-black-ecole">Liste des remarques</h3>
                                         <br/>
                                         <table class="table table-hover nowrap" id="example2" width="100%">
                                             <thead class="thead-default">
@@ -159,33 +166,12 @@
                                             <tbody>
                                             {% for remarque in eleve.remarques %}
                                             <tr>
-                                            <td>{{ remarque.label }}</td>
-                                            <td>{{ remarque.createdAt|date('d M Y  \\a  H:i') }}</td>
-                                            <td>Direction</td>
+                                                <td>{{ remarque.label }}</td>
+                                                <td>{{ remarque.createdAt|date('d M Y  \\a  H:i') }}</td>
+                                                <td>Direction</td>
                                                 {% endfor %}
                                             </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <h3 class="color-black-ecole">Liste des remarques</h3>
-                                        <br/>
-                                        <table class="table table-hover nowrap" id="example3" width="100%">
-                                            <thead class="thead-default">
-                                            <th>#</th>
-                                            <th>Date</th>
-                                            <th>Enseignant</th>
-                                            <th>Remarque</th>
-                                            </thead>
-                                            <tbody>
-                                            <th scope="row">
-                                                <input type="checkbox">
-                                            </th>
-                                            <td>21/11/2017</td>
-                                            <td>M. Khalfi</td>
-                                            <td>xxxxx</td>
                                             </tbody>
                                         </table>
                                     </div>
@@ -231,31 +217,11 @@
                                             </tbody>
                                         </table>
 
-                                        <div class="form-actions">
-                                            <div class="form-group">
-                                                <button class="btn btn-primary icmn-plus-circle" data-toggle="modal" data-target="#modalClasse"> Changer de classe</button>
-                                                <button class="btn btn-primary icmn-plus-circle" data-toggle="modal" data-target="#modalBulletin"> Charger bulletin</button>
-                                            </div>
-                                        </div>
+
 
 
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="tab-pane " id="fiche_parent" role="tabpanel">
-                                <br />
-                                <h5>FICHE PARENTS</h5>
-                                <!-- Boucle For -->
-
-
-                                    <div class="row">
-
-
-                                        {{ render(controller('EJPAcademixBundle:Eleve:editParents' , {'id' : eleve.id})) }}
-
-                                    </div>
-
                             </div>
 
 
@@ -266,54 +232,11 @@
 
                                 {{ render(controller('EJPAcademixBundle:Eleve:edit' , {'id' : eleve.id})) }}
 
-
-                        </div>
-
-                            <div class="tab-pane " id="classe" role="tabpanel">
-                                <div class="row">
+                              </div>
 
 
-                                        <div class="col-lg-6">
-
-
-                                                {{ render(controller('EJPAcademixBundle:Etude:edit' , {'id' : eleve.currentEtude.id})) }}
-
-
-                                            </div>
-
-
-                                </div>
-                            </div>
                     </div>
                 </div>
-
-
-                    {#Modals#}
-
-                <div class="modal fade" id="modalClasse" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-
-                            {% include 'eleve/edit_classe.html.twig' %}
-
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="modal fade" id="modalBulletin" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-
-                               {{ render(controller('EJPAcademixBundle:Eleve:editBulletin',{'id' : eleve.id} )) }}
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
 
                 </div>
             </section>
@@ -372,6 +295,23 @@
 
 
      <script src="{{ asset('customJs/parents.js') }}"></script>
+
+    <script>
+        // SWAL ALERTS
+        $('.firstly').isDisabled(function(e){
+            e.preventDefault();
+            swal({
+                title: "Following",
+                text: "Now you are following Artour Scott",
+                type: "success",
+                confirmButtonClass: "btn-success",
+                confirmButtonText: "Ok"
+            });
+        });
+
+
+    </script>
+
 
 
 

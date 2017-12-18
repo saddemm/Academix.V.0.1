@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 /**
@@ -23,6 +24,27 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class EleveController extends Controller
 {
+
+
+    /**
+     * Finds and displays a eleve entity.
+     *
+     * @Route("/profile", name="eleve_show_user")
+     * @Method("GET")
+     * @Security("has_role('ROLE_ELEVE')")
+     */
+    public function showUserAction()
+    {
+
+        $eleve = $this->container->get('security.token_storage')->getToken()->getUser();
+        $form = $this->createForm('EJP\AcademixBundle\Form\EleveType', $eleve);
+
+        return $this->render('eleve/show_user.html.twig', array(
+            'eleve' => $eleve,
+            'form' => $form->createView()
+        ));
+    }
+
 
     /**
      * Displays a form to edit an existing eleve entity.
