@@ -133,6 +133,23 @@ class Utilisateur implements UserInterface, \Serializable
      */
     private $telephone;
 
+    /**
+     * @var LastCon
+     * One Utilisateur has Many lastcons.
+     * @ORM\OneToMany(targetEntity="LastCon", mappedBy="utilisateur",cascade={"persist"})
+     */
+
+    private $lastcons;
+
+
+    /**
+     * @return LastCon
+     */
+    public function getLastcons()
+    {
+        return $this->lastcons;
+    }
+
 
 
 

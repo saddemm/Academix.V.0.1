@@ -2,6 +2,8 @@
 
 namespace EJP\AcademixBundle\Controller;
 
+use EJP\AcademixBundle\Entity\Enseignant;
+use EJP\AcademixBundle\Entity\LastCon;
 use EJP\AcademixBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,12 +23,52 @@ class UtilisateurController extends Controller
     /**
      *
      *
+     * @Route("/checker", name="utilisateur_checker")
+     *
+     */
+    public function checkerAction(Request $request)
+
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var Utilisateur $user */
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+        $lastCon = new LastCon();
+        $ip = $request->getClientIp();
+        $lastCon->setIp($ip);
+        $lastCon->setUtilisateur($user);
+
+        $em->persist($lastCon);
+        $em->flush();
+
+
+        switch ($user->getRoles()[0]){
+            case 'ROLE_ADMIN':
+                return $this->redirectToRoute('eleve_index');
+                break;
+            case 'ROLE_ENSEIGNANT':
+                return $this->redirectToRoute('enseignant_show_user');
+                break;
+            case 'ROLE_ELEVE':
+                return $this->redirectToRoute('eleve_show_user');
+                break;
+
+        }
+    }
+
+
+
+    /**
+     *
+     *
      * @Route("/login", name="utilisateur_login")
      *
      */
     public function loginAction(Request $request)
 
     {
+
         $authUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one

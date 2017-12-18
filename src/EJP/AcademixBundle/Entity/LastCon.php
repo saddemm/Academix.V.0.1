@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class LastCon
 {
+
+    function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
     /**
      * @var int
      *
@@ -107,7 +113,7 @@ class LastCon
     /**
      * Set utilisateur
      *
-     * @param \stdClass $utilisateur
+     * @param Utilisateur $utilisateur
      *
      * @return LastCon
      */
@@ -121,7 +127,7 @@ class LastCon
     /**
      * Get utilisateur
      *
-     * @return \stdClass
+     * @return Utilisateur
      */
     public function getUtilisateur()
     {

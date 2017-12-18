@@ -57,10 +57,15 @@ class Enseignant extends Utilisateur
 
 
 
+
     private $currentEnseignes;
 
 
     private $bassas;
+
+
+
+
 
     public function addBassa(Classe $classe){
 

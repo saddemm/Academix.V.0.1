@@ -152,18 +152,20 @@
                                         <table class="table table-hover nowrap" id="example4" width="100%">
                                             <thead class="thead-default">
                                             <tr>
-                                                <th>#</th>
-                                                <th>Id</th>
                                                 <th>Date</th>
+                                                <th>IP</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <!-- boucle for la liste des etudes liés à un eleve-->
-                                            <th scope="row">
-                                                <input type="checkbox">
-                                            </th>
-                                            <td>id</td>
-                                            <td>Date</td>
+                                            {% for lastcon in enseignant.lastcons %}
+                                            <tr>
+
+                                            <td>{{ lastcon.date|date }}</td>
+                                            <td>{{ lastcon.ip }}</td>
+                                            </tr>
+
+                                            {% endfor %}
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -181,18 +183,18 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
+
                                             {% for enseigne in enseignant.enseignes %}
+                                            <tr>
 
                                             <td>{{ enseigne.anneeScolaire }}</td>
                                             <td>
 
-                                            {% for classe in enseigne.classe %}
-                                            {{ classe }}
-                                            {% endfor %}
+                                             {{ enseigne.classe }}
                                             </td>
-                                            {% endfor %}
                                             </tr>
+                                            {% endfor %}
+
 
 
                                             </tbody>
